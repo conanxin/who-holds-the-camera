@@ -1,0 +1,14 @@
+---
+import type { ExhibitionObject } from "@data/objects";
+import ObjectLabel from "./ObjectLabel.astro";
+
+interface Props {
+  objects: ExhibitionObject[];
+}
+
+const { objects } = Astro.props;
+---
+
+<div class="object-grid">
+  {objects.map((object) => <ObjectLabel object={object} />)}
+</div>

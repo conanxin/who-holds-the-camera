@@ -6,6 +6,17 @@ export type SourceStatus =
 
 export type ImagePolicy = "embed" | "link-only";
 
+export type MediaRole = "primary" | "detail" | "context" | "linkedPreview";
+
+export interface ExhibitionMedia {
+  type: "image";
+  src: string;
+  alt: string;
+  caption: string;
+  credit: string;
+  role: MediaRole;
+}
+
 export interface ExhibitionObject {
   id: string;
   galleryId: string;
@@ -29,9 +40,10 @@ export interface ExhibitionObject {
   imagePolicy: ImagePolicy;
   imageUrl?: string;
   imageAlt?: string;
+  media?: ExhibitionMedia[];
 }
 
-export const objects: ExhibitionObject[] = [
+const baseObjects: ExhibitionObject[] = [
   {
     id: "g00-ten-bamboo-leaf-01",
     galleryId: "gallery-00",
@@ -587,3 +599,801 @@ export const objects: ExhibitionObject[] = [
     imagePolicy: "link-only"
   }
 ];
+
+const mediaBackfills: Record<string, ExhibitionMedia[]> = {
+  "g03-fu-wu-tiecheng": [
+    {
+      type: "image",
+      src: "https://hpcbristol.net/image-library/large/fu02-019.jpg",
+      alt: "Wu Tiecheng and Fu Bingchang in Shanghai, from the Fu Bingchang collection.",
+      caption: "HPC Bristol source-page preview for the Fu Bingchang album record.",
+      credit: "University of Bristol / Historical Photographs of China",
+      role: "linkedPreview"
+    }
+  ],
+  "g03-fu-camera": [
+    {
+      type: "image",
+      src: "https://hpcbristol.net/image-library/large/fu-n174.jpg",
+      alt: "Fu Bingchang with a camera, from the Fu Bingchang collection.",
+      caption: "HPC Bristol source-page preview for the Fu Bingchang album record.",
+      credit: "University of Bristol / Historical Photographs of China",
+      role: "linkedPreview"
+    }
+  ],
+  "g03-min-chin-camera": [
+    {
+      type: "image",
+      src: "https://hpcbristol.net/image-library/large/fu-n258.jpg",
+      alt: "Min Chin holding a camera at the Northern Hot Springs.",
+      caption: "HPC Bristol source-page preview for the Fu Bingchang album record.",
+      credit: "University of Bristol / Historical Photographs of China",
+      role: "linkedPreview"
+    }
+  ],
+  "g03-jiang-fangling-camera": [
+    {
+      type: "image",
+      src: "https://hpcbristol.net/image-library/large/fu-n296.jpg",
+      alt: "Jiang Fangling holding a camera at the Northern Hot Springs.",
+      caption: "HPC Bristol source-page preview for the Fu Bingchang album record.",
+      credit: "University of Bristol / Historical Photographs of China",
+      role: "linkedPreview"
+    }
+  ],
+  "g04-fan-ho-approaching-shadow": [
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/mplustms/image/upload/w_781/v1627829162/v2/prod/small/001501_002000/001588_001.jpg",
+      alt: "Fan Ho, Approaching Shadow, M+ collection preview.",
+      caption: "M+ collection preview. Linked source only; copyright remains with Fan Ho.",
+      credit: "M+ Collection",
+      role: "linkedPreview"
+    }
+  ],
+  "g04-fan-ho-hong-kong-venice": [
+    {
+      type: "image",
+      src: "https://assets3.cbsnewsstatic.com/hub/i/r/2014/11/10/dab8eeb7-3ca5-4920-a1b1-7b700769a38e/thumbnail/620x970/ecba96757481d70b62013bab9ac48ffb/hong-kong-venice.jpg",
+      alt: "Fan Ho, Hong Kong Venice, online preview.",
+      caption: "Online preview of the work; linked source remains Blue Lotus / Ocula.",
+      credit: "Fan Ho / Blue Lotus Gallery trail",
+      role: "linkedPreview"
+    }
+  ],
+  "g05-girard-hkpm": [
+    {
+      type: "image",
+      src: "https://www.greggirard.com/wp-content/uploads/2022/08/90385_HK_1974.jpg",
+      alt: "Greg Girard HK:PM Hong Kong night city preview.",
+      caption: "Artist project-page preview. Linked source only.",
+      credit: "Greg Girard",
+      role: "linkedPreview"
+    }
+  ],
+  "g05-girard-city-of-darkness": [
+    {
+      type: "image",
+      src: "https://images.squarespace-cdn.com/content/v1/54e9ba8ae4b0165bdcf59868/037eff14-9a4a-4df2-b0eb-d9e70a4fbb63/Greg+Girard+%27Children+playing+on+Walled+City+rooftop%27%2C+Hong+Kong+1989%2C+Courtesy+of+Blue+Lotus+Gallery.jpg",
+      alt: "Kowloon Walled City rooftop scene, Greg Girard project preview.",
+      caption: "Project-page preview. Linked source only.",
+      credit: "Greg Girard / Blue Lotus Gallery",
+      role: "linkedPreview"
+    }
+  ],
+  "g06-nowicki-flickr-1982": [
+    {
+      type: "image",
+      src: "https://live.staticflickr.com/7076/7350741202_c62930da04_b.jpg",
+      alt: "Simon Nowicki China 1982 Flickr preview.",
+      caption: "Flickr source-page preview. Linked source only; all rights reserved.",
+      credit: "Simon Nowicki",
+      role: "linkedPreview"
+    }
+  ],
+  "g06-nowicki-collection": [
+    {
+      type: "image",
+      src: "https://flashbak.com/wp-content/uploads/2020/02/China033-1280x1280.jpg",
+      alt: "Flashbak China 1982 secondary visual trail preview.",
+      caption: "Secondary visual trail preview; exact original mapping remains under review.",
+      credit: "Flashbak, after Simon Nowicki",
+      role: "linkedPreview"
+    }
+  ],
+  "g06-nowicki-visit-frame": [
+    {
+      type: "image",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnNIkfbZY2ZSc2yhK6KSmp6Q24eiDk4uc0zOhxJ7rXnEuzy2_LFenUEGI59h3wgRa7W2_bcE2fYgVyI9he94ZnJbtKYSZwyZOf69RrTqIoEiCR6sqvB2ISZThB11F4JRMR2PNTMAnHHsc/s640/China008+copy.jpg",
+      alt: "Simon Nowicki China 1982 photographer-hosted preview.",
+      caption: "Photographer-hosted page preview. Linked source only.",
+      credit: "Simon Nowicki",
+      role: "linkedPreview"
+    }
+  ]
+};
+
+const expandedObjects: ExhibitionObject[] = [
+  {
+    id: "g00-ten-bamboo-leaf-04",
+    galleryId: "gallery-00",
+    displayNumber: "展品 00.04",
+    title: "《十竹斋书画谱》叶片",
+    titleEn: "Leaf from the Ten Bamboo Studio Manual",
+    year: "1633 first edition",
+    creator: "胡正言等 / Hu Zhengyan and others",
+    place: "南京 / Nanjing",
+    medium: "Woodblock-printed book leaf; ink and color on paper",
+    credit: "The Metropolitan Museum of Art, Rogers Fund, 1924",
+    sourceUrl: "https://www.metmuseum.org/art/collection/search/63372",
+    originalArchiveUrl: "https://www.metmuseum.org/art/collection/search/63372",
+    rightsNote: "Public domain image record from The Metropolitan Museum of Art.",
+    captionZh: "同一套图谱中的另一页，显示复制技术如何制造观看秩序。",
+    captionEn: "Another leaf from the manual shows how reproduction orders viewing.",
+    curatorialNote: "这件展品补足了摄影之前的图像复制层：图像不是自然流通的，它被版式、色彩和收藏制度共同带向远方。",
+    tags: ["printing", "book", "visual technology", "Met"],
+    status: "verified archive source",
+    sourceId: "met",
+    imagePolicy: "embed",
+    media: [
+      {
+        type: "image",
+        src: "https://images.metmuseum.org/CRDImages/as/web-large/LC-CP54_001.jpg",
+        alt: "Ten Bamboo Studio Manual leaf from The Met.",
+        caption: "Public-domain Met collection image.",
+        credit: "The Metropolitan Museum of Art",
+        role: "primary"
+      }
+    ]
+  },
+  {
+    id: "g00-ten-bamboo-leaf-05",
+    galleryId: "gallery-00",
+    displayNumber: "展品 00.05",
+    title: "《十竹斋书画谱》册页",
+    titleEn: "Album Leaf from the Ten Bamboo Studio Manual",
+    year: "1633 first edition",
+    creator: "胡正言等 / Hu Zhengyan and others",
+    place: "南京 / Nanjing",
+    medium: "Woodblock-printed book leaf; ink and color on paper",
+    credit: "The Metropolitan Museum of Art, Rogers Fund, 1924",
+    sourceUrl: "https://www.metmuseum.org/art/collection/search/63433",
+    originalArchiveUrl: "https://www.metmuseum.org/art/collection/search/63433",
+    rightsNote: "Public domain image record from The Metropolitan Museum of Art.",
+    captionZh: "图像被制成可携带、可翻阅、可再观看的对象。",
+    captionEn: "The image becomes portable, browsable, and available for return.",
+    curatorialNote: "摄影史并不从照相机突然开始。它之前已有一套关于复制、选择和观看的技术传统。",
+    tags: ["printing", "album", "circulation", "Met"],
+    status: "verified archive source",
+    sourceId: "met",
+    imagePolicy: "embed",
+    media: [
+      {
+        type: "image",
+        src: "https://images.metmuseum.org/CRDImages/as/web-large/DP-26869-001.jpg",
+        alt: "Ten Bamboo Studio Manual album leaf from The Met.",
+        caption: "Public-domain Met collection image.",
+        credit: "The Metropolitan Museum of Art",
+        role: "primary"
+      }
+    ]
+  },
+  {
+    id: "g01-thomson-peking",
+    galleryId: "gallery-01",
+    displayNumber: "展品 01.05",
+    title: "北京街景",
+    titleEn: "Peking, Pechili Province",
+    year: "1869",
+    creator: "John Thomson",
+    place: "Peking / Beijing",
+    medium: "Wet-collodion glass photonegative",
+    credit: "Wellcome Collection",
+    sourceUrl: "https://wellcomecollection.org/works/qcdqyknd",
+    originalArchiveUrl: "https://wellcomecollection.org/works/qcdqyknd",
+    rightsNote: "Public Domain Mark thumbnail served by Wellcome Collection.",
+    captionZh: "街道不是背景，而是摄影师与城市相遇的条件。",
+    captionEn: "The street is not background; it is the condition of encounter.",
+    curatorialNote: "城市图像让观看者以为自己正在进入现场，但镜头位置、取景范围和出版语境已经先行安排了进入方式。",
+    tags: ["John Thomson", "Peking", "street", "Qing"],
+    status: "verified archive source",
+    sourceId: "wellcome",
+    imagePolicy: "embed",
+    media: [
+      {
+        type: "image",
+        src: "https://iiif.wellcomecollection.org/image/L0056174/full/800,/0/default.jpg",
+        alt: "John Thomson photograph of Peking.",
+        caption: "Wellcome Collection IIIF preview.",
+        credit: "Wellcome Collection",
+        role: "primary"
+      }
+    ]
+  },
+  {
+    id: "g01-thomson-amoy-women",
+    galleryId: "gallery-01",
+    displayNumber: "展品 01.06",
+    title: "厦门女性交谈",
+    titleEn: "Two Amoy Women in Conversation",
+    year: "1870/1871",
+    creator: "John Thomson",
+    place: "Amoy / Xiamen",
+    medium: "Wet-collodion glass photonegative",
+    credit: "Wellcome Collection",
+    sourceUrl: "https://wellcomecollection.org/works/vzwupsjs",
+    originalArchiveUrl: "https://wellcomecollection.org/works/vzwupsjs",
+    rightsNote: "Public Domain Mark thumbnail served by Wellcome Collection.",
+    captionZh: "交谈的姿态进入档案，也进入外部观看的分类系统。",
+    captionEn: "A conversational pose enters both archive and classification.",
+    curatorialNote: "这张图像提醒我们，人物姿态和日常关系常被档案标题压缩成可检索的类别。",
+    tags: ["John Thomson", "Amoy", "women", "Qing"],
+    status: "verified archive source",
+    sourceId: "wellcome",
+    imagePolicy: "embed",
+    media: [
+      {
+        type: "image",
+        src: "https://iiif.wellcomecollection.org/image/L0056400/full/800,/0/default.jpg",
+        alt: "John Thomson photograph of two Amoy women in conversation.",
+        caption: "Wellcome Collection IIIF preview.",
+        credit: "Wellcome Collection",
+        role: "primary"
+      }
+    ]
+  },
+  {
+    id: "g02-genthe-merchant",
+    galleryId: "gallery-02",
+    displayNumber: "展品 02.04",
+    title: "商人，唐人街",
+    titleEn: "Merchant, Chinatown",
+    year: "1896-1906",
+    creator: "Arnold Genthe",
+    place: "San Francisco Chinatown",
+    medium: "Photographic print / negative record",
+    credit: "Genthe photograph collection, Library of Congress",
+    sourceUrl: "https://www.loc.gov/resource/agc.7a55010/",
+    originalArchiveUrl: "https://www.loc.gov/resource/agc.7a55010/",
+    rightsNote: "Library of Congress: No known restrictions on publication.",
+    captionZh: "橱窗、货物和人像共同构成可被消费的社区形象。",
+    captionEn: "Shopfront, goods, and portrait make the community consumable.",
+    curatorialNote: "唐人街的商业空间常被拍成异国陈列。照片记录街面，也记录观看者期待看到什么。",
+    tags: ["Genthe", "Chinatown", "merchant", "diaspora"],
+    status: "verified archive source",
+    sourceId: "loc",
+    imagePolicy: "embed",
+    media: [
+      {
+        type: "image",
+        src: "https://tile.loc.gov/storage-services/service/pnp/agc/7a55000/7a55000/7a55010r.jpg",
+        alt: "Arnold Genthe Chinatown merchant photograph.",
+        caption: "Library of Congress preview.",
+        credit: "Library of Congress",
+        role: "primary"
+      }
+    ]
+  },
+  {
+    id: "g02-genthe-woman-child",
+    galleryId: "gallery-02",
+    displayNumber: "展品 02.05",
+    title: "抱着孩子的女性",
+    titleEn: "Woman Carrying a Child, Chinatown",
+    year: "1896-1906",
+    creator: "Arnold Genthe",
+    place: "San Francisco Chinatown",
+    medium: "Photographic print / negative record",
+    credit: "Genthe photograph collection, Library of Congress",
+    sourceUrl: "https://www.loc.gov/resource/agc.7a09109/",
+    originalArchiveUrl: "https://www.loc.gov/resource/agc.7a09109/",
+    rightsNote: "Library of Congress: No known restrictions on publication.",
+    captionZh: "家庭动作被拍成街头类型，也被档案重新命名。",
+    captionEn: "A family gesture becomes street type and archive caption.",
+    curatorialNote: "这张照片中最重要的也许不是“唐人街”，而是被标题掩盖的亲密关系。",
+    tags: ["Genthe", "Chinatown", "women", "child"],
+    status: "verified archive source",
+    sourceId: "loc",
+    imagePolicy: "embed",
+    media: [
+      {
+        type: "image",
+        src: "https://tile.loc.gov/storage-services/service/pnp/agc/7a09000/7a09100/7a09109r.jpg",
+        alt: "Arnold Genthe photograph of a woman carrying a child in Chinatown.",
+        caption: "Library of Congress preview.",
+        credit: "Library of Congress",
+        role: "primary"
+      }
+    ]
+  },
+  {
+    id: "g02-genthe-street-door",
+    galleryId: "gallery-02",
+    displayNumber: "展品 02.06",
+    title: "门前人物",
+    titleEn: "Figures at a Chinatown Doorway",
+    year: "1896-1906",
+    creator: "Arnold Genthe",
+    place: "San Francisco Chinatown",
+    medium: "Photographic print / negative record",
+    credit: "Genthe photograph collection, Library of Congress",
+    sourceUrl: "https://www.loc.gov/resource/agc.7a09022/",
+    originalArchiveUrl: "https://www.loc.gov/resource/agc.7a09022/",
+    rightsNote: "Library of Congress: No known restrictions on publication.",
+    captionZh: "门口成为界面：社区内部与外部观看在这里相遇。",
+    captionEn: "The doorway becomes an interface between community and gaze.",
+    curatorialNote: "Genthe 的街景并非透明记录。它让城市治理、异域想象和街头偶遇叠在同一个门框里。",
+    tags: ["Genthe", "Chinatown", "doorway", "street"],
+    status: "verified archive source",
+    sourceId: "loc",
+    imagePolicy: "embed",
+    media: [
+      {
+        type: "image",
+        src: "https://tile.loc.gov/storage-services/service/pnp/agc/7a09000/7a09000/7a09022r.jpg",
+        alt: "Arnold Genthe Chinatown doorway photograph.",
+        caption: "Library of Congress preview.",
+        credit: "Library of Congress",
+        role: "primary"
+      }
+    ]
+  },
+  {
+    id: "g03-fu-album-hot-springs",
+    galleryId: "gallery-03",
+    displayNumber: "展品 03.05",
+    title: "北温泉相册页",
+    titleEn: "Northern Hot Springs Album Study",
+    year: "1940",
+    creator: "Fu Bingchang collection photographer not fully identified",
+    place: "Northern Hot Springs, Chongqing region",
+    medium: "Photographic print / album record",
+    credit: "University of Bristol, Historical Photographs of China, Fu Bingchang collection",
+    sourceUrl: "https://hpcbristol.net/visual/Fu01-025",
+    originalArchiveUrl: "https://hpcbristol.net/visual/Fu01-025",
+    rightsNote: "Verified archive record. Image reuse should follow Historical Photographs of China re-use guidance.",
+    captionZh: "相册把旅行、社交和观看姿态组织进同一套秩序。",
+    captionEn: "The album orders travel, sociability, and poses of looking.",
+    curatorialNote: "傅秉常收藏中的北温泉照片不是单张纪念照，而是一个社交网络如何把自己放进图像系统的证据。",
+    tags: ["Fu Bingchang", "album", "Northern Hot Springs", "Republican China"],
+    status: "verified archive source",
+    sourceId: "hpc-bristol",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://hpcbristol.net/image-library/large/fu01-025.jpg",
+        alt: "Fu Bingchang collection Northern Hot Springs album image.",
+        caption: "HPC Bristol source-page preview.",
+        credit: "University of Bristol / Historical Photographs of China",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g03-fu-social-network",
+    galleryId: "gallery-03",
+    displayNumber: "展品 03.06",
+    title: "民国社交相册",
+    titleEn: "Republican Social Album Record",
+    year: "1930s-1940s",
+    creator: "Fu Bingchang collection photographer not fully identified",
+    place: "China",
+    medium: "Photographic print / album record",
+    credit: "University of Bristol, Historical Photographs of China, Fu Bingchang collection",
+    sourceUrl: "https://hpcbristol.net/visual/Fu02-051",
+    originalArchiveUrl: "https://hpcbristol.net/visual/Fu02-051",
+    rightsNote: "Verified archive record. Image reuse should follow Historical Photographs of China re-use guidance.",
+    captionZh: "相册让人物关系成为可移动、可保存的视觉网络。",
+    captionEn: "The album turns relationships into portable visual networks.",
+    curatorialNote: "这一类图像让展览从“被西方观看”转向更复杂的图像循环：本地精英也在制造、交换和保存自己的可见性。",
+    tags: ["Fu Bingchang", "elite network", "album", "Republican China"],
+    status: "verified archive source",
+    sourceId: "hpc-bristol",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://hpcbristol.net/image-library/large/fu02-051.jpg",
+        alt: "Fu Bingchang collection social album record.",
+        caption: "HPC Bristol source-page preview.",
+        credit: "University of Bristol / Historical Photographs of China",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g04-fan-ho-cleaning",
+    galleryId: "gallery-04",
+    displayNumber: "展品 04.04",
+    title: "清扫",
+    titleEn: "Cleaning",
+    year: "1950",
+    creator: "Fan Ho",
+    place: "Hong Kong",
+    medium: "Gelatin silver print / estate project preview",
+    credit: "Fan Ho Estate / fanho-forgetmenot.com",
+    sourceUrl: "https://fanho-forgetmenot.com/",
+    originalArchiveUrl: "https://fanho-forgetmenot.com/",
+    rightsNote: "Estate/project preview identified. Direct reproduction rights are not granted here; linked only.",
+    captionZh: "劳动动作在光影里显影，也被美学距离重新组织。",
+    captionEn: "Labor appears through light, and through aesthetic distance.",
+    curatorialNote: "何藩的城市诗学不等于脱离社会生活。光影越强，越需要追问画面中的劳动、阶层和街道空间。",
+    tags: ["Fan Ho", "Hong Kong", "labor", "street photography"],
+    status: "rights unclear",
+    sourceId: "fan-ho-estate",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://images.squarespace-cdn.com/content/v1/57c921f6893fc02a0ad26bfc/b02b13b9-f206-4afb-8d29-ccffcda97f50/Cleaning%2C+1950-PL.jpg",
+        alt: "Fan Ho Cleaning, 1950, estate project preview.",
+        caption: "Estate/project preview. Linked source only.",
+        credit: "Fan Ho Estate",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g04-fan-ho-rowing-on",
+    galleryId: "gallery-04",
+    displayNumber: "展品 04.05",
+    title: "划行",
+    titleEn: "Rowing On",
+    year: "1954",
+    creator: "Fan Ho",
+    place: "Hong Kong",
+    medium: "Gelatin silver print / estate project preview",
+    credit: "Fan Ho Estate / fanho-forgetmenot.com",
+    sourceUrl: "https://fanho-forgetmenot.com/",
+    originalArchiveUrl: "https://fanho-forgetmenot.com/",
+    rightsNote: "Estate/project preview identified. Direct reproduction rights are not granted here; linked only.",
+    captionZh: "水面把城市劳动、交通和观看距离折叠在一起。",
+    captionEn: "Water folds labor, movement, and distance into one frame.",
+    curatorialNote: "这件补充展品与《香港威尼斯》形成对读：水面不是风景化的空白，而是港口城市的生活表面。",
+    tags: ["Fan Ho", "Hong Kong", "water", "labor"],
+    status: "rights unclear",
+    sourceId: "fan-ho-estate",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://images.squarespace-cdn.com/content/v1/57c921f6893fc02a0ad26bfc/1683346946657-T66MGV7SIBFF3LE8NNX0/Rowing+On%2C+1954-PL.jpg",
+        alt: "Fan Ho Rowing On, 1954, estate project preview.",
+        caption: "Estate/project preview. Linked source only.",
+        credit: "Fan Ho Estate",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g04-fan-ho-back-alley",
+    galleryId: "gallery-04",
+    displayNumber: "展品 04.06",
+    title: "后巷",
+    titleEn: "Back Alley",
+    year: "1956",
+    creator: "Fan Ho",
+    place: "Hong Kong",
+    medium: "Gelatin silver print / estate project preview",
+    credit: "Fan Ho Estate / fanho-forgetmenot.com",
+    sourceUrl: "https://fanho-forgetmenot.com/",
+    originalArchiveUrl: "https://fanho-forgetmenot.com/",
+    rightsNote: "Estate/project preview identified. Direct reproduction rights are not granted here; linked only.",
+    captionZh: "后巷不是城市的边角，而是观看位置的证据。",
+    captionEn: "The alley is not margin; it is evidence of position.",
+    curatorialNote: "当城市被拍得安静，安静本身也值得分析：谁在画面中行走，谁在画面外命名。",
+    tags: ["Fan Ho", "Hong Kong", "alley", "street photography"],
+    status: "rights unclear",
+    sourceId: "fan-ho-estate",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://images.squarespace-cdn.com/content/v1/57c921f6893fc02a0ad26bfc/1683346946789-ARSHBTRAFSURZNI3NR4B/Back+Alley%2C+1956-PL.jpg",
+        alt: "Fan Ho Back Alley, 1956, estate project preview.",
+        caption: "Estate/project preview. Linked source only.",
+        credit: "Fan Ho Estate",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g04-fan-ho-4pm",
+    galleryId: "gallery-04",
+    displayNumber: "展品 04.07",
+    title: "下午四点",
+    titleEn: "4pm",
+    year: "1963",
+    creator: "Fan Ho",
+    place: "Hong Kong",
+    medium: "Gelatin silver print / estate project preview",
+    credit: "Fan Ho Estate / fanho-forgetmenot.com",
+    sourceUrl: "https://fanho-forgetmenot.com/",
+    originalArchiveUrl: "https://fanho-forgetmenot.com/",
+    rightsNote: "Estate/project preview identified. Direct reproduction rights are not granted here; linked only.",
+    captionZh: "时间通过影子进入画面，城市通过身体显影。",
+    captionEn: "Time enters through shadow; the city appears through bodies.",
+    curatorialNote: "何藩作品中的“诗意”不是离开现实，而是把现实压缩成光、线、墙面和行人的短暂关系。",
+    tags: ["Fan Ho", "Hong Kong", "light", "street photography"],
+    status: "rights unclear",
+    sourceId: "fan-ho-estate",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://images.squarespace-cdn.com/content/v1/57c921f6893fc02a0ad26bfc/1683346948339-LT9VREM8NGH5YU271P0W/4pm%2C+1963-PL.jpg",
+        alt: "Fan Ho 4pm, 1963, estate project preview.",
+        caption: "Estate/project preview. Linked source only.",
+        credit: "Fan Ho Estate",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g05-girard-hong-kong-1974",
+    galleryId: "gallery-05",
+    displayNumber: "展品 05.05",
+    title: "香港夜色，1974",
+    titleEn: "Hong Kong Night, 1974",
+    year: "1974",
+    creator: "Greg Girard",
+    place: "Hong Kong",
+    medium: "Color photograph / artist project preview",
+    credit: "Greg Girard",
+    sourceUrl: "https://www.greggirard.com/hkpm-1",
+    originalArchiveUrl: "https://www.greggirard.com/hkpm-1",
+    rightsNote: "Artist project page verified. Direct reproduction rights are not granted here; linked only.",
+    captionZh: "夜色让城市从地标转向运行中的生活系统。",
+    captionEn: "Night turns the city from landmark into operating system.",
+    curatorialNote: "Girard 的香港不是观光地标，而是灯箱、路面反光和等待中的城市节奏。",
+    tags: ["Greg Girard", "Hong Kong", "night", "1970s"],
+    status: "rights unclear",
+    sourceId: "greg-girard",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://www.greggirard.com/wp-content/uploads/2022/08/90385_HK_1974.jpg",
+        alt: "Greg Girard Hong Kong 1974 project preview.",
+        caption: "Artist project-page preview. Linked source only.",
+        credit: "Greg Girard",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g05-girard-hong-kong-1985",
+    galleryId: "gallery-05",
+    displayNumber: "展品 05.06",
+    title: "香港夜街，1985",
+    titleEn: "Hong Kong Street at Night, 1985",
+    year: "1985",
+    creator: "Greg Girard",
+    place: "Hong Kong",
+    medium: "Color photograph / artist project preview",
+    credit: "Greg Girard",
+    sourceUrl: "https://www.greggirard.com/hkpm-1",
+    originalArchiveUrl: "https://www.greggirard.com/hkpm-1",
+    rightsNote: "Artist project page verified. Direct reproduction rights are not granted here; linked only.",
+    captionZh: "霓虹不是装饰，它是城市经济和夜间秩序的表面。",
+    captionEn: "Neon is not decoration; it is the surface of night economy.",
+    curatorialNote: "这类影像让香港从白天的港口图像转向夜晚的消费、劳动和通行。",
+    tags: ["Greg Girard", "Hong Kong", "neon", "1980s"],
+    status: "rights unclear",
+    sourceId: "greg-girard",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://www.greggirard.com/wp-content/uploads/2022/08/90165-HK-1985.jpg",
+        alt: "Greg Girard Hong Kong 1985 project preview.",
+        caption: "Artist project-page preview. Linked source only.",
+        credit: "Greg Girard",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g05-girard-hong-kong-1983",
+    galleryId: "gallery-05",
+    displayNumber: "展品 05.07",
+    title: "香港街头，1983",
+    titleEn: "Hong Kong Street, 1983",
+    year: "1983",
+    creator: "Greg Girard",
+    place: "Hong Kong",
+    medium: "Color photograph / artist project preview",
+    credit: "Greg Girard",
+    sourceUrl: "https://www.greggirard.com/hkpm-1",
+    originalArchiveUrl: "https://www.greggirard.com/hkpm-1",
+    rightsNote: "Artist project page verified. Direct reproduction rights are not granted here; linked only.",
+    captionZh: "潮湿、灯光和招牌让街道成为可读的城市文本。",
+    captionEn: "Humidity, light, and signage make the street legible.",
+    curatorialNote: "这不是城市奇观的孤立画面，而是全球城市如何通过夜间影像被识别的线索。",
+    tags: ["Greg Girard", "Hong Kong", "street", "night"],
+    status: "rights unclear",
+    sourceId: "greg-girard",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://www.greggirard.com/wp-content/uploads/2022/08/HK_83_029.jpg",
+        alt: "Greg Girard Hong Kong 1983 project preview.",
+        caption: "Artist project-page preview. Linked source only.",
+        credit: "Greg Girard",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g05-walled-city-rooftop",
+    galleryId: "gallery-05",
+    displayNumber: "展品 05.08",
+    title: "九龙城寨屋顶",
+    titleEn: "Children Playing on Walled City Rooftop",
+    year: "1989",
+    creator: "Greg Girard",
+    place: "Kowloon Walled City, Hong Kong",
+    medium: "Photographic project / gallery preview",
+    credit: "Greg Girard / Blue Lotus Gallery",
+    sourceUrl: "https://bluelotus-gallery.com/kowloon-walled-city",
+    originalArchiveUrl: "https://bluelotus-gallery.com/kowloon-walled-city",
+    rightsNote: "Gallery project page verified. Direct reproduction rights are not granted here; linked only.",
+    captionZh: "密度不是抽象数字，它落实在屋顶、儿童和日常活动里。",
+    captionEn: "Density is not abstract; it appears in rooftops and play.",
+    curatorialNote: "城寨影像容易被消费成奇观。屋顶上的日常活动提醒我们，奇观叙事之外还有生活系统。",
+    tags: ["Greg Girard", "Kowloon Walled City", "rooftop", "Hong Kong"],
+    status: "rights unclear",
+    sourceId: "city-darkness",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://images.squarespace-cdn.com/content/v1/54e9ba8ae4b0165bdcf59868/037eff14-9a4a-4df2-b0eb-d9e70a4fbb63/Greg+Girard+%27Children+playing+on+Walled+City+rooftop%27%2C+Hong+Kong+1989%2C+Courtesy+of+Blue+Lotus+Gallery.jpg",
+        alt: "Children playing on Kowloon Walled City rooftop.",
+        caption: "Gallery project-page preview. Linked source only.",
+        credit: "Greg Girard / Blue Lotus Gallery",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g06-nowicki-street-1982",
+    galleryId: "gallery-06",
+    displayNumber: "展品 06.04",
+    title: "中国街景，1982",
+    titleEn: "China Street Scene, 1982",
+    year: "1982",
+    creator: "Simon Nowicki",
+    place: "China",
+    medium: "Color photograph / photographer web trail",
+    credit: "Simon Nowicki",
+    sourceUrl: "https://simonnowicki.blogspot.com/p/china-1982.html",
+    originalArchiveUrl: "https://simonnowicki.blogspot.com/p/china-1982.html",
+    rightsNote: "Photographer-hosted China 1982 trail identified. Direct reproduction rights are not granted here; linked only.",
+    captionZh: "街道被看见，也被旅行路线和许可条件限定。",
+    captionEn: "The street is visible within routes and permissions.",
+    curatorialNote: "这类照片记录的不是全部现实，而是一组可参观、可停留、可拍摄的位置。",
+    tags: ["1982", "travel", "street", "Simon Nowicki"],
+    status: "rights unclear",
+    sourceId: "nowicki",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnNIkfbZY2ZSc2yhK6KSmp6Q24eiDk4uc0zOhxJ7rXnEuzy2_LFenUEGI59h3wgRa7W2_bcE2fYgVyI9he94ZnJbtKYSZwyZOf69RrTqIoEiCR6sqvB2ISZThB11F4JRMR2PNTMAnHHsc/s640/China008+copy.jpg",
+        alt: "Simon Nowicki China 1982 street preview.",
+        caption: "Photographer-hosted page preview. Linked source only.",
+        credit: "Simon Nowicki",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g06-nowicki-cycling-1982",
+    galleryId: "gallery-06",
+    displayNumber: "展品 06.05",
+    title: "开放初期的移动",
+    titleEn: "Movement in Early Opening China",
+    year: "1982",
+    creator: "Simon Nowicki",
+    place: "China",
+    medium: "Color photograph / photographer web trail",
+    credit: "Simon Nowicki",
+    sourceUrl: "https://simonnowicki.blogspot.com/p/china-1982.html",
+    originalArchiveUrl: "https://simonnowicki.blogspot.com/p/china-1982.html",
+    rightsNote: "Photographer-hosted China 1982 trail identified. Direct reproduction rights are not granted here; linked only.",
+    captionZh: "移动方式成为外来镜头理解城市节奏的入口。",
+    captionEn: "Mobility becomes a way to read urban rhythm.",
+    curatorialNote: "自行车、道路和人群常被重新包装成“刚刚开放”的视觉证据；展览保留这种观看条件。",
+    tags: ["1982", "mobility", "travel", "Simon Nowicki"],
+    status: "rights unclear",
+    sourceId: "nowicki",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhct6FmgXJBa_oaikSeoVTA8dyRK9NH9EEAx0hBe31ocS2AeOJuePbCvPAd9ulQzjrSPNJPtOPbiiqN2M43pDdPsou7Ps8MJtYakeoNiVM6bM0ZMDG9pxnW8YDsudvN06ari2OoHLWAfwM/s640/China052+copy.jpg",
+        alt: "Simon Nowicki China 1982 movement preview.",
+        caption: "Photographer-hosted page preview. Linked source only.",
+        credit: "Simon Nowicki",
+        role: "linkedPreview"
+      }
+    ]
+  },
+  {
+    id: "g06-nowicki-shopfront-1982",
+    galleryId: "gallery-06",
+    displayNumber: "展品 06.06",
+    title: "商店与街道，1982",
+    titleEn: "Shopfront and Street, 1982",
+    year: "1982",
+    creator: "Simon Nowicki",
+    place: "China",
+    medium: "Color photograph / photographer web trail",
+    credit: "Simon Nowicki",
+    sourceUrl: "https://simonnowicki.blogspot.com/p/china-1982.html",
+    originalArchiveUrl: "https://simonnowicki.blogspot.com/p/china-1982.html",
+    rightsNote: "Photographer-hosted China 1982 trail identified. Direct reproduction rights are not granted here; linked only.",
+    captionZh: "商店立面把日常消费和外来好奇心放在同一个画面里。",
+    captionEn: "The shopfront joins everyday commerce and outside curiosity.",
+    curatorialNote: "二十世纪八十年代初的旅行照片常把新旧并置读成时代特征；它同时也是一次可观看路线的记录。",
+    tags: ["1982", "shopfront", "street", "Simon Nowicki"],
+    status: "rights unclear",
+    sourceId: "nowicki",
+    imagePolicy: "link-only",
+    media: [
+      {
+        type: "image",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAgXd5tLfklLTThMPy9anFohNNBXNMQoLr4nX1XcAH9VMRcxw-t3phgNEo4AxGUX1Jbx7XYYfzBq1OdgRC3lzzlES0aGhbbsAMVZtyi702bhKg5c6kdTwN1uce-B0QxatpBqCoq9KSo7U/s640/China011+copy.jpg",
+        alt: "Simon Nowicki China 1982 shopfront preview.",
+        caption: "Photographer-hosted page preview. Linked source only.",
+        credit: "Simon Nowicki",
+        role: "linkedPreview"
+      }
+    ]
+  }
+];
+
+function withDefaultMedia(object: ExhibitionObject): ExhibitionObject {
+  if (object.media?.length) {
+    return object;
+  }
+
+  if (object.imageUrl) {
+    return {
+      ...object,
+      media: [
+        {
+          type: "image",
+          src: object.imageUrl,
+          alt: object.imageAlt ?? object.titleEn,
+          caption: object.captionEn,
+          credit: object.credit,
+          role: "primary"
+        }
+      ]
+    };
+  }
+
+  if (mediaBackfills[object.id]) {
+    return {
+      ...object,
+      media: mediaBackfills[object.id]
+    };
+  }
+
+  return object;
+}
+
+export function getObjectMedia(object: ExhibitionObject) {
+  return object.media ?? [];
+}
+
+export function getObjectPrimaryMedia(object: ExhibitionObject) {
+  const media = getObjectMedia(object);
+  return media.find((item) => item.role === "primary") ?? media[0];
+}
+
+export const objects: ExhibitionObject[] = [...baseObjects, ...expandedObjects].map(withDefaultMedia);

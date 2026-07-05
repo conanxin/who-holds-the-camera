@@ -1,5 +1,6 @@
 export interface Gallery {
   id: string;
+  slug: string;
   number: string;
   title: string;
   titleEn: string;
@@ -35,6 +36,7 @@ export const exhibition = {
 export const galleries: Gallery[] = [
   {
     id: "gallery-00",
+    slug: "00-printed-china",
     number: "Gallery 00",
     title: "印刷中国：摄影之前的图像复制",
     titleEn: "Printed China Before Photography",
@@ -46,6 +48,7 @@ export const galleries: Gallery[] = [
   },
   {
     id: "gallery-01",
+    slug: "01-late-qing-china",
     number: "Gallery 01",
     title: "清末中国：湿版摄影与外部观看",
     titleEn: "Late Qing China: Wet Collodion and External Looking",
@@ -57,6 +60,7 @@ export const galleries: Gallery[] = [
   },
   {
     id: "gallery-02",
+    slug: "02-chinatown-diaspora",
     number: "Gallery 02",
     title: "唐人街：移民社区与黄祸想象",
     titleEn: "Chinatown: Migration, Community, and Yellow-Peril Imagination",
@@ -68,6 +72,7 @@ export const galleries: Gallery[] = [
   },
   {
     id: "gallery-03",
+    slug: "03-republican-albums",
     number: "Gallery 03",
     title: "民国相册：外交官、女性与精英网络",
     titleEn: "Republican Albums: Diplomats, Women, and Elite Networks",
@@ -79,6 +84,7 @@ export const galleries: Gallery[] = [
   },
   {
     id: "gallery-04",
+    slug: "04-light-and-hong-kong",
     number: "Gallery 04",
     title: "光影香港：何藩的城市诗学",
     titleEn: "Hong Kong in Light: Fan Ho's Urban Poetics",
@@ -90,6 +96,7 @@ export const galleries: Gallery[] = [
   },
   {
     id: "gallery-05",
+    slug: "05-global-city",
     number: "Gallery 05",
     title: "霓虹、城寨与全球城市",
     titleEn: "Neon, Walled City, and the Global City",
@@ -101,6 +108,7 @@ export const galleries: Gallery[] = [
   },
   {
     id: "gallery-06",
+    slug: "06-china-1982",
     number: "Gallery 06",
     title: "1982：开放初期的可参观中国",
     titleEn: "1982: The Visit-able China of Early Opening",

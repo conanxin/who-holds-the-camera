@@ -3,43 +3,44 @@ import { getObjectPrimaryMedia, type ExhibitionObject } from "@data/objects";
 
 interface Props {
   object: ExhibitionObject;
+  eyebrow?: string;
 }
 
-const { object } = Astro.props;
-const primaryMedia = getObjectPrimaryMedia(object);
+const { object, eyebrow = "Featured Work" } = Astro.props;
+const media = getObjectPrimaryMedia(object);
 const sourceHref = object.originalArchiveUrl || object.sourceUrl;
+const isLinkedPreview = media?.role === "linkedPreview";
+const sourceLabel = object.sourceId === "blue-lotus" || object.sourceId === "greg-girard" || object.sourceId === "city-darkness" || object.sourceId === "nowicki" || object.sourceId === "fan-ho-estate"
+  ? "查看项目页"
+  : "查看来源";
+const archiveLabel = object.originalArchiveUrl === object.sourceUrl ? "查看原始记录" : "查看馆藏";
 const statusClass = object.status.replace(/\s+/g, "-");
-const isLinkedPreview = primaryMedia?.role === "linkedPreview";
 const statusLabel: Record<ExhibitionObject["status"], string> = {
   "verified archive source": "Verified archive source",
   "secondary source only": "Secondary source only",
   "rights unclear": "Rights unclear",
   "placeholder pending replacement": "Placeholder pending replacement"
 };
-const sourceLabel = object.sourceId === "blue-lotus" || object.sourceId === "greg-girard" || object.sourceId === "city-darkness" || object.sourceId === "nowicki" || object.sourceId === "fan-ho-estate"
-  ? "查看项目页"
-  : "查看来源";
-const archiveLabel = object.originalArchiveUrl === object.sourceUrl ? "查看原始记录" : "查看馆藏";
 ---
 
-<article class={`object-card object-card--${object.imagePolicy} ${primaryMedia ? "object-card--has-media" : "object-card--no-media"}`} id={object.id}>
-  <div class="object-card__media">
+<article class="featured-work" id={`featured-${object.id}`}>
+  <div class="featured-work__media">
     {
-      primaryMedia ? (
+      media ? (
         <button
           class="media-button js-lightbox-trigger"
           type="button"
-          data-src={primaryMedia.src}
-          data-alt={primaryMedia.alt}
+          data-src={media.src}
+          data-alt={media.alt}
           data-title={`${object.title} / ${object.titleEn}`}
-          data-caption={primaryMedia.caption || object.captionZh}
-          data-credit={primaryMedia.credit || object.credit}
+          data-caption={media.caption || object.captionZh}
+          data-credit={media.credit || object.credit}
           data-source={sourceHref}
           data-rights={object.rightsNote}
           data-note={object.curatorialNote}
           aria-label={`查看大图：${object.title}`}
         >
-          <img src={primaryMedia.src} alt={primaryMedia.alt} loading="lazy" />
+          <img src={media.src} alt={media.alt} loading="lazy" />
           {isLinkedPreview && <span class="media-badge">Linked source only</span>}
         </button>
       ) : (
@@ -50,7 +51,8 @@ const archiveLabel = object.originalArchiveUrl === object.sourceUrl ? "查看原
       )
     }
   </div>
-  <div class="object-card__label">
+  <div class="featured-work__label">
+    <p class="section-kicker">{eyebrow}</p>
     <div class="object-card__topline">
       <p class="object-card__number">{object.displayNumber}</p>
       <span class={`status-badge status-badge--${statusClass}`}>{statusLabel[object.status]}</span>
@@ -60,31 +62,9 @@ const archiveLabel = object.originalArchiveUrl === object.sourceUrl ? "查看原
     <p class="object-card__facts">{object.creator}, {object.year}<br />{object.place} / {object.medium}</p>
     <p class="object-card__caption">{object.captionZh}</p>
     <p class="object-card__note">{object.curatorialNote}</p>
-    <dl class="source-trail">
-      <div>
-        <dt>Credit</dt>
-        <dd>{object.credit}</dd>
-      </div>
-      <div>
-        <dt>Source</dt>
-        <dd><a href={object.sourceUrl} target="_blank" rel="noreferrer">{sourceLabel}</a></dd>
-      </div>
-      <div>
-        <dt>Archive</dt>
-        <dd>
-          {
-            object.originalArchiveUrl ? (
-              <a href={object.originalArchiveUrl} target="_blank" rel="noreferrer">{archiveLabel}</a>
-            ) : (
-              <span>Not yet verified</span>
-            )
-          }
-        </dd>
-      </div>
-      <div>
-        <dt>Rights</dt>
-        <dd>{object.rightsNote}</dd>
-      </div>
-    </dl>
+    <div class="featured-work__links">
+      <a href={object.sourceUrl} target="_blank" rel="noreferrer">{sourceLabel}</a>
+      <a href={sourceHref} target="_blank" rel="noreferrer">{archiveLabel}</a>
+    </div>
   </div>
 </article>

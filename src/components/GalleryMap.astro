@@ -23,7 +23,7 @@ const { galleries } = Astro.props;
   <div class="gallery-map__links">
     {
       galleries.map((gallery, index) => (
-        <a href={`#${gallery.id}`} class="gallery-map__link">
+        <a href={`/galleries/${gallery.slug}/`} class="gallery-map__link">
           <span class="gallery-map__room">{String(index).padStart(2, "0")}</span>
           <strong>{gallery.title}</strong>
           <small>{gallery.years}</small>

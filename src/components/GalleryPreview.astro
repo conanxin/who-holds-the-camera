@@ -1,0 +1,33 @@
+---
+import type { Gallery } from "@data/exhibition";
+import type { ExhibitionObject } from "@data/objects";
+import FeaturedWork from "./FeaturedWork.astro";
+import ObjectGrid from "./ObjectGrid.astro";
+import LookingQuestion from "./LookingQuestion.astro";
+
+interface Props {
+  gallery: Gallery;
+  objects: ExhibitionObject[];
+}
+
+const { gallery, objects } = Astro.props;
+const featured = objects[0];
+const previewObjects = objects.slice(1, 5);
+---
+
+<section class="gallery-preview" id={gallery.id} aria-labelledby={`${gallery.id}-title`}>
+  <div class="gallery-preview__wall">
+    <p class="section-kicker">{gallery.number} / {gallery.years}</p>
+    <div>
+      <h2 id={`${gallery.id}-title`}>{gallery.title}</h2>
+      <p class="gallery-room__title-en">{gallery.titleEn}</p>
+    </div>
+    <p>{gallery.wallText}</p>
+  </div>
+  {featured && <FeaturedWork object={featured} eyebrow="Hero Work" />}
+  {previewObjects.length > 0 && <ObjectGrid objects={previewObjects} />}
+  <div class="gallery-preview__footer">
+    <LookingQuestion question={gallery.lookingQuestion} />
+    <a class="gallery-enter" href={`/galleries/${gallery.slug}/`}>进入展厅 / 深入观看</a>
+  </div>
+</section>

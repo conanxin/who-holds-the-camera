@@ -4,7 +4,8 @@ import CuratorStatement from "@components/CuratorStatement.astro";
 import ExhibitionEntrance from "@components/ExhibitionEntrance.astro";
 import ExhibitionRoutes from "@components/ExhibitionRoutes.astro";
 import GalleryMap from "@components/GalleryMap.astro";
-import GalleryRoom from "@components/GalleryRoom.astro";
+import GalleryPreview from "@components/GalleryPreview.astro";
+import Lightbox from "@components/Lightbox.astro";
 import SourceIndex from "@components/SourceIndex.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { exhibitionRoutes, galleries } from "@data/exhibition";
@@ -28,7 +29,7 @@ const pageDescription =
       <CuratorStatement />
       <GalleryMap galleries={galleries} />
       <ExhibitionRoutes routes={exhibitionRoutes} />
-      {objectsByGallery.map(({ gallery, objects }) => <GalleryRoom gallery={gallery} objects={objects} />)}
+      {objectsByGallery.map(({ gallery, objects }) => <GalleryPreview gallery={gallery} objects={objects} />)}
 
       <section class="reflection-room" id="reflection-room" aria-labelledby="reflection-title">
         <div class="section-heading">
@@ -53,8 +54,9 @@ const pageDescription =
 
       <ArchiveTable objects={objects} />
       <SourceIndex sources={sources} objects={objects} />
+      <Lightbox />
       <footer class="site-footer" aria-label="Project links">
-        <p>Who Holds the Camera? / V1.4 Portfolio Package</p>
+        <p>Who Holds the Camera? / V1.6 Gallery Deepening</p>
         <nav>
           <a href="https://who-holds-the-camera.pages.dev/" target="_blank" rel="noreferrer">Live Demo</a>
           <a href="https://github.com/conanxin/who-holds-the-camera" target="_blank" rel="noreferrer">GitHub Repo</a>

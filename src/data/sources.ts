@@ -62,6 +62,17 @@ export const sources: ExhibitionSource[] = [
     reliabilityNote: "馆藏页和公共领域图像记录较清晰；仍以单件馆藏页为最终引用点。"
   },
   {
+    id: "fan-ho-estate",
+    name: "Fan Ho Estate / Fan Ho Trust",
+    kind: "Photographer / Estate / Gallery",
+    sourceType: "Photographer / Estate / Gallery",
+    url: "https://fanho-forgetmenot.com/",
+    note: "Estate project and public preview trail for Fan Ho works. Linked only unless rights are cleared.",
+    descriptionZh: "何藩 Estate / Trust 相关项目页面，用于补充何藩香港街头摄影作品的近源视觉线索。",
+    usedFor: "Gallery 04 中何藩补充展品的 estate / project-page preview 路径。",
+    reliabilityNote: "接近艺术家 estate 链条，但并非公共领域声明；本展只作外链预览和来源说明。"
+  },
+  {
     id: "blue-lotus",
     name: "Blue Lotus Gallery / Fan Ho Estate",
     kind: "Photographer / Estate / Gallery",

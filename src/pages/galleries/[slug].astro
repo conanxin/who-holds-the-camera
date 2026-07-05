@@ -1,0 +1,78 @@
+---
+import FeaturedWork from "@components/FeaturedWork.astro";
+import Lightbox from "@components/Lightbox.astro";
+import LookingQuestion from "@components/LookingQuestion.astro";
+import StudyWall from "@components/StudyWall.astro";
+import { galleries, type Gallery } from "@data/exhibition";
+import { getObjectPrimaryMedia, objects, type ExhibitionObject } from "@data/objects";
+import { sources } from "@data/sources";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return galleries.map((gallery) => ({
+    params: { slug: gallery.slug },
+    props: { gallery }
+  }));
+}
+
+interface Props {
+  gallery: Gallery;
+}
+
+const { gallery } = Astro.props;
+const galleryObjects = objects.filter((object) => object.galleryId === gallery.id);
+const featured = galleryObjects[0];
+const featuredMedia = featured ? getObjectPrimaryMedia(featured) : undefined;
+const studyObjects = galleryObjects.slice(1);
+const relatedSources = sources.filter((source) => galleryObjects.some((object) => object.sourceId === source.id));
+const pageTitle = `${gallery.number}: ${gallery.titleEn} / Who Holds the Camera?`;
+const pageDescription = `${gallery.titleEn}. ${gallery.wallText}`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main>
+    <section class="gallery-detail-hero" aria-labelledby="gallery-detail-title">
+      {
+        featuredMedia && (
+          <div class="gallery-detail-hero__image">
+            <img src={featuredMedia.src} alt={featuredMedia.alt} />
+          </div>
+        )
+      }
+      <div class="gallery-detail-hero__copy">
+        <a class="back-link" href="/">返回总览展</a>
+        <p class="section-kicker">{gallery.number} / {gallery.years}</p>
+        <h1 id="gallery-detail-title">{gallery.title}</h1>
+        <p class="gallery-room__title-en">{gallery.titleEn}</p>
+        <p>{gallery.wallText}</p>
+      </div>
+    </section>
+
+    <div class="page-shell">
+      {featured && <FeaturedWork object={featured} eyebrow="Hero Work / 主作品" />}
+      <StudyWall objects={studyObjects} />
+      <LookingQuestion question={gallery.lookingQuestion} />
+
+      <section class="related-sources" aria-labelledby="related-sources-title">
+        <div class="section-heading section-heading--compact">
+          <p class="section-kicker">Source Trail / 相关来源</p>
+          <h2 id="related-sources-title">本展厅使用的来源路径</h2>
+        </div>
+        <div class="related-sources__grid">
+          {
+            relatedSources.map((source) => (
+              <article class="related-source">
+                <p>{source.sourceType}</p>
+                <h3><a href={source.url} target="_blank" rel="noreferrer">{source.name}</a></h3>
+                <span>{galleryObjects.filter((object: ExhibitionObject) => object.sourceId === source.id).length} objects</span>
+                <p>{source.usedFor}</p>
+                <small>{source.reliabilityNote}</small>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+      <Lightbox />
+    </div>
+  </main>
+</BaseLayout>
