@@ -15,8 +15,8 @@ const sourceOrder = [
   "Further reading"
 ];
 const grouped = sources.reduce<Record<string, ExhibitionSource[]>>((acc, source) => {
-  acc[source.kind] ??= [];
-  acc[source.kind].push(source);
+  acc[source.sourceType] ??= [];
+  acc[source.sourceType].push(source);
   return acc;
 }, {});
 
@@ -40,7 +40,21 @@ function countObjects(sourceId: string) {
               <li>
                 <a href={source.url} target="_blank" rel="noreferrer">{source.name}</a>
                 <span>{countObjects(source.id)} objects</span>
-                <p>{source.note}</p>
+                <dl class="source-index__meta">
+                  <div>
+                    <dt>Type</dt>
+                    <dd>{source.sourceType}</dd>
+                  </div>
+                  <div>
+                    <dt>Use</dt>
+                    <dd>{source.usedFor}</dd>
+                  </div>
+                  <div>
+                    <dt>Reliability</dt>
+                    <dd>{source.reliabilityNote}</dd>
+                  </div>
+                </dl>
+                <p>{source.descriptionZh}</p>
               </li>
             ))}
           </ul>

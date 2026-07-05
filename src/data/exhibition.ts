@@ -9,6 +9,18 @@ export interface Gallery {
   lookingQuestion: string;
 }
 
+export interface ExhibitionRoute {
+  id: string;
+  title: string;
+  time: string;
+  description: string;
+  stops: Array<{
+    label: string;
+    href: string;
+  }>;
+  lookingQuestion: string;
+}
+
 export const exhibition = {
   title: "西方镜头中的中国：1870s-1980s",
   titleZh: "西方镜头中的中国：1870s—1980s",
@@ -97,5 +109,72 @@ export const galleries: Gallery[] = [
     wallText:
       "1982 年的中国旅行照片常被今天的网络重新发现：自行车、街道、商店、笑脸和新旧并置，被包装成“罕见的真实瞬间”。但旅行摄影从来不只是发现。路线、许可、翻译、陪同和好奇心共同决定镜头能看见什么。这个展厅把二次传播保留下来，也标出它尚未完成的来源问题。",
     lookingQuestion: "开放初期的“可参观”，是谁为谁打开的？"
+  }
+];
+
+export const exhibitionRoutes: ExhibitionRoute[] = [
+  {
+    id: "route-quick",
+    title: "15 分钟快速参观",
+    time: "15 min",
+    description:
+      "适合第一次打开页面的人：先看摄影之前的图像复制，再进入清末湿版摄影，随后跳到何藩的香港光影，最后在 Reflection Room 停下。",
+    stops: [
+      { label: "Gallery 00", href: "#gallery-00" },
+      { label: "Gallery 01", href: "#gallery-01" },
+      { label: "Gallery 04", href: "#gallery-04" },
+      { label: "Reflection Room", href: "#reflection-room" }
+    ],
+    lookingQuestion: "如果只看四个房间，哪一个最能改变你对“观看中国”的理解？"
+  },
+  {
+    id: "route-complete",
+    title: "45 分钟完整参观",
+    time: "45 min",
+    description:
+      "适合完整阅读：从《十竹斋书画谱》到 1982 年旅行影像，沿着图像技术、摄影权力、城市经验和来源路径逐步展开。",
+    stops: [
+      { label: "Gallery 00", href: "#gallery-00" },
+      { label: "Gallery 01", href: "#gallery-01" },
+      { label: "Gallery 02", href: "#gallery-02" },
+      { label: "Gallery 03", href: "#gallery-03" },
+      { label: "Gallery 04", href: "#gallery-04" },
+      { label: "Gallery 05", href: "#gallery-05" },
+      { label: "Gallery 06", href: "#gallery-06" }
+    ],
+    lookingQuestion: "当时间线走完，哪些图像仍在说话，哪些只留下了来源路径？"
+  },
+  {
+    id: "route-hong-kong",
+    title: "香港影像路线",
+    time: "20 min",
+    description:
+      "聚焦何藩、Greg Girard 和九龙城寨：香港在这里既是光影诗学，也是霓虹、密度、港口和外部观看共同构成的城市档案。",
+    stops: [
+      { label: "Gallery 04", href: "#gallery-04" },
+      { label: "Gallery 05", href: "#gallery-05" }
+    ],
+    lookingQuestion: "当城市被拍成美学或奇观时，日常生活被放在画面中的哪里？"
+  },
+  {
+    id: "route-diaspora",
+    title: "海外华人路线",
+    time: "12 min",
+    description:
+      "从旧金山唐人街、Limehouse 和“黄祸”想象出发，观察移民社区如何被摄影、报刊、小说和城市治理共同组织成可消费的陌生感。",
+    stops: [{ label: "Gallery 02", href: "#gallery-02" }],
+    lookingQuestion: "这组图像让谁成为社区成员，又让谁成为被观看的类型？"
+  },
+  {
+    id: "route-image-tech",
+    title: "图像技术路线",
+    time: "18 min",
+    description:
+      "从《十竹斋书画谱》到湿版摄影，观察复制、底片、印刷、馆藏和数字目录如何决定图像能否远行、被引用和被再次观看。",
+    stops: [
+      { label: "Gallery 00", href: "#gallery-00" },
+      { label: "Gallery 01", href: "#gallery-01" }
+    ],
+    lookingQuestion: "技术是在保存图像，还是也在规定图像如何被理解？"
   }
 ];

@@ -2,11 +2,12 @@
 import ArchiveTable from "@components/ArchiveTable.astro";
 import CuratorStatement from "@components/CuratorStatement.astro";
 import ExhibitionEntrance from "@components/ExhibitionEntrance.astro";
+import ExhibitionRoutes from "@components/ExhibitionRoutes.astro";
 import GalleryMap from "@components/GalleryMap.astro";
 import GalleryRoom from "@components/GalleryRoom.astro";
 import SourceIndex from "@components/SourceIndex.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { galleries } from "@data/exhibition";
+import { exhibitionRoutes, galleries } from "@data/exhibition";
 import { objects } from "@data/objects";
 import { sources } from "@data/sources";
 
@@ -26,6 +27,7 @@ const pageDescription =
     <div class="page-shell">
       <CuratorStatement />
       <GalleryMap galleries={galleries} />
+      <ExhibitionRoutes routes={exhibitionRoutes} />
       {objectsByGallery.map(({ gallery, objects }) => <GalleryRoom gallery={gallery} objects={objects} />)}
 
       <section class="reflection-room" id="reflection-room" aria-labelledby="reflection-title">

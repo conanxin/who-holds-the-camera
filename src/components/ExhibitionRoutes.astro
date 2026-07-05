@@ -1,0 +1,38 @@
+---
+import type { ExhibitionRoute } from "@data/exhibition";
+
+interface Props {
+  routes: ExhibitionRoute[];
+}
+
+const { routes } = Astro.props;
+---
+
+<section class="exhibition-routes" id="exhibition-routes" aria-labelledby="exhibition-routes-title">
+  <div class="section-heading">
+    <p class="section-kicker">Exhibition Routes / 参观路线</p>
+    <h2 id="exhibition-routes-title">选择一条进入展览的路径</h2>
+  </div>
+  <div class="route-grid">
+    {
+      routes.map((route) => (
+        <article class="route-card" id={route.id}>
+          <div class="route-card__head">
+            <span>{route.time}</span>
+            <h3>{route.title}</h3>
+          </div>
+          <p>{route.description}</p>
+          <nav class="route-card__stops" aria-label={`${route.title} stops`}>
+            {route.stops.map((stop) => (
+              <a href={stop.href}>{stop.label}</a>
+            ))}
+          </nav>
+          <div class="route-card__question">
+            <span>Looking Question</span>
+            <p>{route.lookingQuestion}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

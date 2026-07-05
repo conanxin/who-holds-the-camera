@@ -2,7 +2,7 @@
 
 Live Demo: https://who-holds-the-camera.pages.dev/  
 GitHub Repo: https://github.com/conanxin/who-holds-the-camera  
-Status: V1.2 Public Preview
+Status: V1.3 Exhibition Routes Preview
 
 《西方镜头中的中国：1870s—1980s》是一个 Astro 静态线上展览项目，形式定位为 Digital Exhibition / Online Archive Exhibition。
 
@@ -21,6 +21,7 @@ Status: V1.2 Public Preview
 - Exhibition Entrance / 展览入口
 - Curator’s Statement / 策展人导言
 - Gallery Navigation / 展厅地图
+- Exhibition Routes / 参观路线
 - Gallery 00 / 印刷中国：摄影之前的图像复制
 - Gallery 01 / 清末中国：湿版摄影与外部观看
 - Gallery 02 / 唐人街：移民社区与黄祸想象
@@ -31,6 +32,20 @@ Status: V1.2 Public Preview
 - Reflection Room / 谁拿着相机？
 - Archive Table / 展品索引
 - Source Index / 来源索引
+
+## Project screenshots
+
+截图目录预留在 `docs/screenshots/`。当前仓库先保留截图说明文件；正式作品集截图可在后续版本补入桌面首屏、移动端首屏、Exhibition Routes、Archive Table 与 Source Index。
+
+## Exhibition routes
+
+V1.3 增加 5 条参观路线：
+
+- 15 分钟快速参观：Gallery 00、01、04、Reflection Room。
+- 45 分钟完整参观：Gallery 00—06。
+- 香港影像路线：Gallery 04、05，聚焦何藩、Greg Girard 与九龙城寨。
+- 海外华人路线：Gallery 02，聚焦旧金山唐人街与“黄祸”想象。
+- 图像技术路线：Gallery 00、01，聚焦《十竹斋书画谱》、湿版摄影与档案复制。
 
 ## 技术栈
 
@@ -105,6 +120,15 @@ GitHub Pages 可作为可选部署方式。本轮未配置 Astro `base`；如果
 - `secondary source only`: 目前仍以二次传播页面作为主要视觉线索，原始图像映射尚未完全核实。
 - `placeholder pending replacement`: 预留状态，用于后续替换为更稳定来源。
 
+## Source status policy
+
+本项目按“可验证来源优先、授权不清透明展示”的原则处理图像材料：
+
+- 可公开嵌入或明确公共领域的图像，才作为页面内图像展示。
+- `rights unclear` 条目不删除，也不伪装成已授权素材；页面只保留外链、来源说明与研究索引。
+- `secondary source only` 条目用于标记二次传播线索，提醒读者它不是最终档案来源。
+- Source Index 记录 source type、used for 与 reliability note，避免把 Flashbak、摄影师项目、馆藏页和进一步阅读混为一类。
+
 Source Index 分为：
 
 - Archive / Museum / Library
@@ -119,3 +143,10 @@ Source Index 分为：
 - 增加按 Gallery、地点、年代和状态的组合筛选。
 - 准备 Cloudflare Pages 公开预览链接。
 - 在后续版本中补充英文完整展签。
+
+## V1.3 更新记录
+
+- 新增 Exhibition Routes / 参观路线模块。
+- 新增 Open Graph 分享图与 `og:*` / `twitter:*` metadata。
+- Source Index 增加 source type、用途与可靠性说明。
+- 强化 `rights unclear` 条目的权利说明，明确不将其视为公共领域或可自由复用图片。

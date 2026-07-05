@@ -7,6 +7,10 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const siteUrl = "https://who-holds-the-camera.pages.dev/";
+const ogTitle = "Who Holds the Camera? 西方镜头中的中国";
+const ogDescription = "一个关于摄影、权力、记忆与“中国”视觉形成的中文线上展览。";
+const ogImage = `${siteUrl}og-image.svg`;
 ---
 
 <!doctype html>
@@ -15,6 +19,15 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
