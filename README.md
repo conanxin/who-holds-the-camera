@@ -1,8 +1,8 @@
 # Who Holds the Camera? 西方镜头中的中国
 
-Live Demo: https://who-holds-the-camera.pages.dev/  
+Live Demo: https://camera.conanxin.com/ (fallback: https://who-holds-the-camera.pages.dev/)
 GitHub Repo: https://github.com/conanxin/who-holds-the-camera  
-Status: V1.8 SEO + Sitemap + Domain Polish  
+Status: V1.9 Custom Domain Activation  
 Tech: Astro / TypeScript / Static Site / Cloudflare Pages
 
 ## Project Overview
@@ -102,4 +102,4 @@ npm.cmd run preview -- --port 4323
 - V1.6.1 completed: docs sync for public release and launch materials.
 - V1.7 completed: Source Map page and Archive Graph.
 - V1.8 completed: SEO hardening, sitemap, robots, structured data, and custom domain preparation.
-- V1.9 planned: i18n polish and richer search index.
+- V1.9 completed: production migration to camera.conanxin.com with domain-level SEO and fallback parity.

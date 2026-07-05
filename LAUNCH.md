@@ -28,7 +28,7 @@ Instead of presenting historical photographs as a nostalgic image grid, the site
 
 它不是老照片合集，也不是 Flashbak 中文版。项目从二级视觉线索出发，继续追溯档案馆、博物馆、摄影师项目和公共资料，并把来源状态直接放进页面。
 
-Live Demo: https://who-holds-the-camera.pages.dev/
+Live Demo: https://camera.conanxin.com/ (fallback: https://who-holds-the-camera.pages.dev/)
 GitHub: https://github.com/conanxin/who-holds-the-camera
 
 ## 小红书 / 即刻版本
@@ -39,7 +39,7 @@ GitHub: https://github.com/conanxin/who-holds-the-camera
 
 核心问题很简单：当镜头看向中国，它看见的是中国，还是观看者自己？
 
-Live Demo: https://who-holds-the-camera.pages.dev/
+Live Demo: https://camera.conanxin.com/ (fallback: https://who-holds-the-camera.pages.dev/)
 
 ## GitHub Pinned Repo 描述
 

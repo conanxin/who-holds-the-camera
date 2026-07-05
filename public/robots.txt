@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://who-holds-the-camera.pages.dev/sitemap-index.xml
+Sitemap: https://camera.conanxin.com/sitemap-index.xml

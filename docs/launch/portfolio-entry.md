@@ -24,6 +24,6 @@ Impact:
 - Cloudflare Pages 公开部署
 
 Links:
-- Live Demo: https://who-holds-the-camera.pages.dev/
+- Live Demo: https://camera.conanxin.com/
 - GitHub: https://github.com/conanxin/who-holds-the-camera
 - Case Study: ../../CASE_STUDY.md

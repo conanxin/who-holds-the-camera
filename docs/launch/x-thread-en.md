@@ -46,7 +46,7 @@ AI helped with structure, data modeling, copy drafts, and static site implementa
 
 8/8
 Live Demo:
-https://who-holds-the-camera.pages.dev/
+https://camera.conanxin.com/
 
 GitHub:
 https://github.com/conanxin/who-holds-the-camera

@@ -47,7 +47,7 @@ V1.6 后首页不再平铺全部展品，而是作为总览展；每个 Gallery 
 当镜头看向中国，它看见的是中国，还是观看者自己？
 
 Live Demo:
-https://who-holds-the-camera.pages.dev/
+https://camera.conanxin.com/
 
 GitHub:
 https://github.com/conanxin/who-holds-the-camera

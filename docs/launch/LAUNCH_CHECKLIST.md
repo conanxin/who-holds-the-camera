@@ -3,13 +3,13 @@
 ## 0. Metadata
 
 Live Demo:
-https://who-holds-the-camera.pages.dev/
+https://camera.conanxin.com/ (fallback: https://who-holds-the-camera.pages.dev/)
 
 GitHub:
 https://github.com/conanxin/who-holds-the-camera
 
 Current release:
-V1.6.1 Post-Expansion Docs Sync
+V1.9 Custom Domain Activation
 
 ## 1. GitHub 发布
 
@@ -25,7 +25,7 @@ Recommended repo description:
 
 Recommended website:
 
-> https://who-holds-the-camera.pages.dev/
+> https://camera.conanxin.com/
 
 Recommended topics:
 
@@ -40,7 +40,7 @@ Recommended topics:
 GitHub CLI command:
 
 ```powershell
-gh repo edit conanxin/who-holds-the-camera --description "A Chinese digital exhibition about photography, power, archives, and the visual making of China through external lenses." --homepage "https://who-holds-the-camera.pages.dev/"
+gh repo edit conanxin/who-holds-the-camera --description "A Chinese digital exhibition about photography, power, archives, and the visual making of China through external lenses." --homepage "https://camera.conanxin.com/"
 ```
 
 Manual path:

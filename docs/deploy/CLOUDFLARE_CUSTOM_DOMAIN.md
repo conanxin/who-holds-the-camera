@@ -1,6 +1,6 @@
 # Cloudflare Pages Custom Domain
 
-本项目当前线上域名：`https://who-holds-the-camera.pages.dev/`。未设置自定义域名时请继续用该域名。
+本项目当前线上域名：`https://camera.conanxin.com/ (fallback: https://who-holds-the-camera.pages.dev/)`。未设置自定义域名时请继续用该域名。
 
 ## 1) 绑定路径（Cloudflare Pages）
 

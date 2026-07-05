@@ -18,6 +18,10 @@ Who Holds the Camera? is an AI-assisted Chinese digital exhibition built with As
 - ai-assisted-curation
 - cloudflare-pages
 
+## Live Demo
+
+- https://camera.conanxin.com/ (fallback: https://who-holds-the-camera.pages.dev/)
+
 ## Pinned Repo Line
 
 An AI-assisted digital exhibition about photography, power, memory, and source transparency.

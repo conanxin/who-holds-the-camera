@@ -24,6 +24,8 @@ V1.7 added Source Map and Archive Graph so source relationships become explicit.
 
 V1.8 focuses on discoverability without changing the exhibition structure: SEO metadata completeness, canonical links, sitemap generation, robots hints, JSON-LD, and domain-preparation documentation.
 
+V1.9 switches production references to the custom domain `https://camera.conanxin.com` while keeping `https://who-holds-the-camera.pages.dev/` as a fallback endpoint and maintaining the same exhibition architecture.
+
 ## 4. Design System
 
 - Warm paper-like palette
@@ -63,3 +65,4 @@ AI helps speed content scaffolding and consistency, but source credibility and r
 A stronger exhibition structure is not only about adding more images. It is built through rhythm: featured work, paired works, study wall, looking question, and source map path.
 
 For V1.8, the key lesson was that discoverability is part of exhibition quality. Canonical tags, sitemap, OG data, and structured metadata make the work easier to find without changing curation intent.
+For V1.9, the lesson is that domain-level consistency is also a curatorial infrastructure task: stable URLs and metadata keep source evidence, links, and reference points reliable across sharing and indexing contexts.
