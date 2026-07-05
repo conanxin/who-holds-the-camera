@@ -52,7 +52,8 @@ V2.0 expands the exhibition from 44 to 90 objects without turning the home page 
 - 90 Objects
 - 5 Exhibition routes
 - Source Map page with Archive Graph, gallery source flows, and node cards
-- Lightbox close-view mode with gallery, object number, source status, and source links
+- Archive Table with 90 rows
+- Enhanced Lightbox close-view mode with gallery, object number, source status, source/archive links, and previous / next navigation
 - Archive Drawer on gallery pages
 - 50 verified archive source
 - 38 rights unclear
@@ -68,4 +69,4 @@ A stronger exhibition structure is not only about adding more images. It is buil
 
 For V1.8, the key lesson was that discoverability is part of exhibition quality. Canonical tags, sitemap, OG data, and structured metadata make the work easier to find without changing curation intent.
 For V1.9, the lesson is that domain-level consistency is also a curatorial infrastructure task: stable URLs and metadata keep source evidence, links, and reference points reliable across sharing and indexing contexts.
-For V2.0, the lesson is that scale only works when rhythm is preserved. More objects need drawers, pairings, and close-looking paths, not a longer flat page.
+For V2.0, the lesson is that scale only works when rhythm is preserved. More objects need drawers, pairings, and close-looking paths, not a longer flat page. The key to content expansion is not quantity by itself, but viewing rhythm: overview, entering a gallery, close looking, and tracing sources.

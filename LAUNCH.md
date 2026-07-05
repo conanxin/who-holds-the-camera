@@ -51,11 +51,12 @@ An AI-assisted digital exhibition and static site project that combines visual a
 
 ## 项目亮点
 
-- 9 个 Gallery，从摄影之前的图像复制到 1982 年开放初期旅行影像。
+- 9 个 Gallery，从摄影之前的图像复制，延伸到上海都市图像、宣传画未来想象和开放初期旅行影像。
 - 90 件展品，每件都有 museum-style object label 和 source trail。
 - 9 个 Gallery 单页，把首页从“长列表”改成“总览展 + 深入观看”。
 - 5 条参观路线，支持快速参观、完整参观、香港影像、海外华人和图像技术路径。
-- Lightbox 近看模式与 Archive Drawer 展品抽屉，显示 caption、credit、rights note、source 和 curatorial note。
+- Gallery 07 上海镜头与 Gallery 08 宣传画与未来想象，把上海都市图像和宣传画未来想象纳入展览结构。
+- Lightbox 近看模式与 Archive Drawer 展品抽屉，显示 caption、credit、rights note、source、curatorial note，并支持上一件 / 下一件。
 - Archive Table 支持按来源状态和 Gallery 筛选。
 - Source Index 按 Archive / Museum / Library、Photographer / Estate / Gallery、Secondary visual trail、Further reading 分组。
 - 公开显示 38 个 rights unclear 和 2 个 secondary source only，不把不确定性藏起来。
@@ -65,10 +66,11 @@ An AI-assisted digital exhibition and static site project that combines visual a
 
 - `docs/screenshots/hero-desktop.png`: 用于 X 首帖、作品集封面和 GitHub README 顶部。
 - `docs/screenshots/routes-desktop.png`: 用于说明“参观路线”与线上展览结构。
-- `docs/screenshots/gallery-preview-v16.png`: 用于展示首页 Gallery Preview 和总览展结构。
-- `docs/screenshots/gallery-page-v16.png`: 用于展示单独 Gallery 页、Hero Work 和 Study Wall。
-- `docs/screenshots/lightbox-v16.png`: 用于展示近看模式。
-- `docs/screenshots/source-index-v16.png`: 用于展示 Source Index、来源分组和研究透明度。
+- `docs/screenshots/gallery-overview-v20.png`: 用于展示首页 Gallery Preview 和总览展结构。
+- `docs/screenshots/gallery-page-v20.png`: 用于展示单独 Gallery 页中的 Study Wall 和 Archive Drawer。
+- `docs/screenshots/lightbox-v20.png`: 用于展示增强近看模式与前后切换。
+- `docs/screenshots/source-map-v20.png`: 用于展示 Source Map 与 90 objects 统计。
+- `docs/screenshots/archive-table-v20.png`: 用于展示 Archive Table、来源状态和筛选结构。
 - `docs/screenshots/mobile-hero.png`: 用于中文社媒或移动端预览说明。
 
 

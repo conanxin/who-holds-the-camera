@@ -21,14 +21,15 @@ The project builds a viewing workflow where object labels, source trail, rights 
 
 ## Screenshots
 
-Current screenshots document the public exhibition UI. V2.0 keeps the same visual system and adds deeper gallery pages, Archive Drawer sections, and a richer Lightbox state.
+Current screenshots document the V2.0 public exhibition UI: overview home, expanded gallery pages, Archive Drawer sections, Source Map, Archive Table, and the enhanced Lightbox state.
 
 - [hero-desktop.png](docs/screenshots/hero-desktop.png)
 - [routes-desktop.png](docs/screenshots/routes-desktop.png)
-- [gallery-preview-v16.png](docs/screenshots/gallery-preview-v16.png)
-- [gallery-page-v16.png](docs/screenshots/gallery-page-v16.png)
-- [lightbox-v16.png](docs/screenshots/lightbox-v16.png)
-- [source-index-v16.png](docs/screenshots/source-index-v16.png)
+- [gallery-overview-v20.png](docs/screenshots/gallery-overview-v20.png)
+- [gallery-page-v20.png](docs/screenshots/gallery-page-v20.png)
+- [lightbox-v20.png](docs/screenshots/lightbox-v20.png)
+- [source-map-v20.png](docs/screenshots/source-map-v20.png)
+- [archive-table-v20.png](docs/screenshots/archive-table-v20.png)
 - [mobile-hero.png](docs/screenshots/mobile-hero.png)
 
 ## What This Project Demonstrates
@@ -38,6 +39,10 @@ Current screenshots document the public exhibition UI. V2.0 keeps the same visua
 - source transparency design
 - digital exhibition UI
 - static site deployment
+- content expansion without flattening the homepage
+- immersive gallery pages
+- archive drawer
+- expanded visual density with source transparency
 
 ## Exhibition Structure
 
@@ -48,8 +53,10 @@ Current screenshots document the public exhibition UI. V2.0 keeps the same visua
 - Source Map: `/source-map/`
 - Archive Table
 - Source Index
-- Lightbox close-view mode with gallery, status, and source context
+- Lightbox close-view mode with gallery, status, source context, and previous / next navigation
 - Archive Drawer on each gallery page
+- Gallery 07: 上海镜头
+- Gallery 08: 宣传画与未来想象
 
 ## Source Status
 
@@ -107,4 +114,5 @@ npm.cmd run preview -- --port 4323
 - V1.8 completed: SEO hardening, sitemap, robots, structured data, and custom domain preparation.
 - V1.9 completed: production migration to camera.conanxin.com with domain-level SEO and fallback parity.
 - V2.0 completed: expanded from 44 to 90 objects, added Gallery 07 Shanghai Lens and Gallery 08 Propaganda Futures, deepened gallery pages with Archive Drawer and enhanced Lightbox context.
-- V2.1 planned: source map refinements, screenshot refresh, and bilingual label groundwork.
+- V2.0.1 completed: public docs, screenshots, launch materials, and QA notes synced to the 90-object exhibition.
+- V2.1 possible next: thematic trails, source essays, and exhibition essays.

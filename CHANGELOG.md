@@ -1,16 +1,25 @@
 # Changelog
 
+## V2.0.1 — Post-Expansion Docs + Screenshots Sync
+
+- Synced public documentation, screenshots, and launch materials with the V2.0 expansion.
+- Updated README, Case Study, Launch Kit, and screenshot index to describe 90 objects, 9 galleries, 9 gallery pages, Archive Drawer, and enhanced Lightbox behavior.
+- Regenerated V2.0 screenshot set for the homepage, gallery overview, gallery page, Lightbox, Source Map, Archive Table, and mobile hero.
+- This release does not add exhibition objects or change the gallery data model.
+
 ## V2.0 — Exhibition Content Expansion + Immersive Viewing
 
 - Expanded the exhibition from 44 to 90 objects.
 - Added Gallery 07: Shanghai Lens.
 - Added Gallery 08: Propaganda Futures.
 - Increased gallery overview sections and dedicated gallery pages from 7 to 9.
+- Each dedicated gallery page now presents 9-13 visual objects through featured work, focus pair, study wall, and archive drawer sections.
 - Added V2 object data layer in `src/data/v20Objects.ts`.
 - Deepened gallery pages with Archive Drawer sections while preserving the home page as an overview exhibition.
 - Enhanced Lightbox with gallery context, object number, source status, source links, and previous / next navigation.
 - Updated Archive Table with gallery filtering and 90 rendered rows.
 - Synced Source Map statistics through the shared object/source data model.
+- Confirmed all 90 objects have media previews and the generated site has 0 blank media areas.
 - Verified 60 unique image preview URLs returning 200 in the generated site.
 - Current status counts: 50 verified archive source, 38 rights unclear, 2 secondary source only, 0 placeholder pending replacement.
 

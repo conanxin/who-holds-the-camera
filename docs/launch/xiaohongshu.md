@@ -23,6 +23,8 @@
 - 9 个 Gallery 总览区
 - 9 个 Gallery 单页
 - 90 件展品
+- Gallery 07 上海镜头
+- Gallery 08 宣传画与未来想象
 - Object Label
 - Study Wall
 - Lightbox 近看模式与 Archive Drawer 展品抽屉
@@ -56,10 +58,10 @@ https://github.com/conanxin/who-holds-the-camera
 
 1. `docs/screenshots/hero-desktop.png`
 2. `docs/screenshots/routes-desktop.png`
-3. `docs/screenshots/gallery-preview-v16.png`
-4. `docs/screenshots/gallery-page-v16.png`
+3. `docs/screenshots/gallery-overview-v20.png`
+4. `docs/screenshots/gallery-page-v20.png`
 5. `docs/screenshots/mobile-hero.png`
-6. `docs/screenshots/lightbox-v16.png`
+6. `docs/screenshots/lightbox-v20.png`
 
 ## 标签建议
 

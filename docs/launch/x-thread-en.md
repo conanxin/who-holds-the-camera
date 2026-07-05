@@ -34,7 +34,10 @@ Current scope:
 - 9 dedicated gallery pages
 - 90 objects
 - 5 exhibition routes
-- Lightbox viewing mode
+- Lightbox viewing mode with previous / next
+- Archive Drawer sections
+- Gallery 07 Shanghai Lens
+- Gallery 08 Propaganda Futures
 - 50 verified archive source objects
 - 38 rights unclear objects
 - 2 secondary source only objects

@@ -61,8 +61,9 @@ Suggested screenshots:
 
 - `docs/screenshots/hero-desktop.png`
 - `docs/screenshots/routes-desktop.png`
-- `docs/screenshots/gallery-preview-v16.png`
-- `docs/screenshots/source-index-v16.png`
+- `docs/screenshots/gallery-overview-v20.png`
+- `docs/screenshots/source-map-v20.png`
+- `docs/screenshots/archive-table-v20.png`
 
 Before posting:
 
@@ -80,9 +81,9 @@ Use:
 Suggested screenshots:
 
 - `docs/screenshots/mobile-hero.png`
-- `docs/screenshots/gallery-page-v16.png`
-- `docs/screenshots/lightbox-v16.png`
-- `docs/screenshots/source-index-v16.png`
+- `docs/screenshots/gallery-page-v20.png`
+- `docs/screenshots/lightbox-v20.png`
+- `docs/screenshots/source-map-v20.png`
 
 Before posting:
 
@@ -100,9 +101,9 @@ Use:
 Suggested screenshots:
 
 - `docs/screenshots/hero-desktop.png`
-- `docs/screenshots/gallery-preview-v16.png`
-- `docs/screenshots/gallery-page-v16.png`
-- `docs/screenshots/source-index-v16.png`
+- `docs/screenshots/gallery-overview-v20.png`
+- `docs/screenshots/gallery-page-v20.png`
+- `docs/screenshots/archive-table-v20.png`
 
 Before publishing:
 
