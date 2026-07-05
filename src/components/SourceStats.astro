@@ -1,0 +1,38 @@
+---
+import type { SourceStatus } from "@data/objects";
+import { sourceStatusLabels, sourceStatusNotes, statusOrder } from "@data/sourceMap";
+
+interface Props {
+  stats: {
+    totalObjects: number;
+    sourceGroups: number;
+    statusCounts: Record<SourceStatus, number>;
+  };
+}
+
+const { stats } = Astro.props;
+const visibleStatuses = statusOrder.filter((status) => stats.statusCounts[status] > 0);
+---
+
+<section class="source-stats" aria-labelledby="source-stats-title">
+  <div class="section-heading section-heading--compact">
+    <p class="section-kicker">Source Status / 来源状态</p>
+    <h2 id="source-stats-title">本展如何标记来源完整性</h2>
+  </div>
+  <div class="source-stats__grid">
+    <article class="source-stat-card source-stat-card--total">
+      <p>Total objects</p>
+      <strong>{stats.totalObjects}</strong>
+      <span>展品总数保持不变</span>
+    </article>
+    {
+      visibleStatuses.map((status) => (
+        <article class={`source-stat-card source-stat-card--${status.replace(/\s+/g, "-")}`}>
+          <p>{sourceStatusLabels[status]}</p>
+          <strong>{stats.statusCounts[status]}</strong>
+          <span>{sourceStatusNotes[status]}</span>
+        </article>
+      ))
+    }
+  </div>
+</section>

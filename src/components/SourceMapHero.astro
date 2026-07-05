@@ -1,0 +1,48 @@
+---
+import type { SourceStatus } from "@data/objects";
+import { sourceStatusLabels } from "@data/sourceMap";
+
+interface Props {
+  stats: {
+    totalObjects: number;
+    sourceGroups: number;
+    statusCounts: Record<SourceStatus, number>;
+  };
+}
+
+const { stats } = Astro.props;
+const heroStats = [
+  { label: "objects", value: stats.totalObjects },
+  { label: "verified archive source", value: stats.statusCounts["verified archive source"] },
+  { label: "rights unclear", value: stats.statusCounts["rights unclear"] },
+  { label: "secondary source only", value: stats.statusCounts["secondary source only"] },
+  { label: "source groups", value: stats.sourceGroups }
+];
+---
+
+<section class="source-map-hero" aria-labelledby="source-map-title">
+  <div class="source-map-hero__copy">
+    <a class="back-link" href="/">返回总览展</a>
+    <p class="section-kicker">Source Map / 来源地图</p>
+    <h1 id="source-map-title">
+      来源地图：图像如何抵达本展
+      <small>Source Map: How Images Travel Into This Exhibition</small>
+    </h1>
+    <p>
+      这个页面不是普通链接列表，而是展示本展中图像线索的来源结构：哪些来自档案馆、博物馆与图书馆，哪些来自摄影师、Estate 或 Gallery，哪些仍保留二级视觉线索，以及哪些因为授权不明而只能作为 linked source 展示。
+    </p>
+    <p>
+      Flashbak 在本项目中扮演的是 visual trail：它帮助发现图像线索，但不是唯一来源，也不是最终权威。
+    </p>
+  </div>
+  <dl class="source-map-hero__stats">
+    {
+      heroStats.map((item) => (
+        <div>
+          <dt>{item.label in sourceStatusLabels ? sourceStatusLabels[item.label as keyof typeof sourceStatusLabels] : item.label}</dt>
+          <dd>{item.value}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>

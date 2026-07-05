@@ -1,0 +1,67 @@
+---
+import type { GallerySourceFlow, SourceNode } from "@data/sourceMap";
+import { sourceStatusLabels } from "@data/sourceMap";
+
+interface Props {
+  flows: GallerySourceFlow[];
+  nodes: SourceNode[];
+}
+
+const { flows, nodes } = Astro.props;
+const nodeById = new Map(nodes.map((node) => [node.id, node]));
+
+function sourceLabel(id: string) {
+  return nodeById.get(id)?.label ?? id;
+}
+
+function sourceUrl(id: string) {
+  return nodeById.get(id)?.url ?? "#";
+}
+---
+
+<section class="gallery-source-flows" id="gallery-source-flows" aria-labelledby="gallery-source-flows-title">
+  <div class="section-heading section-heading--compact">
+    <p class="section-kicker">Gallery Source Flows / 展厅来源路径</p>
+    <h2 id="gallery-source-flows-title">每个展厅的图像如何进入本展</h2>
+  </div>
+  <div class="gallery-source-flows__grid">
+    {
+      flows.map((flow) => (
+        <article class="source-flow-card">
+          <div>
+            <p class="section-kicker">{flow.galleryNumber}</p>
+            <h3>{flow.galleryTitle}</h3>
+            <span>{flow.galleryTitleEn}</span>
+          </div>
+          <div class="source-flow-card__path" aria-label={`${flow.galleryTitle} source path`}>
+            <div>
+              <p>Primary sources</p>
+              {flow.primarySources.map((id) => <a href={sourceUrl(id)} target="_blank" rel="noreferrer">{sourceLabel(id)}</a>)}
+            </div>
+            <span aria-hidden="true">→</span>
+            <div>
+              <p>Secondary trail</p>
+              {flow.secondaryTrails.length > 0 ? flow.secondaryTrails.map((id) => <a href={sourceUrl(id)} target="_blank" rel="noreferrer">{sourceLabel(id)}</a>) : <em>none in object records</em>}
+            </div>
+            <span aria-hidden="true">→</span>
+            <div>
+              <p>Objects</p>
+              <strong>{flow.objectIds.length}</strong>
+            </div>
+          </div>
+          <p>{flow.note}</p>
+          <dl class="source-flow-card__statuses">
+            {
+              Object.entries(flow.statusCounts).filter(([, count]) => count > 0).map(([status, count]) => (
+                <div>
+                  <dt>{sourceStatusLabels[status as keyof typeof sourceStatusLabels]}</dt>
+                  <dd>{count}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </article>
+      ))
+    }
+  </div>
+</section>

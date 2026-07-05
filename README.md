@@ -2,7 +2,7 @@
 
 Live Demo: https://who-holds-the-camera.pages.dev/<br>
 GitHub Repo: https://github.com/conanxin/who-holds-the-camera<br>
-Status: V1.6 Image Backfill + Gallery Deepening<br>
+Status: V1.7 Source Map + Archive Graph<br>
 Tech: Astro / TypeScript / Static Site / Cloudflare Pages
 
 ## Project Overview
@@ -65,7 +65,7 @@ The page asks who holds the camera, who gives the caption, who owns the archive 
 - AI-assisted curation: using AI to structure a research-led exhibition while keeping source judgment explicit.
 - Visual archive research: moving from secondary visual leads toward more stable archival, museum, or photographer-owned records.
 - Source transparency design: showing rights status, source trails, and reliability notes inside the interface.
-- Digital exhibition UI: building an online exhibition with entrance, gallery map, routes, wall text, object labels, dedicated gallery pages, lightbox viewing, archive table, and source index.
+- Digital exhibition UI: building an online exhibition with entrance, gallery map, routes, wall text, object labels, dedicated gallery pages, lightbox viewing, source map, archive table, and source index.
 - Static site deployment: publishing a lightweight Astro site on Cloudflare Pages.
 
 ## Exhibition Structure
@@ -75,6 +75,8 @@ The page asks who holds the camera, who gives the caption, who owns the archive 
 - 5 Exhibition routes: quick visit, full visit, Hong Kong route, overseas Chinese route, and image technology route.
 - 44 Objects: each with title, year, creator, place, medium, credit, source trail, rights note, captions, tags, status, and media preview.
 - Lightbox viewing mode: object images can be opened for closer reading with caption, credit, rights note, source, and curatorial note.
+- Source Map page: `/source-map/` explains how images travel from archives, museums, photographer projects, secondary visual trails, and further reading into the exhibition.
+- Archive Graph: a lightweight HTML/SVG research diagram, gallery source flows, source node cards, and a legend for source statuses and linked-source-only materials.
 - Archive Table: a static filterable index of all objects.
 - Source Index: grouped source records with type, use in the exhibition, and reliability notes.
 
@@ -109,4 +111,5 @@ npm.cmd run preview -- --port 4323
 
 - V1.6 completed: image backfill, 44-object expansion, dedicated Gallery pages, and Lightbox viewing mode.
 - V1.6.1 docs sync: public README, case study, launch materials, screenshots, and changelog aligned with the post-expansion exhibition.
-- V1.7 source map / archive graph / bilingual labels: deepen source relationships and expand bilingual interpretive labels.
+- V1.7 completed: Source Map page, Archive Graph, Gallery Source Flows, source node cards, and source legend.
+- V1.8 source map refinement / bilingual labels: deepen source relationships and expand bilingual interpretive labels.

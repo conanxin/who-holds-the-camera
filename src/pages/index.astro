@@ -10,6 +10,7 @@ import SourceIndex from "@components/SourceIndex.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { exhibitionRoutes, galleries } from "@data/exhibition";
 import { objects } from "@data/objects";
+import { sourceStats } from "@data/sourceMap";
 import { sources } from "@data/sources";
 
 const heroObjects = objects.filter((object) => object.imagePolicy === "embed").slice(0, 7);
@@ -52,11 +53,38 @@ const pageDescription =
         </div>
       </section>
 
+      <section class="source-map-entry" id="source-map-entry" aria-labelledby="source-map-entry-title">
+        <div class="section-heading section-heading--compact">
+          <p class="section-kicker">Source Map / 来源地图</p>
+          <h2 id="source-map-entry-title">查看来源地图</h2>
+        </div>
+        <div class="source-map-entry__panel">
+          <p>
+            理解这些图像如何从档案、馆藏、摄影师项目和二级视觉线索进入本展。这里把 Source Index 的链接关系展开成一张更可读的研究图示。
+          </p>
+          <dl>
+            <div>
+              <dt>Objects</dt>
+              <dd>{sourceStats.totalObjects}</dd>
+            </div>
+            <div>
+              <dt>Source groups</dt>
+              <dd>{sourceStats.sourceGroups}</dd>
+            </div>
+            <div>
+              <dt>Rights unclear</dt>
+              <dd>{sourceStats.statusCounts["rights unclear"]}</dd>
+            </div>
+          </dl>
+          <a class="gallery-enter" href="/source-map/">进入来源地图</a>
+        </div>
+      </section>
+
       <ArchiveTable objects={objects} />
       <SourceIndex sources={sources} objects={objects} />
       <Lightbox />
       <footer class="site-footer" aria-label="Project links">
-        <p>Who Holds the Camera? / V1.6 Gallery Deepening</p>
+        <p>Who Holds the Camera? / V1.7 Source Map</p>
         <nav>
           <a href="https://who-holds-the-camera.pages.dev/" target="_blank" rel="noreferrer">Live Demo</a>
           <a href="https://github.com/conanxin/who-holds-the-camera" target="_blank" rel="noreferrer">GitHub Repo</a>

@@ -1,5 +1,15 @@
 # Changelog
 
+## V1.7 — Source Map + Archive Graph
+
+- Added `/source-map/` as a dedicated source map page.
+- Added a lightweight `ArchiveGraph` research diagram without D3 or a heavy visualization library.
+- Added Gallery Source Flows for all 7 galleries.
+- Added Source Node Cards grouped by source type.
+- Added a Source Legend explaining `verified archive source`, `rights unclear`, `secondary source only`, `placeholder pending replacement`, and linked-source-only materials.
+- Added a low-key Source Map entry on the home page.
+- Kept the exhibition object count at 44 and preserved the current source status counts.
+
 ## V1.6.1 — Post-Expansion Docs Sync
 
 - Synced `README.md`, `CASE_STUDY.md`, `CHANGELOG.md`, `LAUNCH.md`, and `docs/launch/` materials with the V1.6 exhibition state.

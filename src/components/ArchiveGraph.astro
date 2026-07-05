@@ -1,0 +1,70 @@
+---
+import type { SourceEdge, SourceNode } from "@data/sourceMap";
+import { sourceTypeOrder } from "@data/sourceMap";
+
+interface Props {
+  nodes: SourceNode[];
+  edges: SourceEdge[];
+}
+
+const { nodes, edges } = Astro.props;
+const nodesByType = sourceTypeOrder.map((sourceType) => ({
+  sourceType,
+  nodes: nodes.filter((node) => node.sourceType === sourceType)
+}));
+---
+
+<section class="archive-graph" id="archive-graph" aria-labelledby="archive-graph-title">
+  <div class="section-heading section-heading--compact">
+    <p class="section-kicker">Archive Graph / 档案关系图</p>
+    <h2 id="archive-graph-title">从来源系统到展品标签</h2>
+  </div>
+  <div class="archive-graph__canvas">
+    <svg class="archive-graph__lines" viewBox="0 0 100 22" aria-hidden="true" preserveAspectRatio="none">
+      <path d="M 8 11 H 92" />
+      <path d="M 92 11 L 87 7 M 92 11 L 87 15" />
+      <circle cx="8" cy="11" r="1.5" />
+      <circle cx="36" cy="11" r="1.5" />
+      <circle cx="64" cy="11" r="1.5" />
+      <circle cx="92" cy="11" r="1.5" />
+    </svg>
+    <div class="archive-graph__columns">
+      {
+        nodesByType.map((group) => (
+          <article class="archive-graph__column">
+            <p class="archive-graph__type">{group.sourceType}</p>
+            <h3>{group.nodes.length} sources</h3>
+            <ul>
+              {group.nodes.map((node) => (
+                <li>
+                  <a href={node.url} target="_blank" rel="noreferrer">{node.label}</a>
+                  <span>{node.relatedObjectIds.length} objects</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+      <article class="archive-graph__column archive-graph__column--object">
+        <p class="archive-graph__type">Exhibition object</p>
+        <h3>44 labels</h3>
+        <ul>
+          <li><span>Object Label</span><span>caption + credit</span></li>
+          <li><span>Archive Table</span><span>status + tags</span></li>
+          <li><span>Lightbox</span><span>close-looking note</span></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+  <div class="archive-graph__edges">
+    {
+      edges.map((edge) => (
+        <article>
+          <p>{edge.from} → {edge.to}</p>
+          <h3>{edge.relation}</h3>
+          <span>{edge.note}</span>
+        </article>
+      ))
+    }
+  </div>
+</section>

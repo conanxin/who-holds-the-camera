@@ -1,0 +1,28 @@
+---
+import { sourceStatusLabels, sourceStatusNotes, statusOrder } from "@data/sourceMap";
+---
+
+<section class="source-legend" id="source-legend" aria-labelledby="source-legend-title">
+  <div class="section-heading section-heading--compact">
+    <p class="section-kicker">Legend / 图例</p>
+    <h2 id="source-legend-title">如何阅读这张来源地图</h2>
+  </div>
+  <div class="source-legend__grid">
+    {
+      statusOrder.map((status) => (
+        <article>
+          <span class={`status-badge status-badge--${status.replace(/\s+/g, "-")}`}>{sourceStatusLabels[status]}</span>
+          <p>{sourceStatusNotes[status]}</p>
+        </article>
+      ))
+    }
+    <article>
+      <span class="media-badge">Linked source only</span>
+      <p>表示页面只使用来源页预览、项目页视觉线索或外链说明，不把图片处理为可自由复用素材。</p>
+    </article>
+    <article>
+      <span class="source-legend__line">Thin line / dotted question</span>
+      <p>细线表示研究路径，不表示授权链条已经完整。虚线或 secondary trail 提醒观众继续核对原始记录。</p>
+    </article>
+  </div>
+</section>
