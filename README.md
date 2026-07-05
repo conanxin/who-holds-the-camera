@@ -1,5 +1,9 @@
 # China Through Other Lenses
 
+Live Demo: https://who-holds-the-camera.pages.dev/  
+GitHub Repo: https://github.com/conanxin/who-holds-the-camera  
+Status: V1.2 Public Preview
+
 《西方镜头中的中国：1870s—1980s》是一个 Astro 静态线上展览项目，形式定位为 Digital Exhibition / Online Archive Exhibition。
 
 本项目不是 Flashbak 中文版，也不是素材搬运站。Flashbak、图库文章和网络再传播只作为视觉线索入口；展览继续追溯到档案馆、博物馆、摄影师项目、画廊/estate、大学项目和公共资料库，并在每件展品中保留 source trail 与 rights note。
