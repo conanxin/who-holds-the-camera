@@ -1,0 +1,73 @@
+# Case Study: Who Holds the Camera? 西方镜头中的中国
+
+## 1. Background
+
+This project began as an attempt to turn scattered historical image leads into a digital exhibition rather than another nostalgic photo page. The subject is not simply "old photographs of China"; it is the visual relationship between camera, archive, viewer, caption, and power.
+
+The exhibition follows images from printed books and early photography to Chinatown imagery, Republican-era albums, Hong Kong street photography, Kowloon Walled City projects, and 1982 travel photographs.
+
+## 2. Problem
+
+Many historical image pages have three recurring problems:
+
+- Sources are unclear or reduced to a single secondary web page.
+- Images are treated as nostalgic evidence instead of produced visual objects.
+- The viewer's position is rarely explained: who took the photograph, who named it, who preserved it, and who is missing from the caption.
+
+The challenge was to make source uncertainty visible without making the page feel unfinished.
+
+## 3. Approach
+
+The project starts from secondary visual leads such as Flashbak, then continues tracing images toward archives, museums, photographer projects, estates, galleries, university projects, and public-domain repositories.
+
+The page is designed as an online exhibition instead of a blog or article list. It uses an exhibition entrance, gallery map, curated routes, wall text, object labels, looking questions, an archive table, and a source index. Each object keeps its source trail visible.
+
+## 4. Design System
+
+The visual system is restrained and museum-like:
+
+- Warm paper background
+- Large serif typography
+- Thin grid lines
+- White exhibition cards
+- Museum label structure
+- Small source status badges
+- Restrained red accent
+
+The design avoids decorative excess so that the main tension stays with the objects and their source conditions.
+
+## 5. Content Model
+
+The project uses a static TypeScript content model:
+
+- `Gallery`: room title, period, wall text, timeline marker, and looking question.
+- `Object`: museum-label metadata, captions, curatorial note, source trail, rights note, tags, and status.
+- `Source`: source type, description, use in the exhibition, reliability note, and URL.
+- `Route`: visit title, estimated time, description, gallery anchors, and looking question.
+- `Looking Question`: a short prompt that asks the visitor to inspect the conditions of viewing.
+
+This model keeps curatorial writing, source transparency, and UI display aligned.
+
+## 6. Result
+
+The public exhibition includes:
+
+- 7 Gallery rooms
+- 24 Objects
+- 5 Exhibition routes
+- 17 verified archive source objects
+- 6 rights unclear objects
+- 1 secondary source only object
+- A filterable Archive Table
+- A grouped Source Index with reliability notes
+
+The live site is deployed on Cloudflare Pages:
+
+https://who-holds-the-camera.pages.dev/
+
+## 7. What I Learned
+
+AI can help quickly scaffold a curatorial structure, generate consistent labels, and organize a static content model. But source transparency and interpretive judgment have to be designed explicitly.
+
+Uncertainty does not have to be hidden. In this project, uncertain rights and incomplete source trails become part of the interface, helping visitors understand that historical images are not neutral windows. They are records of viewing conditions.
+

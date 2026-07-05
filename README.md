@@ -1,152 +1,91 @@
-# China Through Other Lenses
+# Who Holds the Camera? 西方镜头中的中国
 
-Live Demo: https://who-holds-the-camera.pages.dev/  
-GitHub Repo: https://github.com/conanxin/who-holds-the-camera  
-Status: V1.3 Exhibition Routes Preview
+Live Demo: https://who-holds-the-camera.pages.dev/<br>
+GitHub Repo: https://github.com/conanxin/who-holds-the-camera<br>
+Status: V1.4 Portfolio Package<br>
+Tech: Astro / TypeScript / Static Site / Cloudflare Pages
 
-《西方镜头中的中国：1870s—1980s》是一个 Astro 静态线上展览项目，形式定位为 Digital Exhibition / Online Archive Exhibition。
+## Project Overview
 
-本项目不是 Flashbak 中文版，也不是素材搬运站。Flashbak、图库文章和网络再传播只作为视觉线索入口；展览继续追溯到档案馆、博物馆、摄影师项目、画廊/estate、大学项目和公共资料库，并在每件展品中保留 source trail 与 rights note。
+An online archive exhibition about photography, power, memory, and the visual construction of "China" across Western-facing image trails from the 1630s to the 1980s.
 
-## 展览概念
+This project is not a Chinese edition of Flashbak. Flashbak and similar web pages are treated as visual leads; the exhibition keeps tracing objects back toward archives, museums, photographer projects, estates, galleries, universities, and public-domain repositories.
 
-展览围绕一个问题展开：
+## Exhibition Concept
 
-> 当镜头看向中国，它看见的是中国，还是观看者自己？
+The exhibition is organized around one curatorial question:
 
-页面把图像分成两层阅读：画面本身，以及图像如何被拍摄、命名、收藏、授权和再次传播。展览文案采用“展览墙文 + 图像研究笔记”的语气，不把照片当作透明的历史窗口。
+> When a camera looks at China, does it see China, or does it also record the position of the viewer?
 
-## 页面结构
+The page asks who holds the camera, who gives the caption, who owns the archive record, and who is left unnamed. Each object is presented with a museum-style label and a source trail, so uncertainty becomes part of the reading experience instead of being hidden behind a polished image grid.
 
-- Exhibition Entrance / 展览入口
-- Curator’s Statement / 策展人导言
-- Gallery Navigation / 展厅地图
-- Exhibition Routes / 参观路线
-- Gallery 00 / 印刷中国：摄影之前的图像复制
-- Gallery 01 / 清末中国：湿版摄影与外部观看
-- Gallery 02 / 唐人街：移民社区与黄祸想象
-- Gallery 03 / 民国相册：外交官、女性与精英网络
-- Gallery 04 / 光影香港：何藩的城市诗学
-- Gallery 05 / 霓虹、城寨与全球城市
-- Gallery 06 / 1982：开放初期的可参观中国
-- Reflection Room / 谁拿着相机？
-- Archive Table / 展品索引
-- Source Index / 来源索引
+## Screenshots
 
-## Project screenshots
+### Entrance Hero
 
-截图目录预留在 `docs/screenshots/`。当前仓库先保留截图说明文件；正式作品集截图可在后续版本补入桌面首屏、移动端首屏、Exhibition Routes、Archive Table 与 Source Index。
+![Desktop hero](docs/screenshots/hero-desktop.png)
 
-## Exhibition routes
+### Exhibition Routes
 
-V1.3 增加 5 条参观路线：
+![Exhibition routes](docs/screenshots/routes-desktop.png)
 
-- 15 分钟快速参观：Gallery 00、01、04、Reflection Room。
-- 45 分钟完整参观：Gallery 00—06。
-- 香港影像路线：Gallery 04、05，聚焦何藩、Greg Girard 与九龙城寨。
-- 海外华人路线：Gallery 02，聚焦旧金山唐人街与“黄祸”想象。
-- 图像技术路线：Gallery 00、01，聚焦《十竹斋书画谱》、湿版摄影与档案复制。
+### Object Cards
 
-## 技术栈
+![Gallery object cards](docs/screenshots/gallery-object.png)
 
-- Astro 7
-- TypeScript 静态数据
-- 原生 Astro components
-- CSS design tokens
-- 无后端、无登录、无权限系统
+### Source Index
 
-## 本地启动
+![Source index](docs/screenshots/source-index.png)
+
+### Mobile
+
+![Mobile hero](docs/screenshots/mobile-hero.png)
+
+## What This Project Demonstrates
+
+- AI-assisted curation: using AI to structure a research-led exhibition while keeping source judgment explicit.
+- Visual archive research: moving from secondary visual leads toward more stable archival, museum, or photographer-owned records.
+- Source transparency design: showing rights status, source trails, and reliability notes inside the interface.
+- Digital exhibition UI: building an online exhibition with entrance, gallery map, routes, wall text, object labels, archive table, and source index.
+- Static site deployment: publishing a lightweight Astro site on Cloudflare Pages.
+
+## Exhibition Structure
+
+- 7 Gallery rooms: from pre-photographic printed images to 1982 travel photography.
+- 5 Exhibition routes: quick visit, full visit, Hong Kong route, overseas Chinese route, and image technology route.
+- 24 Objects: each with title, year, creator, place, medium, credit, source trail, rights note, captions, tags, and status.
+- Archive Table: a static filterable index of all objects.
+- Source Index: grouped source records with type, use in the exhibition, and reliability notes.
+
+## Source Status Policy
+
+Every object has a source status:
+
+- `verified archive source`: traced to an archive, museum, library, university project, or stable collection/project record.
+- `rights unclear`: a near-source record or photographer/gallery trail exists, but direct reproduction rights are not granted; the exhibition uses external links and source notes instead of copying images.
+- `secondary source only`: the object currently relies on a secondary visual trail, and the original mapping still needs more verification.
+- `placeholder pending replacement`: reserved for future objects that need stronger sources before publication.
+
+The policy is conservative by design. Rights uncertainty is not removed for visual polish; it is shown as part of the exhibition's method.
+
+## Tech Stack
+
+- Astro
+- TypeScript
+- CSS
+- Cloudflare Pages
+
+## Local Development
 
 ```powershell
 npm.cmd install
 npm.cmd run dev -- --port 4321
-```
-
-## 生产构建
-
-```powershell
 npm.cmd run build
-```
-
-构建输出目录为 `dist`。
-
-## 本地预览
-
-```powershell
 npm.cmd run preview -- --port 4323
 ```
 
-## 部署方式
+## Roadmap
 
-### Cloudflare Pages
-
-- Framework preset: `Astro`
-- Build command: `npm run build`
-- Output directory: `dist`
-- Node version: 使用 Cloudflare 默认 LTS 即可
-
-如果使用 Cloudflare CLI / Wrangler：
-
-```powershell
-npm.cmd run build
-npx wrangler pages deploy dist --project-name who-holds-the-camera
-```
-
-如果通过 Cloudflare 控制台部署：
-
-1. 连接 GitHub 仓库。
-2. 选择 `who-holds-the-camera`。
-3. Framework preset 选择 `Astro`。
-4. Build command 填写 `npm run build`。
-5. Output directory 填写 `dist`。
-6. Node version 使用 Cloudflare 默认 LTS 即可。
-
-### Vercel
-
-- Framework: Astro
-- Build command: `npm run build`
-- Output directory: `dist`
-
-### GitHub Pages
-
-GitHub Pages 可作为可选部署方式。本轮未配置 Astro `base`；如果部署到非根路径仓库页，需要再按仓库名配置 `base`。
-
-## 来源状态说明
-
-每件展品都有 source trail：
-
-- `verified archive source`: 已追溯到馆藏、档案、大学项目或较稳定的项目页。
-- `rights unclear`: 找到近源记录或摄影师/画廊线索，但页面未授予直接复制或嵌入原图的权利；展览只做外链展示。
-- `secondary source only`: 目前仍以二次传播页面作为主要视觉线索，原始图像映射尚未完全核实。
-- `placeholder pending replacement`: 预留状态，用于后续替换为更稳定来源。
-
-## Source status policy
-
-本项目按“可验证来源优先、授权不清透明展示”的原则处理图像材料：
-
-- 可公开嵌入或明确公共领域的图像，才作为页面内图像展示。
-- `rights unclear` 条目不删除，也不伪装成已授权素材；页面只保留外链、来源说明与研究索引。
-- `secondary source only` 条目用于标记二次传播线索，提醒读者它不是最终档案来源。
-- Source Index 记录 source type、used for 与 reliability note，避免把 Flashbak、摄影师项目、馆藏页和进一步阅读混为一类。
-
-Source Index 分为：
-
-- Archive / Museum / Library
-- Photographer / Estate / Gallery
-- Secondary visual trail
-- Further reading
-
-## 后续计划
-
-- 继续为 Fan Ho、Greg Girard、Simon Nowicki 条目寻找更精确的单件作品页或授权说明。
-- 为每个外链型展品补充“为什么不复制图片”的读者提示。
-- 增加按 Gallery、地点、年代和状态的组合筛选。
-- 准备 Cloudflare Pages 公开预览链接。
-- 在后续版本中补充英文完整展签。
-
-## V1.3 更新记录
-
-- 新增 Exhibition Routes / 参观路线模块。
-- 新增 Open Graph 分享图与 `og:*` / `twitter:*` metadata。
-- Source Index 增加 source type、用途与可靠性说明。
-- 强化 `rights unclear` 条目的权利说明，明确不将其视为公共领域或可自由复用图片。
+- V1.4 portfolio package: screenshots, README, case study, changelog, and launch materials.
+- V1.5 content expansion: more object-level archive tracing and stronger rights notes.
+- V2 bilingual exhibition labels: complete English labels and wall text.
