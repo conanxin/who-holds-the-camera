@@ -14,16 +14,20 @@ import {
 } from "@data/sourceMap";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const pageTitle = "来源地图：图像如何抵达本展 / Source Map";
+const pageTitle = "来源地图：图像如何抵达本展";
 const pageDescription =
-  "展示本展中图像线索如何从档案馆、博物馆、摄影师项目、二级视觉线索进入线上展览的来源地图。";
+  "可视化展览图像的来源流动：哪些来自档案馆/博物馆/图书馆，哪些来自摄影师、Estate 或 Gallery，哪些仍以二级视觉线索进入，并保留 rights unclear 的边界说明。";
 const groupedNodes = sourceTypeOrder.map((sourceType) => ({
   sourceType,
   nodes: sourceNodes.filter((node) => node.sourceType === sourceType)
 }));
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout
+  title={`${pageTitle} / Source Map`}
+  description={pageDescription}
+  canonicalPath="/source-map/"
+>
   <main>
     <SourceMapHero stats={sourceStats} />
     <div class="page-shell page-shell--source-map">
@@ -34,7 +38,7 @@ const groupedNodes = sourceTypeOrder.map((sourceType) => ({
       <section class="source-node-section" id="source-node-cards" aria-labelledby="source-node-cards-title">
         <div class="section-heading section-heading--compact">
           <p class="section-kicker">Source Node Cards / 来源节点</p>
-          <h2 id="source-node-cards-title">来源机构如何被本展使用</h2>
+          <h2 id="source-node-cards-title">来源机构与项目一览</h2>
         </div>
         <div class="source-node-section__groups">
           {
@@ -59,7 +63,7 @@ const groupedNodes = sourceTypeOrder.map((sourceType) => ({
       </nav>
 
       <footer class="site-footer" aria-label="Project links">
-        <p>Who Holds the Camera? / V1.7 Source Map</p>
+        <p>Who Holds the Camera? / V1.8 SEO + Sitemap + Domain Polish</p>
         <nav>
           <a href="https://who-holds-the-camera.pages.dev/" target="_blank" rel="noreferrer">Live Demo</a>
           <a href="https://github.com/conanxin/who-holds-the-camera" target="_blank" rel="noreferrer">GitHub Repo</a>

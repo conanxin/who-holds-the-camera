@@ -25,11 +25,16 @@ const featured = galleryObjects[0];
 const featuredMedia = featured ? getObjectPrimaryMedia(featured) : undefined;
 const studyObjects = galleryObjects.slice(1);
 const relatedSources = sources.filter((source) => galleryObjects.some((object) => object.sourceId === source.id));
-const pageTitle = `${gallery.number}: ${gallery.titleEn} / Who Holds the Camera?`;
+const pageTitle = `${gallery.number}｜${gallery.titleEn} — Who Holds the Camera?`;
 const pageDescription = `${gallery.titleEn}. ${gallery.wallText}`;
+const canonicalPath = `/galleries/${gallery.slug}/`;
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath={canonicalPath}
+>
   <main>
     <section class="gallery-detail-hero" aria-labelledby="gallery-detail-title">
       {
@@ -40,7 +45,7 @@ const pageDescription = `${gallery.titleEn}. ${gallery.wallText}`;
         )
       }
       <div class="gallery-detail-hero__copy">
-        <a class="back-link" href="/">返回总览展</a>
+        <a class="back-link" href="/">返回首页</a>
         <p class="section-kicker">{gallery.number} / {gallery.years}</p>
         <h1 id="gallery-detail-title">{gallery.title}</h1>
         <p class="gallery-room__title-en">{gallery.titleEn}</p>
@@ -49,14 +54,14 @@ const pageDescription = `${gallery.titleEn}. ${gallery.wallText}`;
     </section>
 
     <div class="page-shell">
-      {featured && <FeaturedWork object={featured} eyebrow="Hero Work / 主作品" />}
+      {featured && <FeaturedWork object={featured} eyebrow="Hero Work" />}
       <StudyWall objects={studyObjects} />
       <LookingQuestion question={gallery.lookingQuestion} />
 
       <section class="related-sources" aria-labelledby="related-sources-title">
         <div class="section-heading section-heading--compact">
-          <p class="section-kicker">Source Trail / 相关来源</p>
-          <h2 id="related-sources-title">本展厅使用的来源路径</h2>
+          <p class="section-kicker">Source Trail / 来源路径</p>
+          <h2 id="related-sources-title">相关来源路线</h2>
         </div>
         <div class="related-sources__grid">
           {

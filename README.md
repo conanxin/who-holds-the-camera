@@ -1,95 +1,77 @@
 # Who Holds the Camera? 西方镜头中的中国
 
-Live Demo: https://who-holds-the-camera.pages.dev/<br>
-GitHub Repo: https://github.com/conanxin/who-holds-the-camera<br>
-Status: V1.7 Source Map + Archive Graph<br>
+Live Demo: https://who-holds-the-camera.pages.dev/  
+GitHub Repo: https://github.com/conanxin/who-holds-the-camera  
+Status: V1.8 SEO + Sitemap + Domain Polish  
 Tech: Astro / TypeScript / Static Site / Cloudflare Pages
 
 ## Project Overview
 
-An online archive exhibition about photography, power, memory, and the visual construction of "China" across Western-facing image trails from the 1630s to the 1980s.
+Online exhibition platform exploring how Western-facing image archives represent China from the 1870s to the 1980s.
 
-This project is not a Chinese edition of Flashbak. Flashbak and similar web pages are treated as visual leads; the exhibition keeps tracing objects back toward archives, museums, photographer projects, estates, galleries, universities, and public-domain repositories.
+This is not a Flashbak clone. Flashbak is used as a visual lead, while the exhibition keeps tracing objects back to archives, museums, photographer estates/projects, university archives, and public-domain repositories.
 
 ## Exhibition Concept
 
-The exhibition is organized around one curatorial question:
+Exhibition question:
 
-> When a camera looks at China, does it see China, or does it also record the position of the viewer?
+**Who holds the camera, and who controls the explanatory frame?**
 
-The page asks who holds the camera, who gives the caption, who owns the archive record, and who is left unnamed. Each object is presented with a museum-style label and a source trail, so uncertainty becomes part of the reading experience instead of being hidden behind a polished image grid.
+The project builds a viewing workflow where object labels, source trail, rights status, archive table, and source map are part of interpretation.
 
 ## Screenshots
 
-### Entrance Hero
-
-![Desktop hero](docs/screenshots/hero-desktop.png)
-
-### Exhibition Routes
-
-![Exhibition routes](docs/screenshots/routes-desktop.png)
-
-### Object Cards
-
-![Gallery object cards](docs/screenshots/gallery-object.png)
-
-### Gallery Preview
-
-![Gallery preview](docs/screenshots/gallery-preview-v16.png)
-
-### Gallery Page
-
-![Gallery page](docs/screenshots/gallery-page-v16.png)
-
-### Lightbox
-
-![Lightbox viewing mode](docs/screenshots/lightbox-v16.png)
-
-### Source Index
-
-![Source index](docs/screenshots/source-index-v16.png)
-
-### Mobile
-
-![Mobile hero](docs/screenshots/mobile-hero.png)
-
-## Launch Materials
-
-- [Launch Kit](LAUNCH.md)
-- [X Thread ZH](docs/launch/x-thread-zh.md)
-- [Portfolio Entry](docs/launch/portfolio-entry.md)
-- [Case Study](CASE_STUDY.md)
+- [hero-desktop.png](docs/screenshots/hero-desktop.png)
+- [routes-desktop.png](docs/screenshots/routes-desktop.png)
+- [gallery-preview-v16.png](docs/screenshots/gallery-preview-v16.png)
+- [gallery-page-v16.png](docs/screenshots/gallery-page-v16.png)
+- [lightbox-v16.png](docs/screenshots/lightbox-v16.png)
+- [source-index-v16.png](docs/screenshots/source-index-v16.png)
+- [mobile-hero.png](docs/screenshots/mobile-hero.png)
 
 ## What This Project Demonstrates
 
-- AI-assisted curation: using AI to structure a research-led exhibition while keeping source judgment explicit.
-- Visual archive research: moving from secondary visual leads toward more stable archival, museum, or photographer-owned records.
-- Source transparency design: showing rights status, source trails, and reliability notes inside the interface.
-- Digital exhibition UI: building an online exhibition with entrance, gallery map, routes, wall text, object labels, dedicated gallery pages, lightbox viewing, source map, archive table, and source index.
-- Static site deployment: publishing a lightweight Astro site on Cloudflare Pages.
+- AI-assisted curation
+- visual archive research
+- source transparency design
+- digital exhibition UI
+- static site deployment
 
 ## Exhibition Structure
 
-- 7 Gallery overview sections: the home page now works as a guided overview exhibition rather than a full object grid.
-- 7 dedicated Gallery pages: each gallery has a hero work, focus pair, study wall, looking question, and related source trail.
-- 5 Exhibition routes: quick visit, full visit, Hong Kong route, overseas Chinese route, and image technology route.
-- 44 Objects: each with title, year, creator, place, medium, credit, source trail, rights note, captions, tags, status, and media preview.
-- Lightbox viewing mode: object images can be opened for closer reading with caption, credit, rights note, source, and curatorial note.
-- Source Map page: `/source-map/` explains how images travel from archives, museums, photographer projects, secondary visual trails, and further reading into the exhibition.
-- Archive Graph: a lightweight HTML/SVG research diagram, gallery source flows, source node cards, and a legend for source statuses and linked-source-only materials.
-- Archive Table: a static filterable index of all objects.
-- Source Index: grouped source records with type, use in the exhibition, and reliability notes.
+- 7 Gallery overview rooms
+- 7 dedicated gallery pages
+- 44 objects
+- 5 exhibition routes
+- Source Map: `/source-map/`
+- Archive Table
+- Source Index
+- Lightbox close-view mode
 
-## Source Status Policy
+## Source Status
 
-Every object has a source status:
+- verified archive source
+- secondary source only
+- rights unclear
+- placeholder pending replacement
 
-- `verified archive source`: traced to an archive, museum, library, university project, or stable collection/project record.
-- `rights unclear`: a near-source record or photographer/gallery trail exists, but direct reproduction rights are not granted; the exhibition uses external links, linked previews, and source notes instead of treating images as public-domain assets. Current count: 17.
-- `secondary source only`: the object currently relies on a secondary visual trail, and the original mapping still needs more verification.
-- `placeholder pending replacement`: reserved for future objects that need stronger sources before publication.
+## SEO, Sitemap, and Shareability
 
-The policy is conservative by design. Rights uncertainty is not removed for visual polish; it is shown as part of the exhibition's method.
+- Title and description per page via shared layout.
+- Canonical links for home, gallery pages, and source map.
+- Open Graph / Twitter card metadata.
+- Structured data on homepage (CreativeWork + WebSite).
+- SEO metadata preserved while using existing warm-paper visual style.
+- `@astrojs/sitemap` enabled in `astro.config.mjs`.
+- `public/robots.txt` is provided and points to sitemap output.
+- Domain polish documentation added in `docs/deploy/CLOUDFLARE_CUSTOM_DOMAIN.md`.
+
+### SEO Files
+
+- `public/robots.txt`
+- `public/og-image.svg`
+- `dist/sitemap-index.xml` (or `dist/sitemap.xml` depending on adapter output)
+- `_headers` (basic security headers)
 
 ## Tech Stack
 
@@ -107,9 +89,17 @@ npm.cmd run build
 npm.cmd run preview -- --port 4323
 ```
 
+## Launch Materials
+
+- [Launch Kit](LAUNCH.md)
+- [X Thread ZH](docs/launch/x-thread-zh.md)
+- [Portfolio Entry](docs/launch/portfolio-entry.md)
+- [Case Study](CASE_STUDY.md)
+
 ## Roadmap
 
-- V1.6 completed: image backfill, 44-object expansion, dedicated Gallery pages, and Lightbox viewing mode.
-- V1.6.1 docs sync: public README, case study, launch materials, screenshots, and changelog aligned with the post-expansion exhibition.
-- V1.7 completed: Source Map page, Archive Graph, Gallery Source Flows, source node cards, and source legend.
-- V1.8 source map refinement / bilingual labels: deepen source relationships and expand bilingual interpretive labels.
+- V1.6 completed: image backfill, 44 objects, dedicated gallery pages, and Lightbox viewing mode.
+- V1.6.1 completed: docs sync for public release and launch materials.
+- V1.7 completed: Source Map page and Archive Graph.
+- V1.8 completed: SEO hardening, sitemap, robots, structured data, and custom domain preparation.
+- V1.9 planned: i18n polish and richer search index.

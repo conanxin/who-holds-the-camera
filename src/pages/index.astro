@@ -20,10 +20,15 @@ const objectsByGallery = galleries.map((gallery) => ({
 }));
 const pageTitle = "Who Holds the Camera? 西方镜头中的中国";
 const pageDescription =
-  "一个关于摄影、权力、记忆与“中国”视觉形成的中文线上展览，追溯 Flashbak、档案馆、博物馆、摄影师项目与公共资料中的图像线索。";
+  "一个关于摄影、权力、记忆与“China”视觉建构的中文线上展览。以 Flashbak 等视觉线索为入口，持续追溯档案馆、博物馆、摄影师项目和公共资料库的原始记录。";
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/"
+  includeStructuredData={true}
+>
   <main>
     <ExhibitionEntrance heroObjects={heroObjects} />
     <div class="page-shell">
@@ -34,22 +39,21 @@ const pageDescription =
 
       <section class="reflection-room" id="reflection-room" aria-labelledby="reflection-title">
         <div class="section-heading">
-          <p class="section-kicker">Reflection Room / 谁拿着相机？</p>
-          <h2 id="reflection-title">镜头不是一个透明孔洞</h2>
+          <p class="section-kicker">Reflection Room / 结语</p>
+          <h2 id="reflection-title">反思不是反面，而是问题意识</h2>
         </div>
         <div class="reflection-room__panel">
-          <p class="reflection-room__lead">这间房间没有更多图像。它只留下一个问题：谁拿着相机？</p>
+          <p class="reflection-room__lead">
+            图片不是“证据”的单向陈列。图像的可见性与缺席同样塑造阅读条件。
+          </p>
           <div class="reflection-room__grid">
             <p>
-              当我们问“谁拿着相机”，并不是要把某位摄影师简单地放在审判席上。更重要的是看见一整套图像条件：旅行路线、出版市场、殖民城市、馆藏制度、技术门槛、版权边界，以及被拍摄者是否有机会回看、命名和保存自己的影像。
+              我们不是把问题投射给对象本身，而是追问观看位置：谁拍了它，谁命名了它，谁保留了它，谁被排除在叙事之外。
             </p>
             <p>
-              因此，本展把每一张图像都拆成两层：一层是画面，另一层是 source trail。画面让我们停下；来源路径让我们继续追问。照片中的沉默部分，和可见部分同样重要。
+              这就是这组 Source Trail 与 Source Map 的意义。图像不是最终答案，而是让展览把“看见”变成一项可追问的历史实践。
             </p>
           </div>
-          <blockquote>
-            这张图像记录的不是全部现实，而是一次观看的条件。
-          </blockquote>
         </div>
       </section>
 
@@ -60,7 +64,7 @@ const pageDescription =
         </div>
         <div class="source-map-entry__panel">
           <p>
-            理解这些图像如何从档案、馆藏、摄影师项目和二级视觉线索进入本展。这里把 Source Index 的链接关系展开成一张更可读的研究图示。
+            了解本展图像如何从档案、馆藏、摄影师项目和二级视线线索进入，并如何在展品层次中被重新组织。Source Map 页面解释来源路径与关系。
           </p>
           <dl>
             <div>
@@ -76,7 +80,7 @@ const pageDescription =
               <dd>{sourceStats.statusCounts["rights unclear"]}</dd>
             </div>
           </dl>
-          <a class="gallery-enter" href="/source-map/">进入来源地图</a>
+          <a class="gallery-enter" href="/source-map/">查看来源地图</a>
         </div>
       </section>
 
@@ -84,7 +88,7 @@ const pageDescription =
       <SourceIndex sources={sources} objects={objects} />
       <Lightbox />
       <footer class="site-footer" aria-label="Project links">
-        <p>Who Holds the Camera? / V1.7 Source Map</p>
+        <p>Who Holds the Camera? / V1.8 SEO + Sitemap + Domain Polish</p>
         <nav>
           <a href="https://who-holds-the-camera.pages.dev/" target="_blank" rel="noreferrer">Live Demo</a>
           <a href="https://github.com/conanxin/who-holds-the-camera" target="_blank" rel="noreferrer">GitHub Repo</a>
