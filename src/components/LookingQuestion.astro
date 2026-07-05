@@ -1,0 +1,12 @@
+---
+interface Props {
+  question: string;
+}
+
+const { question } = Astro.props;
+---
+
+<aside class="looking-question">
+  <span>Looking Question / 观看问题</span>
+  <p>{question}</p>
+</aside>

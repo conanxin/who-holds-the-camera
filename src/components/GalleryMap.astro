@@ -1,0 +1,39 @@
+---
+import type { Gallery } from "@data/exhibition";
+import { exhibition } from "@data/exhibition";
+
+interface Props {
+  galleries: Gallery[];
+}
+
+const { galleries } = Astro.props;
+---
+
+<nav class="gallery-map" id="gallery-map" aria-label="Gallery navigation">
+  <div class="gallery-map__head">
+    <div>
+      <p class="section-kicker">Gallery Navigation / 展厅地图</p>
+      <h2>从印刷图像到开放初期旅行照</h2>
+    </div>
+    <div class="timeline" aria-label="展览年份线">
+      {exhibition.timeline.map((time) => <span>{time}</span>)}
+    </div>
+  </div>
+  <p class="gallery-map__note">沿年份线进入各展厅。每个房间都不是一段历史摘要，而是一组图像来源、观看位置和未完成的问题。</p>
+  <div class="gallery-map__links">
+    {
+      galleries.map((gallery, index) => (
+        <a href={`#${gallery.id}`} class="gallery-map__link">
+          <span class="gallery-map__room">{String(index).padStart(2, "0")}</span>
+          <strong>{gallery.title}</strong>
+          <small>{gallery.years}</small>
+        </a>
+      ))
+    }
+    <a href="#reflection-room" class="gallery-map__link gallery-map__link--quiet">
+      <span>Reflection Room</span>
+      <strong>谁拿着相机？</strong>
+      <small>After viewing</small>
+    </a>
+  </div>
+</nav>

@@ -1,0 +1,93 @@
+---
+import type { ExhibitionObject } from "@data/objects";
+
+interface Props {
+  objects: ExhibitionObject[];
+}
+
+const { objects } = Astro.props;
+const statuses = Array.from(new Set(objects.map((object) => object.status)));
+const statusLabel: Record<ExhibitionObject["status"], string> = {
+  "verified archive source": "Verified archive source",
+  "secondary source only": "Secondary source only",
+  "rights unclear": "Rights unclear",
+  "placeholder pending replacement": "Placeholder pending replacement"
+};
+
+function statusClass(status: ExhibitionObject["status"]) {
+  return status.replace(/\s+/g, "-");
+}
+---
+
+<section class="archive-table-section" id="archive-table" aria-labelledby="archive-table-title">
+  <div class="section-heading">
+    <p class="section-kicker">Archive Table / 展品索引</p>
+    <h2 id="archive-table-title">可筛选展品表</h2>
+  </div>
+  <div class="archive-tools" aria-label="Archive filters">
+    <label>
+      <span>Search</span>
+      <input id="archive-search" type="search" placeholder="标题、作者、地点、标签" />
+    </label>
+    <label>
+      <span>Status</span>
+      <select id="archive-status">
+        <option value="all">All statuses</option>
+        {statuses.map((status) => <option value={status}>{statusLabel[status]}</option>)}
+      </select>
+    </label>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>年代</th>
+          <th>地点</th>
+          <th>作者</th>
+          <th>主题</th>
+          <th>来源</th>
+          <th>版权状态</th>
+        </tr>
+      </thead>
+      <tbody id="archive-rows">
+        {
+          objects.map((object) => (
+            <tr data-status={object.status} data-search={`${object.title} ${object.titleEn} ${object.creator} ${object.place} ${object.tags.join(" ")}`.toLowerCase()}>
+              <td>{object.year}</td>
+              <td>{object.place}</td>
+              <td>{object.creator}</td>
+              <td>{object.tags.join(", ")}</td>
+              <td><a href={object.sourceUrl} target="_blank" rel="noreferrer">{object.credit}</a></td>
+              <td>
+                <span class={`status-badge status-badge--${statusClass(object.status)}`}>{statusLabel[object.status]}</span>
+                <small>{object.rightsNote}</small>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+  const searchInput = document.querySelector("#archive-search");
+  const statusInput = document.querySelector("#archive-status");
+  const rows = Array.from(document.querySelectorAll("#archive-rows tr"));
+
+  function filterArchiveRows() {
+    const query = searchInput instanceof HTMLInputElement ? searchInput.value.trim().toLowerCase() : "";
+    const status = statusInput instanceof HTMLSelectElement ? statusInput.value : "all";
+
+    rows.forEach((row) => {
+      const rowStatus = row.getAttribute("data-status");
+      const rowSearch = row.getAttribute("data-search") ?? "";
+      const matchesStatus = status === "all" || rowStatus === status;
+      const matchesQuery = !query || rowSearch.includes(query);
+      row.toggleAttribute("hidden", !(matchesStatus && matchesQuery));
+    });
+  }
+
+  searchInput?.addEventListener("input", filterArchiveRows);
+  statusInput?.addEventListener("change", filterArchiveRows);
+</script>

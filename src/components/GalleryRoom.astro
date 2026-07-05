@@ -1,0 +1,28 @@
+---
+import type { Gallery } from "@data/exhibition";
+import type { ExhibitionObject } from "@data/objects";
+import LookingQuestion from "./LookingQuestion.astro";
+import ObjectLabel from "./ObjectLabel.astro";
+
+interface Props {
+  gallery: Gallery;
+  objects: ExhibitionObject[];
+}
+
+const { gallery, objects } = Astro.props;
+---
+
+<section class="gallery-room" id={gallery.id} aria-labelledby={`${gallery.id}-title`}>
+  <div class="gallery-room__wall">
+    <p class="section-kicker">{gallery.number} / {gallery.years}</p>
+    <div>
+      <h2 id={`${gallery.id}-title`}>{gallery.title}</h2>
+      <p class="gallery-room__title-en">{gallery.titleEn}</p>
+    </div>
+    <p>{gallery.wallText}</p>
+  </div>
+  <div class="object-grid">
+    {objects.map((object) => <ObjectLabel object={object} />)}
+  </div>
+  <LookingQuestion question={gallery.lookingQuestion} />
+</section>

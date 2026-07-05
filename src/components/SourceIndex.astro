@@ -1,0 +1,51 @@
+---
+import type { ExhibitionObject } from "@data/objects";
+import type { ExhibitionSource } from "@data/sources";
+
+interface Props {
+  sources: ExhibitionSource[];
+  objects: ExhibitionObject[];
+}
+
+const { sources, objects } = Astro.props;
+const sourceOrder = [
+  "Archive / Museum / Library",
+  "Photographer / Estate / Gallery",
+  "Secondary visual trail",
+  "Further reading"
+];
+const grouped = sources.reduce<Record<string, ExhibitionSource[]>>((acc, source) => {
+  acc[source.kind] ??= [];
+  acc[source.kind].push(source);
+  return acc;
+}, {});
+
+function countObjects(sourceId: string) {
+  return objects.filter((object) => object.sourceId === sourceId).length;
+}
+---
+
+<section class="source-index" id="source-index" aria-labelledby="source-index-title">
+  <div class="section-heading">
+    <p class="section-kicker">Source Index / 来源索引</p>
+    <h2 id="source-index-title">从视觉线索回到档案路径</h2>
+  </div>
+  <div class="source-index__groups">
+    {
+      sourceOrder.filter((kind) => grouped[kind]?.length).map((kind) => (
+        <div class="source-index__group">
+          <h3>{kind}</h3>
+          <ul>
+            {grouped[kind].map((source) => (
+              <li>
+                <a href={source.url} target="_blank" rel="noreferrer">{source.name}</a>
+                <span>{countObjects(source.id)} objects</span>
+                <p>{source.note}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>

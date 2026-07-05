@@ -1,0 +1,37 @@
+---
+import type { ExhibitionObject } from "@data/objects";
+import { exhibition } from "@data/exhibition";
+
+interface Props {
+  heroObjects: ExhibitionObject[];
+}
+
+const { heroObjects } = Astro.props;
+---
+
+<section class="entrance" id="entrance" aria-labelledby="entrance-title">
+  <div class="entrance__content">
+    <div class="entrance__copy">
+      <p class="meta-line">{exhibition.form}</p>
+      <h1 id="entrance-title">
+        <span class="title-part">西方镜头中的</span><span class="title-part">中国：</span>
+        <span class="date-line">1870s—1980s</span>
+        <small>{exhibition.titleEn}</small>
+      </h1>
+      <p class="entrance__question">{exhibition.question}</p>
+    </div>
+    <div class="archive-collage" aria-label="档案图片拼贴">
+      {
+        heroObjects.map((object) => (
+          <a class="archive-collage__tile" href={`#${object.galleryId}`} aria-label={object.title}>
+            {object.imageUrl ? (
+              <img src={object.imageUrl} alt={object.imageAlt ?? object.title} loading="eager" />
+            ) : (
+              <span>{object.titleEn}</span>
+            )}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

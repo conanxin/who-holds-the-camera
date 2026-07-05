@@ -1,0 +1,70 @@
+---
+import type { ExhibitionObject } from "@data/objects";
+
+interface Props {
+  object: ExhibitionObject;
+}
+
+const { object } = Astro.props;
+const canEmbed = object.imagePolicy === "embed" && object.imageUrl;
+const sourceHref = object.originalArchiveUrl || object.sourceUrl;
+const statusClass = object.status.replace(/\s+/g, "-");
+const statusLabel: Record<ExhibitionObject["status"], string> = {
+  "verified archive source": "Verified archive source",
+  "secondary source only": "Secondary source only",
+  "rights unclear": "Rights unclear",
+  "placeholder pending replacement": "Placeholder pending replacement"
+};
+---
+
+<article class={`object-card object-card--${object.imagePolicy}`} id={object.id}>
+  <div class="object-card__media">
+    {
+      canEmbed ? (
+        <img src={object.imageUrl} alt={object.imageAlt ?? object.title} loading="lazy" />
+      ) : (
+        <a class="object-card__placeholder" href={sourceHref} target="_blank" rel="noreferrer">
+          <span>Linked source only</span>
+          <strong>{object.credit}</strong>
+        </a>
+      )
+    }
+  </div>
+  <div class="object-card__label">
+    <div class="object-card__topline">
+      <p class="object-card__number">{object.displayNumber}</p>
+      <span class={`status-badge status-badge--${statusClass}`}>{statusLabel[object.status]}</span>
+    </div>
+    <h3>{object.title}</h3>
+    <p class="object-card__title-en">{object.titleEn}</p>
+    <p class="object-card__facts">{object.creator}, {object.year}<br />{object.place} / {object.medium}</p>
+    <p class="object-card__caption">{object.captionZh}</p>
+    <p class="object-card__note">{object.curatorialNote}</p>
+    <dl class="source-trail">
+      <div>
+        <dt>Credit</dt>
+        <dd>{object.credit}</dd>
+      </div>
+      <div>
+        <dt>Source</dt>
+        <dd><a href={object.sourceUrl} target="_blank" rel="noreferrer">sourceUrl</a></dd>
+      </div>
+      <div>
+        <dt>Archive</dt>
+        <dd>
+          {
+            object.originalArchiveUrl ? (
+              <a href={object.originalArchiveUrl} target="_blank" rel="noreferrer">originalArchiveUrl</a>
+            ) : (
+              <span>Not yet verified</span>
+            )
+          }
+        </dd>
+      </div>
+      <div>
+        <dt>Rights</dt>
+        <dd>{object.rightsNote}</dd>
+      </div>
+    </dl>
+  </div>
+</article>
