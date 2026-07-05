@@ -2,6 +2,7 @@
 import FeaturedWork from "@components/FeaturedWork.astro";
 import Lightbox from "@components/Lightbox.astro";
 import LookingQuestion from "@components/LookingQuestion.astro";
+import ObjectGrid from "@components/ObjectGrid.astro";
 import StudyWall from "@components/StudyWall.astro";
 import { galleries, type Gallery } from "@data/exhibition";
 import { getObjectPrimaryMedia, objects, type ExhibitionObject } from "@data/objects";
@@ -23,7 +24,8 @@ const { gallery } = Astro.props;
 const galleryObjects = objects.filter((object) => object.galleryId === gallery.id);
 const featured = galleryObjects[0];
 const featuredMedia = featured ? getObjectPrimaryMedia(featured) : undefined;
-const studyObjects = galleryObjects.slice(1);
+const studyObjects = galleryObjects.slice(1, 7);
+const drawerObjects = galleryObjects.slice(7);
 const relatedSources = sources.filter((source) => galleryObjects.some((object) => object.sourceId === source.id));
 const pageTitle = `${gallery.number}｜${gallery.titleEn} — Who Holds the Camera?`;
 const pageDescription = `${gallery.titleEn}. ${gallery.wallText}`;
@@ -56,6 +58,20 @@ const canonicalPath = `/galleries/${gallery.slug}/`;
     <div class="page-shell">
       {featured && <FeaturedWork object={featured} eyebrow="Hero Work" />}
       <StudyWall objects={studyObjects} />
+      {
+        drawerObjects.length > 0 && (
+          <section class="archive-drawer" aria-labelledby={`${gallery.id}-drawer-title`}>
+            <details>
+              <summary>
+                <span>Archive Drawer / 展品抽屉</span>
+                <strong id={`${gallery.id}-drawer-title`}>展开更多展品</strong>
+                <em>{drawerObjects.length} objects</em>
+              </summary>
+              <ObjectGrid objects={drawerObjects} />
+            </details>
+          </section>
+        )
+      }
       <LookingQuestion question={gallery.lookingQuestion} />
 
       <section class="related-sources" aria-labelledby="related-sources-title">

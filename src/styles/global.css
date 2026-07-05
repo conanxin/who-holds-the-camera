@@ -198,6 +198,7 @@ select {
 }
 
 .curator,
+.overview-stats,
 .gallery-map,
 .exhibition-routes,
 .gallery-preview,
@@ -213,6 +214,47 @@ select {
 .source-legend {
   padding: 82px 0;
   border-bottom: 1px solid var(--line);
+}
+
+.overview-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.overview-stats div {
+  min-height: 150px;
+  padding: 20px;
+  display: grid;
+  align-content: space-between;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+}
+
+.overview-stats strong {
+  font-family:
+    Georgia,
+    "Noto Serif SC",
+    "Songti SC",
+    serif;
+  font-size: clamp(1.6rem, 3.2vw, 3.6rem);
+  font-weight: 430;
+  line-height: 1;
+}
+
+.overview-stats span,
+.gallery-preview__count {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 740;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.gallery-preview__count {
+  margin: 16px 0 0;
+  color: var(--accent);
 }
 
 .curator__grid,
@@ -899,6 +941,64 @@ select {
   display: none;
 }
 
+.archive-drawer {
+  padding: 48px 0 72px;
+  border-bottom: 1px solid var(--line);
+}
+
+.archive-drawer details {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.archive-drawer summary {
+  min-height: 110px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: minmax(180px, 0.36fr) minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.archive-drawer summary span,
+.archive-drawer summary em {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 740;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.archive-drawer summary strong {
+  font-family:
+    Georgia,
+    "Noto Serif SC",
+    "Songti SC",
+    serif;
+  font-size: clamp(1.5rem, 2.8vw, 3rem);
+  font-weight: 430;
+  line-height: 1.1;
+}
+
+.archive-drawer .object-grid {
+  margin: 0;
+  padding: 0 24px 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.archive-drawer .object-card__media {
+  height: 220px;
+}
+
+.archive-drawer .object-card__note,
+.archive-drawer .source-trail {
+  display: none;
+}
+
 .related-sources {
   padding: 78px 0;
   border-bottom: 1px solid var(--line);
@@ -1026,6 +1126,48 @@ select {
   line-height: 1.62;
 }
 
+.lightbox__meta {
+  margin: -8px 0 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 740;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lightbox__label > .status-badge {
+  margin-bottom: 18px;
+}
+
+.lightbox__nav {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lightbox__nav button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 12px 8px;
+  color: var(--accent);
+  background: var(--paper);
+  font-size: 0.72rem;
+  font-weight: 740;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.lightbox__nav button:hover,
+.lightbox__nav button:focus-visible {
+  border-color: rgba(143, 45, 36, 0.48);
+  background: rgba(143, 45, 36, 0.08);
+}
+
 .lightbox__close {
   position: absolute;
   top: 14px;
@@ -1085,7 +1227,7 @@ select {
 .archive-tools {
   margin-bottom: 18px;
   display: grid;
-  grid-template-columns: minmax(240px, 1fr) minmax(200px, 280px);
+  grid-template-columns: minmax(240px, 1fr) minmax(180px, 240px) minmax(180px, 240px);
   gap: 12px;
 }
 
@@ -1737,6 +1879,7 @@ tr[hidden] {
   }
 
   .gallery-map__links,
+  .overview-stats,
   .route-grid,
   .object-grid,
   .featured-work,
@@ -1772,6 +1915,7 @@ tr[hidden] {
   }
 
   .study-wall__grid .object-grid,
+  .archive-drawer .object-grid,
   .related-sources__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1826,6 +1970,7 @@ tr[hidden] {
   }
 
   .curator,
+  .overview-stats,
   .gallery-map,
   .exhibition-routes,
   .gallery-preview,
@@ -1847,11 +1992,13 @@ tr[hidden] {
   }
 
   .gallery-map__links,
+  .overview-stats,
   .route-grid,
   .object-grid,
   .featured-work,
   .gallery-detail-hero,
   .study-wall__grid .object-grid,
+  .archive-drawer .object-grid,
   .related-sources__grid,
   .reflection-room__grid,
   .source-index__groups,
@@ -1871,6 +2018,15 @@ tr[hidden] {
   .source-map-entry__panel,
   .source-map-entry__panel dl {
     grid-template-columns: 1fr;
+  }
+
+  .archive-drawer summary {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .archive-drawer .object-grid {
+    padding: 0 14px 14px;
   }
 
   .source-map-hero {

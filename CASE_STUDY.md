@@ -26,6 +26,8 @@ V1.8 focuses on discoverability without changing the exhibition structure: SEO m
 
 V1.9 switches production references to the custom domain `https://camera.conanxin.com` while keeping `https://who-holds-the-camera.pages.dev/` as a fallback endpoint and maintaining the same exhibition architecture.
 
+V2.0 expands the exhibition from 44 to 90 objects without turning the home page into a waterfall grid. More material now lives inside dedicated gallery pages through Featured Work, Focus Pair, Study Wall, Archive Drawer, and enhanced Lightbox viewing.
+
 ## 4. Design System
 
 - Warm paper-like palette
@@ -45,17 +47,17 @@ V1.9 switches production references to the custom domain `https://camera.conanxi
 
 ## 6. Result
 
-- 7 Gallery rooms
-- 7 dedicated Gallery pages
-- 44 Objects
+- 9 Gallery rooms
+- 9 dedicated Gallery pages
+- 90 Objects
 - 5 Exhibition routes
 - Source Map page with Archive Graph, gallery source flows, and node cards
-- Lightbox close-view mode
-- 26 verified archive source
-- 17 rights unclear
-- 1 secondary source only
+- Lightbox close-view mode with gallery, object number, source status, and source links
+- Archive Drawer on gallery pages
+- 50 verified archive source
+- 38 rights unclear
+- 2 secondary source only
 - 0 placeholder pending replacement
-- 1 rights-unclear increase due added linked-preview items in expansion phase
 - Cloudflare Pages public deployment available
 
 ## 7. What I Learned
@@ -66,3 +68,4 @@ A stronger exhibition structure is not only about adding more images. It is buil
 
 For V1.8, the key lesson was that discoverability is part of exhibition quality. Canonical tags, sitemap, OG data, and structured metadata make the work easier to find without changing curation intent.
 For V1.9, the lesson is that domain-level consistency is also a curatorial infrastructure task: stable URLs and metadata keep source evidence, links, and reference points reliable across sharing and indexing contexts.
+For V2.0, the lesson is that scale only works when rhythm is preserved. More objects need drawers, pairings, and close-looking paths, not a longer flat page.

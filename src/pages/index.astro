@@ -1,4 +1,4 @@
----
+﻿---
 import ArchiveTable from "@components/ArchiveTable.astro";
 import CuratorStatement from "@components/CuratorStatement.astro";
 import ExhibitionEntrance from "@components/ExhibitionEntrance.astro";
@@ -18,6 +18,7 @@ const objectsByGallery = galleries.map((gallery) => ({
   gallery,
   objects: objects.filter((object) => object.galleryId === gallery.id)
 }));
+const galleryPageCount = galleries.length;
 const pageTitle = "Who Holds the Camera? 西方镜头中的中国";
 const pageDescription =
   "一个关于摄影、权力、记忆与“China”视觉建构的中文线上展览。以 Flashbak 等视觉线索为入口，持续追溯档案馆、博物馆、摄影师项目和公共资料库的原始记录。";
@@ -33,6 +34,28 @@ const pageDescription =
     <ExhibitionEntrance heroObjects={heroObjects} />
     <div class="page-shell">
       <CuratorStatement />
+      <section class="overview-stats" aria-label="Exhibition numbers">
+        <div>
+          <strong>{galleryPageCount}</strong>
+          <span>Galleries</span>
+        </div>
+        <div>
+          <strong>{objects.length}</strong>
+          <span>Objects</span>
+        </div>
+        <div>
+          <strong>Source Map</strong>
+          <span>Archive graph</span>
+        </div>
+        <div>
+          <strong>Lightbox</strong>
+          <span>Close looking mode</span>
+        </div>
+        <div>
+          <strong>Archive Table</strong>
+          <span>Filterable index</span>
+        </div>
+      </section>
       <GalleryMap galleries={galleries} />
       <ExhibitionRoutes routes={exhibitionRoutes} />
       {objectsByGallery.map(({ gallery, objects }) => <GalleryPreview gallery={gallery} objects={objects} />)}
@@ -88,7 +111,7 @@ const pageDescription =
       <SourceIndex sources={sources} objects={objects} />
       <Lightbox />
       <footer class="site-footer" aria-label="Project links">
-        <p>Who Holds the Camera? / V1.9 Custom Domain Activation</p>
+        <p>Who Holds the Camera? / V2.0 Exhibition Content Expansion + Immersive Viewing</p>
         <nav>
           <a href="https://camera.conanxin.com/" target="_blank" rel="noreferrer">Live Demo</a>
           <a href="https://github.com/conanxin/who-holds-the-camera" target="_blank" rel="noreferrer">GitHub Repo</a>
@@ -97,3 +120,4 @@ const pageDescription =
     </div>
   </main>
 </BaseLayout>
+

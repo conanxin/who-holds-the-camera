@@ -117,6 +117,30 @@ export const galleries: Gallery[] = [
     wallText:
       "1982 年的中国旅行照片常被今天的网络重新发现：自行车、街道、商店、笑脸和新旧并置，被包装成“罕见的真实瞬间”。但旅行摄影从来不只是发现。路线、许可、翻译、陪同和好奇心共同决定镜头能看见什么。这个展厅把二次传播保留下来，也标出它尚未完成的来源问题。",
     lookingQuestion: "开放初期的“可参观”，是谁为谁打开的？"
+  },
+  {
+    id: "gallery-07",
+    slug: "07-shanghai-lens",
+    number: "Gallery 07",
+    title: "上海镜头：租界、街道与现代都市",
+    titleEn: "Shanghai as photographed, collected, mapped, and re-circulated",
+    years: "1900s-1950s",
+    timeline: "1920s",
+    wallText:
+      "上海镜头在外部视觉中同时出现了港口、租界、街道和消费景观。酒店、码头、商铺与道路被组织成可阅读的现代秩序，而日常劳动与城市边缘往往不在这套秩序中心。",
+    lookingQuestion: "当一座城市被称为现代，它的哪些人和空间被排除在画面之外？"
+  },
+  {
+    id: "gallery-08",
+    slug: "08-propaganda-futures",
+    number: "Gallery 08",
+    title: "宣传画与未来想象",
+    titleEn: "Posters, children, rockets, workers, and the visual language of national future",
+    years: "1950s-1980s",
+    timeline: "1970s",
+    wallText:
+      "宣传画以儿童、劳动、科技、体育、农业和工业组织成可见的国家未来。它们并非中性插图，而是明确分配社会角色与期待位置的一种视觉制度。",
+    lookingQuestion: "当未来被画成一张海报，谁被邀请进入未来？谁被留在画面之外？"
   }
 ];
 
@@ -148,7 +172,9 @@ export const exhibitionRoutes: ExhibitionRoute[] = [
       { label: "Gallery 03", href: "#gallery-03" },
       { label: "Gallery 04", href: "#gallery-04" },
       { label: "Gallery 05", href: "#gallery-05" },
-      { label: "Gallery 06", href: "#gallery-06" }
+      { label: "Gallery 06", href: "#gallery-06" },
+      { label: "Gallery 07", href: "#gallery-07" },
+      { label: "Gallery 08", href: "#gallery-08" }
     ],
     lookingQuestion: "当时间线走完，哪些图像仍在说话，哪些只留下了来源路径？"
   },

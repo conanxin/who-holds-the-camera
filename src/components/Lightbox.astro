@@ -7,6 +7,11 @@
     </div>
     <div class="lightbox__label">
       <p class="section-kicker">Close Looking / 近看</p>
+      <p class="lightbox__meta">
+        <span data-lightbox-gallery></span>
+        <span data-lightbox-display></span>
+      </p>
+      <span class="status-badge" data-lightbox-status></span>
       <h2 data-lightbox-title></h2>
       <p data-lightbox-caption></p>
       <dl class="source-trail">
@@ -19,6 +24,10 @@
           <dd><a data-lightbox-source href="#" target="_blank" rel="noreferrer">查看来源</a></dd>
         </div>
         <div>
+          <dt>Archive</dt>
+          <dd><a data-lightbox-archive href="#" target="_blank" rel="noreferrer">查看馆藏</a></dd>
+        </div>
+        <div>
           <dt>Rights</dt>
           <dd data-lightbox-rights></dd>
         </div>
@@ -27,6 +36,10 @@
           <dd data-lightbox-note></dd>
         </div>
       </dl>
+      <div class="lightbox__nav" aria-label="Object navigation">
+        <button type="button" data-lightbox-prev>Previous</button>
+        <button type="button" data-lightbox-next>Next</button>
+      </div>
     </div>
   </section>
 </div>
@@ -35,13 +48,20 @@
   const lightbox = document.querySelector("[data-lightbox]");
   const image = document.querySelector("[data-lightbox-image]");
   const title = document.querySelector("[data-lightbox-title]");
+  const gallery = document.querySelector("[data-lightbox-gallery]");
+  const display = document.querySelector("[data-lightbox-display]");
+  const status = document.querySelector("[data-lightbox-status]");
   const caption = document.querySelector("[data-lightbox-caption]");
   const credit = document.querySelector("[data-lightbox-credit]");
   const source = document.querySelector("[data-lightbox-source]");
+  const archive = document.querySelector("[data-lightbox-archive]");
   const rights = document.querySelector("[data-lightbox-rights]");
   const note = document.querySelector("[data-lightbox-note]");
   const triggers = Array.from(document.querySelectorAll(".js-lightbox-trigger"));
   const closers = Array.from(document.querySelectorAll("[data-lightbox-close]"));
+  const prevButton = document.querySelector("[data-lightbox-prev]");
+  const nextButton = document.querySelector("[data-lightbox-next]");
+  let currentIndex = -1;
 
   function setText(node, value) {
     if (node instanceof HTMLElement) {
@@ -51,16 +71,33 @@
 
   function openLightbox(trigger) {
     if (!(lightbox instanceof HTMLElement) || !(image instanceof HTMLImageElement)) return;
+
+    currentIndex = triggers.indexOf(trigger);
     image.src = trigger.dataset.src || "";
     image.alt = trigger.dataset.alt || "";
     setText(title, trigger.dataset.title);
+    setText(gallery, trigger.dataset.gallery);
+    setText(display, trigger.dataset.display);
     setText(caption, trigger.dataset.caption);
     setText(credit, trigger.dataset.credit);
     setText(rights, trigger.dataset.rights);
     setText(note, trigger.dataset.note);
+
+    if (status instanceof HTMLElement) {
+      status.textContent = trigger.dataset.status || "";
+      status.className = `status-badge status-badge--${trigger.dataset.statusClass || ""}`;
+    }
+
     if (source instanceof HTMLAnchorElement) {
       source.href = trigger.dataset.source || "#";
+      source.textContent = trigger.dataset.sourceLabel || "查看来源";
     }
+
+    if (archive instanceof HTMLAnchorElement) {
+      archive.href = trigger.dataset.archive || trigger.dataset.source || "#";
+      archive.textContent = trigger.dataset.archiveLabel || "查看馆藏";
+    }
+
     lightbox.hidden = false;
     document.body.classList.add("has-lightbox");
   }
@@ -72,6 +109,15 @@
     document.body.classList.remove("has-lightbox");
   }
 
+  function openByOffset(offset) {
+    if (!triggers.length || currentIndex < 0) return;
+    const nextIndex = (currentIndex + offset + triggers.length) % triggers.length;
+    const nextTrigger = triggers[nextIndex];
+    if (nextTrigger instanceof HTMLElement) {
+      openLightbox(nextTrigger);
+    }
+  }
+
   triggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
       if (trigger instanceof HTMLElement) {
@@ -81,9 +127,18 @@
   });
 
   closers.forEach((closer) => closer.addEventListener("click", closeLightbox));
+  prevButton?.addEventListener("click", () => openByOffset(-1));
+  nextButton?.addEventListener("click", () => openByOffset(1));
+
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeLightbox();
+    }
+    if (!lightbox?.hasAttribute("hidden") && event.key === "ArrowLeft") {
+      openByOffset(-1);
+    }
+    if (!lightbox?.hasAttribute("hidden") && event.key === "ArrowRight") {
+      openByOffset(1);
     }
   });
 </script>

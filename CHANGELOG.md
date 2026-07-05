@@ -1,5 +1,19 @@
 # Changelog
 
+## V2.0 — Exhibition Content Expansion + Immersive Viewing
+
+- Expanded the exhibition from 44 to 90 objects.
+- Added Gallery 07: Shanghai Lens.
+- Added Gallery 08: Propaganda Futures.
+- Increased gallery overview sections and dedicated gallery pages from 7 to 9.
+- Added V2 object data layer in `src/data/v20Objects.ts`.
+- Deepened gallery pages with Archive Drawer sections while preserving the home page as an overview exhibition.
+- Enhanced Lightbox with gallery context, object number, source status, source links, and previous / next navigation.
+- Updated Archive Table with gallery filtering and 90 rendered rows.
+- Synced Source Map statistics through the shared object/source data model.
+- Verified 60 unique image preview URLs returning 200 in the generated site.
+- Current status counts: 50 verified archive source, 38 rights unclear, 2 secondary source only, 0 placeholder pending replacement.
+
 ## V1.8 — SEO + Sitemap + Domain Polish
 
 - Added `@astrojs/sitemap` integration and configured `site` in `astro.config.mjs`.

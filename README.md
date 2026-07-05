@@ -2,7 +2,7 @@
 
 Live Demo: https://camera.conanxin.com/ (fallback: https://who-holds-the-camera.pages.dev/)
 GitHub Repo: https://github.com/conanxin/who-holds-the-camera  
-Status: V1.9 Custom Domain Activation  
+Status: V2.0 Exhibition Content Expansion + Immersive Viewing  
 Tech: Astro / TypeScript / Static Site / Cloudflare Pages
 
 ## Project Overview
@@ -20,6 +20,8 @@ Exhibition question:
 The project builds a viewing workflow where object labels, source trail, rights status, archive table, and source map are part of interpretation.
 
 ## Screenshots
+
+Current screenshots document the public exhibition UI. V2.0 keeps the same visual system and adds deeper gallery pages, Archive Drawer sections, and a richer Lightbox state.
 
 - [hero-desktop.png](docs/screenshots/hero-desktop.png)
 - [routes-desktop.png](docs/screenshots/routes-desktop.png)
@@ -39,21 +41,22 @@ The project builds a viewing workflow where object labels, source trail, rights 
 
 ## Exhibition Structure
 
-- 7 Gallery overview rooms
-- 7 dedicated gallery pages
-- 44 objects
+- 9 Gallery overview rooms
+- 9 dedicated gallery pages
+- 90 objects
 - 5 exhibition routes
 - Source Map: `/source-map/`
 - Archive Table
 - Source Index
-- Lightbox close-view mode
+- Lightbox close-view mode with gallery, status, and source context
+- Archive Drawer on each gallery page
 
 ## Source Status
 
-- verified archive source
-- secondary source only
-- rights unclear
-- placeholder pending replacement
+- verified archive source: 50
+- rights unclear: 38
+- secondary source only: 2
+- placeholder pending replacement: 0
 
 ## SEO, Sitemap, and Shareability
 
@@ -103,3 +106,5 @@ npm.cmd run preview -- --port 4323
 - V1.7 completed: Source Map page and Archive Graph.
 - V1.8 completed: SEO hardening, sitemap, robots, structured data, and custom domain preparation.
 - V1.9 completed: production migration to camera.conanxin.com with domain-level SEO and fallback parity.
+- V2.0 completed: expanded from 44 to 90 objects, added Gallery 07 Shanghai Lens and Gallery 08 Propaganda Futures, deepened gallery pages with Archive Drawer and enhanced Lightbox context.
+- V2.1 planned: source map refinements, screenshot refresh, and bilingual label groundwork.

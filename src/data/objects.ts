@@ -1,3 +1,5 @@
+import { v20Objects } from "./v20Objects";
+
 export type SourceStatus =
   | "verified archive source"
   | "secondary source only"
@@ -1396,4 +1398,4 @@ export function getObjectPrimaryMedia(object: ExhibitionObject) {
   return media.find((item) => item.role === "primary") ?? media[0];
 }
 
-export const objects: ExhibitionObject[] = [...baseObjects, ...expandedObjects].map(withDefaultMedia);
+export const objects: ExhibitionObject[] = [...baseObjects, ...expandedObjects, ...v20Objects].map(withDefaultMedia);

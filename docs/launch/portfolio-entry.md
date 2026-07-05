@@ -1,4 +1,4 @@
-# Who Holds the Camera? 西方镜头中的中国
+﻿# Who Holds the Camera? 西方镜头中的中国
 
 Role:
 AI-assisted curator / frontend builder / visual archive researcher
@@ -13,17 +13,19 @@ Solution:
 把视觉材料设计成线上展览，加入总览展、Gallery 单页、Object Label、Study Wall、Lightbox、Source Index、Archive Table、Looking Question 和来源状态 badge。
 
 Impact:
-- 7 个 Gallery
-- 7 个 Gallery 单页
-- 44 件展品
+- 9 个 Gallery
+- 9 个 Gallery 单页
+- 90 件展品
 - 5 条参观路线
-- Lightbox 近看模式
-- 26 个 verified archive source
-- 17 个 rights unclear
-- 1 个 secondary source only
+- Lightbox 近看模式与 Archive Drawer 展品抽屉
+- 50 个 verified archive source
+- 38 个 rights unclear
+- 2 个 secondary source only
 - Cloudflare Pages 公开部署
 
 Links:
 - Live Demo: https://camera.conanxin.com/
 - GitHub: https://github.com/conanxin/who-holds-the-camera
 - Case Study: ../../CASE_STUDY.md
+
+

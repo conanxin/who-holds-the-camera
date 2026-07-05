@@ -1,4 +1,4 @@
-# X Thread English
+﻿# X Thread English
 
 1/8
 I built a Chinese digital exhibition called Who Holds the Camera? China Through Other Lenses.
@@ -13,7 +13,7 @@ Secondary visual pages are treated as leads. The project keeps tracing objects b
 3/8
 The site is structured as an online exhibition:
 
-Entrance, curator's statement, gallery map, exhibition routes, 7 gallery overview sections, 7 dedicated gallery pages, object labels, looking questions, archive table, and source index.
+Entrance, curator's statement, gallery map, exhibition routes, 9 gallery overview sections, 9 dedicated gallery pages, object labels, looking questions, archive table, and source index.
 
 The home page now works as an overview exhibition instead of laying every object into one long grid.
 
@@ -30,14 +30,14 @@ The interface shows verified archive source, rights unclear, secondary source on
 6/8
 Current scope:
 
-- 7 galleries
-- 7 dedicated gallery pages
-- 44 objects
+- 9 galleries
+- 9 dedicated gallery pages
+- 90 objects
 - 5 exhibition routes
 - Lightbox viewing mode
-- 26 verified archive source objects
-- 17 rights unclear objects
-- 1 secondary source only object
+- 50 verified archive source objects
+- 38 rights unclear objects
+- 2 secondary source only objects
 
 7/8
 This is also an AI-assisted curation experiment.
@@ -50,3 +50,5 @@ https://camera.conanxin.com/
 
 GitHub:
 https://github.com/conanxin/who-holds-the-camera
+
+

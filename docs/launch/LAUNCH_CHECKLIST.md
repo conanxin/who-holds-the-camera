@@ -1,4 +1,4 @@
-# Launch Execution Checklist
+﻿# Launch Execution Checklist
 
 ## 0. Metadata
 
@@ -9,7 +9,7 @@ GitHub:
 https://github.com/conanxin/who-holds-the-camera
 
 Current release:
-V1.9 Custom Domain Activation
+V2.0 Exhibition Content Expansion + Immersive Viewing
 
 ## 1. GitHub 发布
 
@@ -123,3 +123,4 @@ Before publishing:
 - [ ] Lightbox opens from an object image.
 - [ ] Rights status badges are still visible.
 - [ ] Screenshot links in README are not broken.
+

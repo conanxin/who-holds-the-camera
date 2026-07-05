@@ -1,5 +1,6 @@
 ---
 import { getObjectPrimaryMedia, type ExhibitionObject } from "@data/objects";
+import { galleries } from "@data/exhibition";
 
 interface Props {
   object: ExhibitionObject;
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const { object, eyebrow = "Featured Work" } = Astro.props;
+const gallery = galleries.find((item) => item.id === object.galleryId);
 const media = getObjectPrimaryMedia(object);
 const sourceHref = object.originalArchiveUrl || object.sourceUrl;
 const isLinkedPreview = media?.role === "linkedPreview";
@@ -36,6 +38,13 @@ const statusLabel: Record<ExhibitionObject["status"], string> = {
           data-caption={media.caption || object.captionZh}
           data-credit={media.credit || object.credit}
           data-source={sourceHref}
+          data-archive={object.originalArchiveUrl}
+          data-source-label={sourceLabel}
+          data-archive-label={archiveLabel}
+          data-gallery={gallery ? `${gallery.number} / ${gallery.title}` : object.galleryId}
+          data-display={object.displayNumber}
+          data-status={statusLabel[object.status]}
+          data-status-class={statusClass}
           data-rights={object.rightsNote}
           data-note={object.curatorialNote}
           aria-label={`查看大图：${object.title}`}

@@ -1,4 +1,4 @@
-# 小红书 / 即刻发布稿
+﻿# 小红书 / 即刻发布稿
 
 ## 标题备选
 
@@ -20,12 +20,12 @@
 - 策展人导言
 - 展厅地图
 - 5 条参观路线
-- 7 个 Gallery 总览区
-- 7 个 Gallery 单页
-- 44 件展品
+- 9 个 Gallery 总览区
+- 9 个 Gallery 单页
+- 90 件展品
 - Object Label
 - Study Wall
-- Lightbox 近看模式
+- Lightbox 近看模式与 Archive Drawer 展品抽屉
 - Looking Question
 - Archive Table
 - Source Index
@@ -38,7 +38,7 @@
 
 有些图片授权不明确，就只作为外链线索展示，不把它们假装成可以自由使用的素材。
 
-V1.6 后首页不再平铺全部展品，而是作为总览展；每个 Gallery 单页再展开主作品、双联展品、研究墙和近看模式。
+V2.0 后首页仍是总览展；更多展品进入 Gallery 单页，并通过主作品、双联展品、研究墙、Archive Drawer 和 Lightbox 建立观看节奏。
 
 这个项目对我来说也是一次 AI 辅助策展实验。AI 可以帮忙搭结构、写初稿、做界面，但“来源从哪里来”“权利是否明确”“不确定性如何显示”，这些判断不能被省略。
 
@@ -64,3 +64,4 @@ https://github.com/conanxin/who-holds-the-camera
 ## 标签建议
 
 #数字策展 #线上展览 #AI辅助创作 #视觉档案 #摄影史 #Astro #CloudflarePages
+

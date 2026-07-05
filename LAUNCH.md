@@ -1,4 +1,4 @@
-# Public Launch Kit
+﻿# Public Launch Kit
 
 ## 项目一句话介绍
 
@@ -6,13 +6,13 @@
 
 ## 100 字中文简介
 
-这是一个关于摄影、权力与记忆的中文线上展览。项目从 Flashbak 等二级视觉线索出发，继续追溯档案馆、博物馆、摄影师项目与公共资料，把 44 件图像材料组织成 7 个展厅、7 个单独 Gallery 页面和 5 条参观路线，并公开标注来源状态、版权不确定性和观看问题。
+这是一个关于摄影、权力与记忆的中文线上展览。项目从 Flashbak 等二级视觉线索出发，继续追溯档案馆、博物馆、摄影师项目与公共资料，把 90 件图像材料组织成 9 个展厅、9 个单独 Gallery 页面和 5 条参观路线，并公开标注来源状态、版权不确定性和观看问题。
 
 ## 300 字中文简介
 
 《Who Holds the Camera? 西方镜头中的中国》不是一个怀旧老照片网页，也不是 Flashbak 中文版。它把二级传播中的视觉线索作为入口，继续回到 Wellcome Collection、Library of Congress、University of Bristol Historical Photographs of China、The Met、M+、摄影师项目和画廊页面等更接近原始来源的位置。
 
-页面被设计成线上展览：有入口、策展人导言、展厅地图、5 条参观路线、7 个 Gallery 总览区、7 个 Gallery 单页、44 件展品、Object Label、Study Wall、Lightbox、Looking Question、Archive Table 和 Source Index。首页不再平铺全部展品，而是作为总览展；每个单独展厅承担更深入的观看节奏。每件展品都标注来源状态，例如 verified archive source、rights unclear、secondary source only。授权不明确的图像不被伪装成公共领域素材，而是作为外链线索和研究路径展示。
+页面被设计成线上展览：有入口、策展人导言、展厅地图、5 条参观路线、9 个 Gallery 总览区、9 个 Gallery 单页、90 件展品、Object Label、Study Wall、Lightbox、Looking Question、Archive Table 和 Source Index。首页不再平铺全部展品，而是作为总览展；每个单独展厅承担更深入的观看节奏。每件展品都标注来源状态，例如 verified archive source、rights unclear、secondary source only。授权不明确的图像不被伪装成公共领域素材，而是作为外链线索和研究路径展示。
 
 这个项目也是一次 AI 辅助数字策展实验：AI 可以帮助快速搭建结构、文案和界面，但来源判断、权利说明和不确定性的呈现必须被显式设计出来。
 
@@ -20,7 +20,7 @@
 
 Who Holds the Camera? is a Chinese digital exhibition about photography, power, memory, and the visual construction of "China" through Western-facing image trails. The project starts from secondary visual leads such as Flashbak, then traces objects back toward archives, museums, photographer projects, galleries, university collections, and public-domain repositories.
 
-Instead of presenting historical photographs as a nostalgic image grid, the site treats each object as a source trail. The home page now works as an overview exhibition, with dedicated gallery pages for deeper looking. It includes 7 gallery overview sections, 7 gallery pages, 44 object labels, 5 exhibition routes, a Lightbox viewing mode, a filterable Archive Table, and a Source Index that makes rights status and research limits visible.
+Instead of presenting historical photographs as a nostalgic image grid, the site treats each object as a source trail. The home page now works as an overview exhibition, with dedicated gallery pages for deeper looking. It includes 9 gallery overview sections, 9 gallery pages, 90 object labels, 5 exhibition routes, a Lightbox viewing mode, Archive Drawer sections, a filterable Archive Table, and a Source Index that makes rights status and research limits visible.
 
 ## X 帖子版本
 
@@ -51,14 +51,14 @@ An AI-assisted digital exhibition and static site project that combines visual a
 
 ## 项目亮点
 
-- 7 个 Gallery，从摄影之前的图像复制到 1982 年开放初期旅行影像。
-- 44 件展品，每件都有 museum-style object label 和 source trail。
-- 7 个 Gallery 单页，把首页从“长列表”改成“总览展 + 深入观看”。
+- 9 个 Gallery，从摄影之前的图像复制到 1982 年开放初期旅行影像。
+- 90 件展品，每件都有 museum-style object label 和 source trail。
+- 9 个 Gallery 单页，把首页从“长列表”改成“总览展 + 深入观看”。
 - 5 条参观路线，支持快速参观、完整参观、香港影像、海外华人和图像技术路径。
-- Lightbox 近看模式，显示 caption、credit、rights note、source 和 curatorial note。
-- Archive Table 支持按来源状态筛选。
+- Lightbox 近看模式与 Archive Drawer 展品抽屉，显示 caption、credit、rights note、source 和 curatorial note。
+- Archive Table 支持按来源状态和 Gallery 筛选。
 - Source Index 按 Archive / Museum / Library、Photographer / Estate / Gallery、Secondary visual trail、Further reading 分组。
-- 公开显示 17 个 rights unclear 和 1 个 secondary source only，不把不确定性藏起来。
+- 公开显示 38 个 rights unclear 和 2 个 secondary source only，不把不确定性藏起来。
 - Astro + TypeScript + CSS 静态站点，部署到 Cloudflare Pages。
 
 ## 可配图截图建议
@@ -70,3 +70,5 @@ An AI-assisted digital exhibition and static site project that combines visual a
 - `docs/screenshots/lightbox-v16.png`: 用于展示近看模式。
 - `docs/screenshots/source-index-v16.png`: 用于展示 Source Index、来源分组和研究透明度。
 - `docs/screenshots/mobile-hero.png`: 用于中文社媒或移动端预览说明。
+
+

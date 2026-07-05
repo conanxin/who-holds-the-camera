@@ -128,6 +128,72 @@ export const sources: ExhibitionSource[] = [
     reliabilityNote: "比二次传播更接近摄影师来源；Flickr 记录显示 all rights reserved 时，本展只做外链。"
   },
   {
+    id: "virtual-shanghai",
+    name: "Virtual Shanghai",
+    kind: "Archive / Museum / Library",
+    sourceType: "Archive / Museum / Library",
+    url: "https://www.virtualshanghai.net/",
+    note: "Historical image and text resources on Shanghai modern urban culture, mapped through presentation pages and albums.",
+    descriptionZh: "上海影像与历史素材索引，强调城市景观、街景、码头与日常生活图景的空间化叙事。",
+    usedFor: "Gallery 07 上海镜头。补充上海街景与现代都市视角的外部来源。",
+    reliabilityNote: "来源于城市研究与馆藏型平台，内容中部分页面为展示页面，图像级权属需按原站说明判定。"
+  },
+  {
+    id: "mit-thomson",
+    name: "MIT Visualizing Cultures / John Thomson",
+    kind: "Archive / Museum / Library",
+    sourceType: "Archive / Museum / Library",
+    url: "https://visualizingcultures.mit.edu/john_thomson_china_01/ct_essay01.html",
+    note: "Scholarship and selected plate reproductions for John Thomson’s China project.",
+    descriptionZh: "提供 John Thomson 影像语境与图像文本说明，支持对清末摄影影像结构的阅读。",
+    usedFor: "Gallery 01 与 Gallery 00 的视觉关系说明；Gallery 07 的视觉史对照。",
+    reliabilityNote: "学术型页面与图像说明可用于背景与结构说明，影像权限以原链接的嵌入与再用条款为准。"
+  },
+  {
+    id: "chinese-posters",
+    name: "Chinese Posters",
+    kind: "Archive / Museum / Library",
+    sourceType: "Archive / Museum / Library",
+    url: "https://chineseposters.net/",
+    note: "Poster collections and catalog records related to Chinese visual production and social iconography.",
+    descriptionZh: "聚焦宣传画、社会海报与视觉叙事的作品集与检索入口。",
+    usedFor: "Gallery 08 宣传画与未来想象。用于图像线索与类型识别。",
+    reliabilityNote: "部分内容为索引与展示页，版权与可再用范围需逐件核对。"
+  },
+  {
+    id: "ucsd-posters",
+    name: "UCSD Chinese Cultural Revolution Posters",
+    kind: "Archive / Museum / Library",
+    sourceType: "Archive / Museum / Library",
+    url: "https://library.ucsd.edu/dc/collection/bb67250839",
+    note: "Library digital object list of Chinese Cultural Revolution posters.",
+    descriptionZh: "北美大学馆藏的文化大革命宣传画线索集合，适合作为来源追索入口。",
+    usedFor: "Gallery 08，补充 1950s-1980s 宣传图像语境。",
+    reliabilityNote: "数字目录与索引级页面为主，个别对象页附带使用与版权限制说明。"
+  },
+  {
+    id: "whitworth-posters",
+    name: "Whitworth Chinese Art Posters",
+    kind: "Archive / Museum / Library",
+    sourceType: "Archive / Museum / Library",
+    url: "https://digitalcommons.whitworth.edu/chinese_art_posters/",
+    note: "Repository for Chinese poster records and curated lists.",
+    descriptionZh: "数字档案与研究论文集合，为宣传画主题提供跨机构索引。",
+    usedFor: "Gallery 08 的可访问性核验与图像线索补充。",
+    reliabilityNote: "仓储与论文集合，需按单件记录页判断展示权限与嵌入可用性。"
+  },
+  {
+    id: "chinese-posters-met",
+    name: "Met / Ten Bamboo references (extended)",
+    kind: "Archive / Museum / Library",
+    sourceType: "Archive / Museum / Library",
+    url: "https://www.metmuseum.org/art/collection/search?q=Ten+Bamboo+Studio+Manual",
+    note: "Extended search and print references for Ten Bamboo Studio related visual materials.",
+    descriptionZh: "用于 Gallery 00 的附加图像索引与印刷图像补充。",
+    usedFor: "Gallery 00，继续补充清代木版印刷图像样本。",
+    reliabilityNote: "以大都会馆藏页面作为核验入口，图像权属按馆藏记录逐件判定。"
+  },
+  {
     id: "flashbak",
     name: "Flashbak",
     kind: "Secondary visual trail",

@@ -1,5 +1,6 @@
 ---
 import type { ExhibitionObject } from "@data/objects";
+import { galleries } from "@data/exhibition";
 
 interface Props {
   objects: ExhibitionObject[];
@@ -36,6 +37,13 @@ function statusClass(status: ExhibitionObject["status"]) {
         {statuses.map((status) => <option value={status}>{statusLabel[status]}</option>)}
       </select>
     </label>
+    <label>
+      <span>Gallery</span>
+      <select id="archive-gallery">
+        <option value="all">All galleries</option>
+        {galleries.map((gallery) => <option value={gallery.id}>{gallery.number}</option>)}
+      </select>
+    </label>
   </div>
   <div class="table-scroll">
     <table>
@@ -52,7 +60,7 @@ function statusClass(status: ExhibitionObject["status"]) {
       <tbody id="archive-rows">
         {
           objects.map((object) => (
-            <tr data-status={object.status} data-search={`${object.title} ${object.titleEn} ${object.creator} ${object.place} ${object.tags.join(" ")}`.toLowerCase()}>
+            <tr data-status={object.status} data-gallery={object.galleryId} data-search={`${object.title} ${object.titleEn} ${object.creator} ${object.place} ${object.tags.join(" ")}`.toLowerCase()}>
               <td>{object.year}</td>
               <td>{object.place}</td>
               <td>{object.creator}</td>
@@ -73,21 +81,26 @@ function statusClass(status: ExhibitionObject["status"]) {
 <script>
   const searchInput = document.querySelector("#archive-search");
   const statusInput = document.querySelector("#archive-status");
+  const galleryInput = document.querySelector("#archive-gallery");
   const rows = Array.from(document.querySelectorAll("#archive-rows tr"));
 
   function filterArchiveRows() {
     const query = searchInput instanceof HTMLInputElement ? searchInput.value.trim().toLowerCase() : "";
     const status = statusInput instanceof HTMLSelectElement ? statusInput.value : "all";
+    const gallery = galleryInput instanceof HTMLSelectElement ? galleryInput.value : "all";
 
     rows.forEach((row) => {
       const rowStatus = row.getAttribute("data-status");
+      const rowGallery = row.getAttribute("data-gallery");
       const rowSearch = row.getAttribute("data-search") ?? "";
       const matchesStatus = status === "all" || rowStatus === status;
+      const matchesGallery = gallery === "all" || rowGallery === gallery;
       const matchesQuery = !query || rowSearch.includes(query);
-      row.toggleAttribute("hidden", !(matchesStatus && matchesQuery));
+      row.toggleAttribute("hidden", !(matchesStatus && matchesGallery && matchesQuery));
     });
   }
 
   searchInput?.addEventListener("input", filterArchiveRows);
   statusInput?.addEventListener("change", filterArchiveRows);
+  galleryInput?.addEventListener("change", filterArchiveRows);
 </script>
