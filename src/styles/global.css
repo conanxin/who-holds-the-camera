@@ -203,10 +203,18 @@ select {
 .exhibition-routes,
 .gallery-preview,
 .gallery-room,
+.thematic-trails-entry,
 .reflection-room,
 .source-map-entry,
 .archive-table-section,
 .source-index,
+.trail-index,
+.trail-hero,
+.cross-gallery-map,
+.trail-essay,
+.object-sequence,
+.trail-source-note,
+.trail-closing-question,
 .source-stats,
 .archive-graph,
 .gallery-source-flows,
@@ -1829,6 +1837,284 @@ tr[hidden] {
   letter-spacing: 0.03em;
 }
 
+.trail-index h1,
+.trail-hero h1 {
+  margin: 0;
+  font-family:
+    Georgia,
+    "Noto Serif SC",
+    "Songti SC",
+    serif;
+  font-size: clamp(3rem, 7vw, 6.8rem);
+  font-weight: 460;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.trail-index__intro,
+.trail-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.75fr);
+  gap: 18px;
+  align-items: stretch;
+  margin-top: 34px;
+}
+
+.trail-index__intro p,
+.trail-hero__thesis,
+.trail-source-note__panel p {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.08rem, 1.45vw, 1.36rem);
+  line-height: 1.75;
+}
+
+.trail-index__intro p,
+.trail-source-note__panel {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+}
+
+.trail-index__intro dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.trail-index__intro dl div,
+.trail-card,
+.trail-hero__question,
+.cross-gallery-map__path a,
+.trail-closing-question {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+}
+
+.trail-index__intro dl div {
+  padding: 18px;
+  display: grid;
+  align-content: space-between;
+  min-height: 150px;
+}
+
+.trail-index__intro dt,
+.trail-card__meta,
+.trail-card__question,
+.trail-essay-section__number,
+.cross-gallery-map__path span {
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 740;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.trail-index__intro dd {
+  margin: 0;
+  font-family:
+    Georgia,
+    "Noto Serif SC",
+    "Songti SC",
+    serif;
+  font-size: clamp(1.7rem, 3vw, 3.2rem);
+  line-height: 1;
+}
+
+.trail-card-grid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.trail-card {
+  min-height: 520px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.trail-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.trail-card h3,
+.trail-essay-section h3 {
+  margin: 0;
+  font-family:
+    Georgia,
+    "Noto Serif SC",
+    "Songti SC",
+    serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.35rem);
+  font-weight: 460;
+  line-height: 1.12;
+}
+
+.trail-card__title-en {
+  margin: -8px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.trail-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.66;
+}
+
+.trail-card .gallery-enter {
+  margin-top: auto;
+  justify-self: start;
+}
+
+.trail-hero {
+  padding-top: 54px;
+}
+
+.trail-hero__title-en,
+.trail-hero__subtitle {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: clamp(1.1rem, 1.5vw, 1.55rem);
+  line-height: 1.45;
+}
+
+.trail-hero__question {
+  padding: 24px;
+}
+
+.trail-hero__question span {
+  display: block;
+  margin-bottom: 22px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 740;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.trail-hero__question p {
+  margin: 0;
+  font-family:
+    Georgia,
+    "Noto Serif SC",
+    "Songti SC",
+    serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.5rem);
+  line-height: 1.18;
+}
+
+.trail-hero__thesis {
+  margin-top: 34px;
+  max-width: 880px;
+}
+
+.cross-gallery-map__path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.cross-gallery-map__path a {
+  width: min(100%, 250px);
+  min-height: 150px;
+  padding: 18px;
+  display: grid;
+  align-content: space-between;
+  text-decoration: none;
+}
+
+.cross-gallery-map__path strong {
+  font-family:
+    Georgia,
+    "Noto Serif SC",
+    "Songti SC",
+    serif;
+  font-size: 1.35rem;
+  font-weight: 460;
+  line-height: 1.16;
+}
+
+.cross-gallery-map__path em {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-style: normal;
+  line-height: 1.4;
+}
+
+.cross-gallery-map__path b {
+  align-self: center;
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: 520;
+}
+
+.trail-essay__sections {
+  display: grid;
+  gap: 34px;
+}
+
+.trail-essay-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.44fr) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.trail-essay-section__text {
+  position: sticky;
+  top: 20px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+}
+
+.trail-essay-section__text p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.trail-essay-section .object-grid,
+.object-sequence .object-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.trail-source-note__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+}
+
+.trail-closing-question {
+  padding: 30px;
+}
+
+.trail-closing-question h2 {
+  max-width: 980px;
+  margin: 0;
+  font-family:
+    Georgia,
+    "Noto Serif SC",
+    "Songti SC",
+    serif;
+  font-size: clamp(2rem, 4vw, 4.8rem);
+  font-weight: 460;
+  line-height: 1.08;
+}
+
 .site-footer {
   padding: 34px 0 48px;
   display: flex;
@@ -1891,12 +2177,17 @@ tr[hidden] {
   .archive-graph__columns,
   .archive-graph__edges,
   .source-node-group__grid,
-  .source-legend__grid {
+  .source-legend__grid,
+  .trail-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .gallery-source-flows__grid,
-  .source-map-entry__panel {
+  .source-map-entry__panel,
+  .trail-index__intro,
+  .trail-hero__grid,
+  .trail-essay-section,
+  .trail-source-note__panel {
     grid-template-columns: 1fr;
   }
 
@@ -2016,8 +2307,30 @@ tr[hidden] {
   .source-node-group__grid,
   .source-legend__grid,
   .source-map-entry__panel,
-  .source-map-entry__panel dl {
+  .source-map-entry__panel dl,
+  .trail-card-grid,
+  .trail-index__intro,
+  .trail-index__intro dl,
+  .trail-hero__grid,
+  .trail-essay-section,
+  .trail-essay-section .object-grid,
+  .object-sequence .object-grid,
+  .trail-source-note__panel {
     grid-template-columns: 1fr;
+  }
+
+  .trail-essay-section__text {
+    position: static;
+  }
+
+  .trail-index h1,
+  .trail-hero h1 {
+    font-size: 2.72rem;
+    overflow-wrap: anywhere;
+  }
+
+  .trail-card {
+    min-height: auto;
   }
 
   .archive-drawer summary {

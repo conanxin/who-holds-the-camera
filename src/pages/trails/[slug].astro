@@ -1,0 +1,75 @@
+---
+import CrossGalleryMap from "@components/CrossGalleryMap.astro";
+import Lightbox from "@components/Lightbox.astro";
+import ObjectSequence from "@components/ObjectSequence.astro";
+import SourceLegend from "@components/SourceLegend.astro";
+import TrailEssay from "@components/TrailEssay.astro";
+import TrailHero from "@components/TrailHero.astro";
+import { galleries } from "@data/exhibition";
+import { objects } from "@data/objects";
+import { trails, type ThematicTrail } from "@data/trails";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return trails.map((trail) => ({
+    params: { slug: trail.slug },
+    props: { trail }
+  }));
+}
+
+interface Props {
+  trail: ThematicTrail;
+}
+
+const { trail } = Astro.props;
+const pageTitle = `${trail.titleZh} — Who Holds the Camera?`;
+const pageDescription = `${trail.titleZh}: ${trail.thesis}`;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath={`/trails/${trail.slug}/`}
+>
+  <main>
+    <div class="page-shell">
+      <TrailHero trail={trail} />
+      <CrossGalleryMap trail={trail} galleries={galleries} />
+      <TrailEssay trail={trail} objects={objects} />
+      <ObjectSequence trail={trail} objects={objects} />
+
+      <section class="trail-source-note" aria-labelledby="trail-source-note-title">
+        <div class="section-heading section-heading--compact">
+          <p class="section-kicker">Source Note / 来源说明</p>
+          <h2 id="trail-source-note-title">这条路线依赖哪些来源</h2>
+        </div>
+        <div class="trail-source-note__panel">
+          <p>{trail.sourceNote}</p>
+          <a class="gallery-enter" href="/source-map/">查看 Source Map</a>
+        </div>
+      </section>
+
+      <section class="trail-closing-question" aria-labelledby="trail-closing-question-title">
+        <p class="section-kicker">Closing Question / 结尾问题</p>
+        <h2 id="trail-closing-question-title">{trail.closingQuestion}</h2>
+      </section>
+
+      <SourceLegend />
+
+      <nav class="source-map-backlinks" aria-label="Trail links">
+        <a href="/trails/">返回主题路线</a>
+        <a href="/">返回首页</a>
+        <a href="/source-map/">查看 Source Map</a>
+      </nav>
+
+      <Lightbox />
+      <footer class="site-footer" aria-label="Project links">
+        <p>Who Holds the Camera? / V2.1 Thematic Trails + Curated Essays</p>
+        <nav>
+          <a href="https://camera.conanxin.com/" target="_blank" rel="noreferrer">Live Demo</a>
+          <a href="https://github.com/conanxin/who-holds-the-camera" target="_blank" rel="noreferrer">GitHub Repo</a>
+        </nav>
+      </footer>
+    </div>
+  </main>
+</BaseLayout>

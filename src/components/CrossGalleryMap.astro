@@ -1,0 +1,35 @@
+---
+import type { Gallery } from "@data/exhibition";
+import type { ThematicTrail } from "@data/trails";
+
+interface Props {
+  trail: ThematicTrail;
+  galleries: Gallery[];
+}
+
+const { trail, galleries } = Astro.props;
+const relatedGalleries = trail.relatedGalleryIds
+  .map((id) => galleries.find((gallery) => gallery.id === id))
+  .filter(Boolean) as Gallery[];
+---
+
+<section class="cross-gallery-map" aria-labelledby="cross-gallery-map-title">
+  <div class="section-heading section-heading--compact">
+    <p class="section-kicker">Cross-Gallery Map / 跨展厅路径</p>
+    <h2 id="cross-gallery-map-title">这条路线经过哪些展厅</h2>
+  </div>
+  <div class="cross-gallery-map__path">
+    {
+      relatedGalleries.map((gallery, index) => (
+        <>
+          <a href={`/galleries/${gallery.slug}/`}>
+            <span>{gallery.number}</span>
+            <strong>{gallery.title}</strong>
+            <em>{gallery.titleEn}</em>
+          </a>
+          {index < relatedGalleries.length - 1 && <b aria-hidden="true">→</b>}
+        </>
+      ))
+    }
+  </div>
+</section>

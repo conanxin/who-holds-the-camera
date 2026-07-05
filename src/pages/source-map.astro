@@ -32,7 +32,7 @@ const groupedNodes = sourceTypeOrder.map((sourceType) => ({
     <SourceMapHero stats={sourceStats} />
     <div class="page-shell page-shell--source-map">
       <SourceStats stats={sourceStats} />
-      <ArchiveGraph nodes={sourceNodes} edges={sourceEdges} />
+      <ArchiveGraph nodes={sourceNodes} edges={sourceEdges} objectCount={sourceStats.totalObjects} />
       <SourceFlow flows={gallerySourceFlows} nodes={sourceNodes} />
 
       <section class="source-node-section" id="source-node-cards" aria-labelledby="source-node-cards-title">
@@ -58,13 +58,16 @@ const groupedNodes = sourceTypeOrder.map((sourceType) => ({
 
       <nav class="source-map-backlinks" aria-label="Source map links">
         <a href="/">返回首页</a>
+        <a href="/trails/source-flow/">查看来源流动路线</a>
+        <a href="/trails/">查看主题路线</a>
         <a href="/#source-index">返回 Source Index</a>
         <a href="/#archive-table">查看 Archive Table</a>
       </nav>
 
       <footer class="site-footer" aria-label="Project links">
-        <p>Who Holds the Camera? / V1.9 Custom Domain Activation</p>
+        <p>Who Holds the Camera? / V2.1 Thematic Trails + Curated Essays</p>
         <nav>
+          <a href="/trails/">Thematic Trails</a>
           <a href="https://camera.conanxin.com/" target="_blank" rel="noreferrer">Live Demo</a>
           <a href="https://github.com/conanxin/who-holds-the-camera" target="_blank" rel="noreferrer">GitHub Repo</a>
         </nav>

@@ -1,0 +1,35 @@
+---
+import Lightbox from "@components/Lightbox.astro";
+import TrailIndex from "@components/TrailIndex.astro";
+import { trails } from "@data/trails";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const pageTitle = "主题路线：如何观看这 90 件图像";
+const pageDescription =
+  "五条跨 Gallery 的主题观看路线，从城市、移民、技术、宣传和来源流动五个角度重新进入 Who Holds the Camera? 的 90 件图像。";
+---
+
+<BaseLayout
+  title={`${pageTitle} / Thematic Trails`}
+  description={pageDescription}
+  canonicalPath="/trails/"
+>
+  <main>
+    <div class="page-shell">
+      <TrailIndex trails={trails} />
+      <nav class="source-map-backlinks" aria-label="Trail index links">
+        <a href="/">返回首页</a>
+        <a href="/source-map/">查看来源地图</a>
+        <a href="/#archive-table">查看 Archive Table</a>
+      </nav>
+      <Lightbox />
+      <footer class="site-footer" aria-label="Project links">
+        <p>Who Holds the Camera? / V2.1 Thematic Trails + Curated Essays</p>
+        <nav>
+          <a href="https://camera.conanxin.com/" target="_blank" rel="noreferrer">Live Demo</a>
+          <a href="https://github.com/conanxin/who-holds-the-camera" target="_blank" rel="noreferrer">GitHub Repo</a>
+        </nav>
+      </footer>
+    </div>
+  </main>
+</BaseLayout>

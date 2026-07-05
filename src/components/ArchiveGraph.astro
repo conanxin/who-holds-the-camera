@@ -5,9 +5,10 @@ import { sourceTypeOrder } from "@data/sourceMap";
 interface Props {
   nodes: SourceNode[];
   edges: SourceEdge[];
+  objectCount: number;
 }
 
-const { nodes, edges } = Astro.props;
+const { nodes, edges, objectCount } = Astro.props;
 const nodesByType = sourceTypeOrder.map((sourceType) => ({
   sourceType,
   nodes: nodes.filter((node) => node.sourceType === sourceType)
@@ -47,7 +48,7 @@ const nodesByType = sourceTypeOrder.map((sourceType) => ({
       }
       <article class="archive-graph__column archive-graph__column--object">
         <p class="archive-graph__type">Exhibition object</p>
-        <h3>44 labels</h3>
+        <h3>{objectCount} objects</h3>
         <ul>
           <li><span>Object Label</span><span>caption + credit</span></li>
           <li><span>Archive Table</span><span>status + tags</span></li>

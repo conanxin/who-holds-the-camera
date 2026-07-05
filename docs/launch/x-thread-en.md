@@ -34,6 +34,7 @@ Current scope:
 - 9 dedicated gallery pages
 - 90 objects
 - 5 exhibition routes
+- 5 thematic trails
 - Lightbox viewing mode with previous / next
 - Archive Drawer sections
 - Gallery 07 Shanghai Lens

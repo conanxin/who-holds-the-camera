@@ -9,7 +9,7 @@ GitHub:
 https://github.com/conanxin/who-holds-the-camera
 
 Current release:
-V2.0 Exhibition Content Expansion + Immersive Viewing
+V2.1 Thematic Trails + Curated Essays
 
 ## 1. GitHub 发布
 
@@ -62,6 +62,7 @@ Suggested screenshots:
 - `docs/screenshots/hero-desktop.png`
 - `docs/screenshots/routes-desktop.png`
 - `docs/screenshots/gallery-overview-v20.png`
+- `docs/screenshots/trails-index-v21.png`
 - `docs/screenshots/source-map-v20.png`
 - `docs/screenshots/archive-table-v20.png`
 
@@ -82,6 +83,7 @@ Suggested screenshots:
 
 - `docs/screenshots/mobile-hero.png`
 - `docs/screenshots/gallery-page-v20.png`
+- `docs/screenshots/trail-page-v21.png`
 - `docs/screenshots/lightbox-v20.png`
 - `docs/screenshots/source-map-v20.png`
 
@@ -103,6 +105,7 @@ Suggested screenshots:
 - `docs/screenshots/hero-desktop.png`
 - `docs/screenshots/gallery-overview-v20.png`
 - `docs/screenshots/gallery-page-v20.png`
+- `docs/screenshots/cross-gallery-map-v21.png`
 - `docs/screenshots/archive-table-v20.png`
 
 Before publishing:

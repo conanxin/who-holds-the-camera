@@ -12,6 +12,7 @@ import { exhibitionRoutes, galleries } from "@data/exhibition";
 import { objects } from "@data/objects";
 import { sourceStats } from "@data/sourceMap";
 import { sources } from "@data/sources";
+import { trails } from "@data/trails";
 
 const heroObjects = objects.filter((object) => object.imagePolicy === "embed").slice(0, 7);
 const objectsByGallery = galleries.map((gallery) => ({
@@ -58,6 +59,34 @@ const pageDescription =
       </section>
       <GalleryMap galleries={galleries} />
       <ExhibitionRoutes routes={exhibitionRoutes} />
+
+      <section class="thematic-trails-entry" id="thematic-trails-entry" aria-labelledby="thematic-trails-entry-title">
+        <div class="section-heading section-heading--compact">
+          <p class="section-kicker">Thematic Trails / 主题路线</p>
+          <h2 id="thematic-trails-entry-title">主题路线</h2>
+        </div>
+        <div class="source-map-entry__panel">
+          <p>
+            从城市现代性、海外华人、图像技术、政治未来和来源流动五个角度重新进入这 90 件图像。
+          </p>
+          <dl>
+            <div>
+              <dt>Trails</dt>
+              <dd>{trails.length}</dd>
+            </div>
+            <div>
+              <dt>Objects</dt>
+              <dd>{objects.length}</dd>
+            </div>
+            <div>
+              <dt>Mode</dt>
+              <dd>Curated essays</dd>
+            </div>
+          </dl>
+          <a class="gallery-enter" href="/trails/">查看主题路线</a>
+        </div>
+      </section>
+
       {objectsByGallery.map(({ gallery, objects }) => <GalleryPreview gallery={gallery} objects={objects} />)}
 
       <section class="reflection-room" id="reflection-room" aria-labelledby="reflection-title">
@@ -111,8 +140,10 @@ const pageDescription =
       <SourceIndex sources={sources} objects={objects} />
       <Lightbox />
       <footer class="site-footer" aria-label="Project links">
-        <p>Who Holds the Camera? / V2.0 Exhibition Content Expansion + Immersive Viewing</p>
+        <p>Who Holds the Camera? / V2.1 Thematic Trails + Curated Essays</p>
         <nav>
+          <a href="/trails/">Thematic Trails</a>
+          <a href="/source-map/">Source Map</a>
           <a href="https://camera.conanxin.com/" target="_blank" rel="noreferrer">Live Demo</a>
           <a href="https://github.com/conanxin/who-holds-the-camera" target="_blank" rel="noreferrer">GitHub Repo</a>
         </nav>

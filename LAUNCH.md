@@ -55,6 +55,7 @@ An AI-assisted digital exhibition and static site project that combines visual a
 - 90 件展品，每件都有 museum-style object label 和 source trail。
 - 9 个 Gallery 单页，把首页从“长列表”改成“总览展 + 深入观看”。
 - 5 条参观路线，支持快速参观、完整参观、香港影像、海外华人和图像技术路径。
+- 5 条 thematic trails，用城市现代性、海外华人、图像技术、政治未来和来源流动重新组织既有 90 件展品。
 - Gallery 07 上海镜头与 Gallery 08 宣传画与未来想象，把上海都市图像和宣传画未来想象纳入展览结构。
 - Lightbox 近看模式与 Archive Drawer 展品抽屉，显示 caption、credit、rights note、source、curatorial note，并支持上一件 / 下一件。
 - Archive Table 支持按来源状态和 Gallery 筛选。
@@ -71,6 +72,9 @@ An AI-assisted digital exhibition and static site project that combines visual a
 - `docs/screenshots/lightbox-v20.png`: 用于展示增强近看模式与前后切换。
 - `docs/screenshots/source-map-v20.png`: 用于展示 Source Map 与 90 objects 统计。
 - `docs/screenshots/archive-table-v20.png`: 用于展示 Archive Table、来源状态和筛选结构。
+- `docs/screenshots/trails-index-v21.png`: 用于展示主题路线总览。
+- `docs/screenshots/trail-page-v21.png`: 用于展示 Trail 单页与策展短文。
+- `docs/screenshots/cross-gallery-map-v21.png`: 用于展示跨 Gallery 路径。
 - `docs/screenshots/mobile-hero.png`: 用于中文社媒或移动端预览说明。
 
 

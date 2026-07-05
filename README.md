@@ -1,8 +1,8 @@
 # Who Holds the Camera? 西方镜头中的中国
 
-Live Demo: https://camera.conanxin.com/ (fallback: https://who-holds-the-camera.pages.dev/)
+Live Demo: https://camera.conanxin.com/ (fallback: https://who-holds-the-camera.pages.dev/)  
 GitHub Repo: https://github.com/conanxin/who-holds-the-camera  
-Status: V2.0 Exhibition Content Expansion + Immersive Viewing  
+Status: V2.1 Thematic Trails + Curated Essays  
 Tech: Astro / TypeScript / Static Site / Cloudflare Pages
 
 ## Project Overview
@@ -17,11 +17,11 @@ Exhibition question:
 
 **Who holds the camera, and who controls the explanatory frame?**
 
-The project builds a viewing workflow where object labels, source trail, rights status, archive table, and source map are part of interpretation.
+The project builds a viewing workflow where object labels, source trail, rights status, archive table, source map, and thematic trails are part of interpretation.
 
 ## Screenshots
 
-Current screenshots document the V2.0 public exhibition UI: overview home, expanded gallery pages, Archive Drawer sections, Source Map, Archive Table, and the enhanced Lightbox state.
+Current screenshots document the V2.1 public exhibition UI: overview home, thematic trails, curated trail essays, expanded gallery pages, Source Map, Archive Table, and the enhanced Lightbox state.
 
 - [hero-desktop.png](docs/screenshots/hero-desktop.png)
 - [routes-desktop.png](docs/screenshots/routes-desktop.png)
@@ -30,6 +30,9 @@ Current screenshots document the V2.0 public exhibition UI: overview home, expan
 - [lightbox-v20.png](docs/screenshots/lightbox-v20.png)
 - [source-map-v20.png](docs/screenshots/source-map-v20.png)
 - [archive-table-v20.png](docs/screenshots/archive-table-v20.png)
+- [trails-index-v21.png](docs/screenshots/trails-index-v21.png)
+- [trail-page-v21.png](docs/screenshots/trail-page-v21.png)
+- [cross-gallery-map-v21.png](docs/screenshots/cross-gallery-map-v21.png)
 - [mobile-hero.png](docs/screenshots/mobile-hero.png)
 
 ## What This Project Demonstrates
@@ -43,6 +46,8 @@ Current screenshots document the V2.0 public exhibition UI: overview home, expan
 - immersive gallery pages
 - archive drawer
 - expanded visual density with source transparency
+- thematic trails across galleries
+- curated essays that reorganize existing objects without increasing object count
 
 ## Exhibition Structure
 
@@ -50,6 +55,8 @@ Current screenshots document the V2.0 public exhibition UI: overview home, expan
 - 9 dedicated gallery pages
 - 90 objects
 - 5 exhibition routes
+- 5 thematic trails
+- Trails page: `/trails/`
 - Source Map: `/source-map/`
 - Archive Table
 - Source Index
@@ -68,7 +75,7 @@ Current screenshots document the V2.0 public exhibition UI: overview home, expan
 ## SEO, Sitemap, and Shareability
 
 - Title and description per page via shared layout.
-- Canonical links for home, gallery pages, and source map.
+- Canonical links for home, gallery pages, trail pages, and source map.
 - Open Graph / Twitter card metadata.
 - Structured data on homepage (CreativeWork + WebSite).
 - SEO metadata preserved while using existing warm-paper visual style.
@@ -115,4 +122,5 @@ npm.cmd run preview -- --port 4323
 - V1.9 completed: production migration to camera.conanxin.com with domain-level SEO and fallback parity.
 - V2.0 completed: expanded from 44 to 90 objects, added Gallery 07 Shanghai Lens and Gallery 08 Propaganda Futures, deepened gallery pages with Archive Drawer and enhanced Lightbox context.
 - V2.0.1 completed: public docs, screenshots, launch materials, and QA notes synced to the 90-object exhibition.
-- V2.1 possible next: thematic trails, source essays, and exhibition essays.
+- V2.1 completed: added thematic trails, Trail index/detail pages, curated essays, and cross-gallery maps without changing the 90-object collection.
+- V2.2 possible next: source essays, bilingual labels, and route-level bibliography notes.

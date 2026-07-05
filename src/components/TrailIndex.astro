@@ -1,0 +1,39 @@
+---
+import type { ThematicTrail } from "@data/trails";
+import TrailCard from "./TrailCard.astro";
+
+interface Props {
+  trails: ThematicTrail[];
+}
+
+const { trails } = Astro.props;
+---
+
+<section class="trail-index" aria-labelledby="trail-index-title">
+  <div class="section-heading">
+    <p class="section-kicker">Thematic Trails / 主题路线</p>
+    <h1 id="trail-index-title">主题路线：如何观看这 90 件图像</h1>
+  </div>
+  <div class="trail-index__intro">
+    <p>
+      这个页面不是新的展厅，而是帮助观众重新进入展览的观看路线。每条路线跨越多个 Gallery，围绕一个问题组织展品、来源和图像关系。
+    </p>
+    <dl>
+      <div>
+        <dt>Trails</dt>
+        <dd>{trails.length}</dd>
+      </div>
+      <div>
+        <dt>Objects</dt>
+        <dd>90</dd>
+      </div>
+      <div>
+        <dt>Method</dt>
+        <dd>Cross-gallery reading</dd>
+      </div>
+    </dl>
+  </div>
+  <div class="trail-card-grid">
+    {trails.map((trail) => <TrailCard trail={trail} />)}
+  </div>
+</section>

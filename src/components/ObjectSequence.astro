@@ -1,0 +1,24 @@
+---
+import type { ExhibitionObject } from "@data/objects";
+import type { ThematicTrail } from "@data/trails";
+import ObjectGrid from "./ObjectGrid.astro";
+
+interface Props {
+  trail: ThematicTrail;
+  objects: ExhibitionObject[];
+}
+
+const { trail, objects } = Astro.props;
+const objectById = new Map(objects.map((object) => [object.id, object]));
+const sequenceObjects = trail.objectIds
+  .map((id) => objectById.get(id))
+  .filter(Boolean) as ExhibitionObject[];
+---
+
+<section class="object-sequence" aria-labelledby="object-sequence-title">
+  <div class="section-heading section-heading--compact">
+    <p class="section-kicker">Object Sequence / 展品序列</p>
+    <h2 id="object-sequence-title">按路线顺序近看</h2>
+  </div>
+  <ObjectGrid objects={sequenceObjects} />
+</section>

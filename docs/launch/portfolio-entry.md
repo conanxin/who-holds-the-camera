@@ -19,6 +19,7 @@ Impact:
 - Gallery 07 上海镜头
 - Gallery 08 宣传画与未来想象
 - 5 条参观路线
+- 5 条 thematic trails
 - Lightbox 近看模式与 Archive Drawer 展品抽屉
 - 50 个 verified archive source
 - 38 个 rights unclear

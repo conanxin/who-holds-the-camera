@@ -10,7 +10,7 @@ Many historical image pages prioritize nostalgia and aesthetic display while omi
 
 - source chain transparency
 - uncertainty in reuse permissions
-- the viewer’s positionality in visual production
+- the viewer's positionality in visual production
 
 The exhibition format became the answer: not just a gallery of cards, but a space with interpretation points and research traces.
 
@@ -28,6 +28,8 @@ V1.9 switches production references to the custom domain `https://camera.conanxi
 
 V2.0 expands the exhibition from 44 to 90 objects without turning the home page into a waterfall grid. More material now lives inside dedicated gallery pages through Featured Work, Focus Pair, Study Wall, Archive Drawer, and enhanced Lightbox viewing.
 
+V2.1 reorganizes the existing 90 objects into cross-gallery thematic trails. Instead of adding more material, it adds curated essays, object sequences, and cross-gallery maps that let viewers re-enter the exhibition through urban modernity, overseas Chinese communities, image technology, propaganda futures, and source flow.
+
 ## 4. Design System
 
 - Warm paper-like palette
@@ -43,6 +45,7 @@ V2.0 expands the exhibition from 44 to 90 objects without turning the home page 
 - `Source`: source type, use, reliability, reliability note
 - `SourceMap`: source nodes, edges, gallery flow, status counts
 - `Route`: visit path and anchors
+- `Trail`: cross-gallery question, essay sections, object sequence, source note
 - `Looking Question`: interpretive prompts for each section
 
 ## 6. Result
@@ -51,6 +54,7 @@ V2.0 expands the exhibition from 44 to 90 objects without turning the home page 
 - 9 dedicated Gallery pages
 - 90 Objects
 - 5 Exhibition routes
+- 5 Thematic Trails with curated essays
 - Source Map page with Archive Graph, gallery source flows, and node cards
 - Archive Table with 90 rows
 - Enhanced Lightbox close-view mode with gallery, object number, source status, source/archive links, and previous / next navigation
@@ -68,5 +72,9 @@ AI helps speed content scaffolding and consistency, but source credibility and r
 A stronger exhibition structure is not only about adding more images. It is built through rhythm: featured work, paired works, study wall, looking question, and source map path.
 
 For V1.8, the key lesson was that discoverability is part of exhibition quality. Canonical tags, sitemap, OG data, and structured metadata make the work easier to find without changing curation intent.
+
 For V1.9, the lesson is that domain-level consistency is also a curatorial infrastructure task: stable URLs and metadata keep source evidence, links, and reference points reliable across sharing and indexing contexts.
+
 For V2.0, the lesson is that scale only works when rhythm is preserved. More objects need drawers, pairings, and close-looking paths, not a longer flat page. The key to content expansion is not quantity by itself, but viewing rhythm: overview, entering a gallery, close looking, and tracing sources.
+
+For V2.1, the lesson is that a digital exhibition can deepen without growing larger. The same objects can become new arguments when they are sequenced through a question, a source note, and a cross-gallery path.

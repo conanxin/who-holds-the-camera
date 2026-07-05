@@ -1,5 +1,13 @@
 # Changelog
 
+## V2.1 — Thematic Trails + Curated Essays
+
+- Added `/trails/` as a dedicated thematic trail index.
+- Added 5 thematic trails: Urban Modernity, Overseas Chinese, Image Technology, Propaganda Futures, and Source Flow.
+- Added Trail detail pages with hero text, curated essay sections, object sequences, cross-gallery maps, source notes, and closing questions.
+- Added `TrailIndex`, `TrailCard`, `TrailHero`, `TrailEssay`, `ObjectSequence`, and `CrossGalleryMap` components.
+- Kept the exhibition object count at 90; this release reorganizes viewing paths rather than expanding the collection.
+
 ## V2.0.1 — Post-Expansion Docs + Screenshots Sync
 
 - Synced public documentation, screenshots, and launch materials with the V2.0 expansion.

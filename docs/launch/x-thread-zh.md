@@ -48,6 +48,7 @@ rights unclear 不会被删掉，也不会被假装成公共领域素材。
 - 9 个 Gallery 单页
 - 90 件展品
 - 5 条参观路线
+- 5 条 thematic trails
 - Lightbox 近看模式与 Archive Drawer 展品抽屉
 - Gallery 07 上海镜头
 - Gallery 08 宣传画与未来想象

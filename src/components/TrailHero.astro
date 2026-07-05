@@ -1,0 +1,26 @@
+---
+import type { ThematicTrail } from "@data/trails";
+
+interface Props {
+  trail: ThematicTrail;
+}
+
+const { trail } = Astro.props;
+---
+
+<section class="trail-hero" aria-labelledby="trail-title">
+  <a class="back-link" href="/trails/">返回主题路线</a>
+  <div class="trail-hero__grid">
+    <div>
+      <p class="section-kicker">Thematic Trail / {trail.duration}</p>
+      <h1 id="trail-title">{trail.titleZh}</h1>
+      <p class="trail-hero__title-en">{trail.titleEn}</p>
+      <p class="trail-hero__subtitle">{trail.subtitle}</p>
+    </div>
+    <aside class="trail-hero__question">
+      <span>Opening Question</span>
+      <p>{trail.openingQuestion}</p>
+    </aside>
+  </div>
+  <p class="trail-hero__thesis">{trail.thesis}</p>
+</section>

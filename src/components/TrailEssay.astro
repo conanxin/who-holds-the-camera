@@ -1,0 +1,39 @@
+---
+import type { ExhibitionObject } from "@data/objects";
+import type { ThematicTrail } from "@data/trails";
+import ObjectGrid from "./ObjectGrid.astro";
+
+interface Props {
+  trail: ThematicTrail;
+  objects: ExhibitionObject[];
+}
+
+const { trail, objects } = Astro.props;
+const objectById = new Map(objects.map((object) => [object.id, object]));
+---
+
+<section class="trail-essay" aria-labelledby="trail-essay-title">
+  <div class="section-heading section-heading--compact">
+    <p class="section-kicker">Curated Essay / 策展短文</p>
+    <h2 id="trail-essay-title">沿着问题重新观看</h2>
+  </div>
+  <div class="trail-essay__sections">
+    {
+      trail.essaySections.map((section, index) => {
+        const sectionObjects = section.objectIds
+          .map((id) => objectById.get(id))
+          .filter(Boolean) as ExhibitionObject[];
+        return (
+          <article class="trail-essay-section">
+            <div class="trail-essay-section__text">
+              <p class="trail-essay-section__number">{String(index + 1).padStart(2, "0")}</p>
+              <h3>{section.title}</h3>
+              <p>{section.body}</p>
+            </div>
+            <ObjectGrid objects={sectionObjects} />
+          </article>
+        );
+      })
+    }
+  </div>
+</section>

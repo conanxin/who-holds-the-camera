@@ -20,6 +20,7 @@
 - 策展人导言
 - 展厅地图
 - 5 条参观路线
+- 5 条 thematic trails
 - 9 个 Gallery 总览区
 - 9 个 Gallery 单页
 - 90 件展品
