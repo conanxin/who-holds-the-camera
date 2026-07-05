@@ -2,7 +2,7 @@
 
 Live Demo: https://who-holds-the-camera.pages.dev/<br>
 GitHub Repo: https://github.com/conanxin/who-holds-the-camera<br>
-Status: V1.4 Portfolio Package<br>
+Status: V1.5 Public Launch Kit<br>
 Tech: Astro / TypeScript / Static Site / Cloudflare Pages
 
 ## Project Overview
@@ -40,6 +40,13 @@ The page asks who holds the camera, who gives the caption, who owns the archive 
 ### Mobile
 
 ![Mobile hero](docs/screenshots/mobile-hero.png)
+
+## Launch Materials
+
+- [Launch Kit](LAUNCH.md)
+- [X Thread ZH](docs/launch/x-thread-zh.md)
+- [Portfolio Entry](docs/launch/portfolio-entry.md)
+- [Case Study](CASE_STUDY.md)
 
 ## What This Project Demonstrates
 
@@ -86,6 +93,6 @@ npm.cmd run preview -- --port 4323
 
 ## Roadmap
 
-- V1.4 portfolio package: screenshots, README, case study, changelog, and launch materials.
-- V1.5 content expansion: more object-level archive tracing and stronger rights notes.
+- V1.5 public launch kit: channel-specific launch copy, portfolio entry, and GitHub repo materials.
+- V1.6 content expansion: more object-level archive tracing and stronger rights notes.
 - V2 bilingual exhibition labels: complete English labels and wall text.
