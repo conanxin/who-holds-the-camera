@@ -6,7 +6,7 @@ import GalleryMap from "@components/GalleryMap.astro";
 import GalleryRoom from "@components/GalleryRoom.astro";
 import SourceIndex from "@components/SourceIndex.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { exhibition, galleries } from "@data/exhibition";
+import { galleries } from "@data/exhibition";
 import { objects } from "@data/objects";
 import { sources } from "@data/sources";
 
@@ -15,9 +15,12 @@ const objectsByGallery = galleries.map((gallery) => ({
   gallery,
   objects: objects.filter((object) => object.galleryId === gallery.id)
 }));
+const pageTitle = "Who Holds the Camera? 西方镜头中的中国";
+const pageDescription =
+  "一个关于摄影、权力、记忆与“中国”视觉形成的中文线上展览，追溯 Flashbak、档案馆、博物馆、摄影师项目与公共资料中的图像线索。";
 ---
 
-<BaseLayout title={`${exhibition.titleZh} | ${exhibition.titleEn}`} description={exhibition.statement}>
+<BaseLayout title={pageTitle} description={pageDescription}>
   <main>
     <ExhibitionEntrance heroObjects={heroObjects} />
     <div class="page-shell">

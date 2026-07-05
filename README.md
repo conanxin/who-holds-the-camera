@@ -61,9 +61,26 @@ npm.cmd run preview -- --port 4323
 
 ### Cloudflare Pages
 
+- Framework preset: `Astro`
 - Build command: `npm run build`
 - Output directory: `dist`
 - Node version: 使用 Cloudflare 默认 LTS 即可
+
+如果使用 Cloudflare CLI / Wrangler：
+
+```powershell
+npm.cmd run build
+npx wrangler pages deploy dist --project-name who-holds-the-camera
+```
+
+如果通过 Cloudflare 控制台部署：
+
+1. 连接 GitHub 仓库。
+2. 选择 `who-holds-the-camera`。
+3. Framework preset 选择 `Astro`。
+4. Build command 填写 `npm run build`。
+5. Output directory 填写 `dist`。
+6. Node version 使用 Cloudflare 默认 LTS 即可。
 
 ### Vercel
 
