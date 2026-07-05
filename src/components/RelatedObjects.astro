@@ -1,0 +1,38 @@
+---
+import { getObjectPrimaryMedia, type ExhibitionObject } from "@data/objects";
+import { getObjectHref, getStatusClass, statusLabel } from "@data/objectPresentation";
+
+interface Props {
+  objects: ExhibitionObject[];
+}
+
+const { objects } = Astro.props;
+---
+
+{
+  objects.length > 0 && (
+    <section class="related-objects" aria-labelledby="related-objects-title">
+      <div class="section-heading section-heading--compact">
+        <p class="section-kicker">Related Objects / 相邻展品</p>
+        <h2 id="related-objects-title">同一展厅中的相邻记录</h2>
+      </div>
+      <div class="related-objects__grid">
+        {objects.map((object) => {
+          const media = getObjectPrimaryMedia(object);
+          const href = getObjectHref(object);
+          return (
+            <article class="related-object-card">
+              <a href={href}>
+                {media && <img src={media.src} alt={media.alt} loading="lazy" />}
+                <span class={`status-badge status-badge--${getStatusClass(object.status)}`}>{statusLabel[object.status]}</span>
+                <strong>{object.displayNumber}</strong>
+                <h3>{object.title}</h3>
+                <p>{object.titleEn}</p>
+              </a>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  )
+}

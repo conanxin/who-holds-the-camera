@@ -9,7 +9,7 @@ GitHub:
 https://github.com/conanxin/who-holds-the-camera
 
 Current release:
-V2.1 Thematic Trails + Curated Essays
+V2.2 Object Detail Pages + Shareable Exhibit Records
 
 ## 1. GitHub 发布
 
@@ -125,6 +125,9 @@ Before publishing:
 - [ ] Source Index and Archive Table are still visible.
 - [ ] Gallery single pages open normally.
 - [ ] Lightbox opens from an object image.
+- [ ] Lightbox includes `打开展品页`.
+- [ ] Archive Table rows include `查看详情`.
+- [ ] A sample `/objects/[id]/` page opens normally.
 - [ ] Rights status badges are still visible.
 - [ ] Screenshot links in README are not broken.
 

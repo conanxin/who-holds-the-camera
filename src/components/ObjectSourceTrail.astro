@@ -1,0 +1,47 @@
+---
+import type { ExhibitionObject } from "@data/objects";
+import { getArchiveLabel, getSourceLabel } from "@data/objectPresentation";
+
+interface Props {
+  object: ExhibitionObject;
+}
+
+const { object } = Astro.props;
+const sourceLabel = getSourceLabel(object);
+const archiveLabel = getArchiveLabel(object);
+---
+
+<section class="object-source-trail" aria-labelledby="object-source-title">
+  <div class="section-heading section-heading--compact">
+    <p class="section-kicker">Source Trail / 来源路径</p>
+    <h2 id="object-source-title">这件展品如何进入本展</h2>
+  </div>
+  <div class="object-source-trail__panel">
+    <dl class="source-trail">
+      <div>
+        <dt>Source</dt>
+        <dd><a href={object.sourceUrl} target="_blank" rel="noreferrer">{sourceLabel}</a></dd>
+      </div>
+      <div>
+        <dt>Archive</dt>
+        <dd>
+          {
+            object.originalArchiveUrl ? (
+              <a href={object.originalArchiveUrl} target="_blank" rel="noreferrer">{archiveLabel}</a>
+            ) : (
+              <span>Not yet verified</span>
+            )
+          }
+        </dd>
+      </div>
+      <div>
+        <dt>Credit</dt>
+        <dd>{object.credit}</dd>
+      </div>
+      <div>
+        <dt>Rights</dt>
+        <dd>{object.rightsNote}</dd>
+      </div>
+    </dl>
+  </div>
+</section>

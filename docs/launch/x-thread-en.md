@@ -33,6 +33,7 @@ Current scope:
 - 9 galleries
 - 9 dedicated gallery pages
 - 90 objects
+- 90 shareable object detail pages
 - 5 exhibition routes
 - 5 thematic trails
 - Lightbox viewing mode with previous / next

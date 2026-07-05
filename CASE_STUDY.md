@@ -30,6 +30,8 @@ V2.0 expands the exhibition from 44 to 90 objects without turning the home page 
 
 V2.1 reorganizes the existing 90 objects into cross-gallery thematic trails. Instead of adding more material, it adds curated essays, object sequences, and cross-gallery maps that let viewers re-enter the exhibition through urban modernity, overseas Chinese communities, image technology, propaganda futures, and source flow.
 
+V2.2 turns close-looking into shareable records. Each of the 90 objects now has an independent detail page with museum label metadata, source trail, related gallery/trail context, related objects, canonical URL, OG metadata, and structured data.
+
 ## 4. Design System
 
 - Warm paper-like palette
@@ -46,6 +48,7 @@ V2.1 reorganizes the existing 90 objects into cross-gallery thematic trails. Ins
 - `SourceMap`: source nodes, edges, gallery flow, status counts
 - `Route`: visit path and anchors
 - `Trail`: cross-gallery question, essay sections, object sequence, source note
+- `Object Detail`: shareable exhibit record, source trail, related context, SEO metadata
 - `Looking Question`: interpretive prompts for each section
 
 ## 6. Result
@@ -53,11 +56,13 @@ V2.1 reorganizes the existing 90 objects into cross-gallery thematic trails. Ins
 - 9 Gallery rooms
 - 9 dedicated Gallery pages
 - 90 Objects
+- 90 Object Detail pages
 - 5 Exhibition routes
 - 5 Thematic Trails with curated essays
 - Source Map page with Archive Graph, gallery source flows, and node cards
 - Archive Table with 90 rows
 - Enhanced Lightbox close-view mode with gallery, object number, source status, source/archive links, and previous / next navigation
+- Lightbox links that open the permanent object detail page
 - Archive Drawer on gallery pages
 - 50 verified archive source
 - 38 rights unclear
@@ -78,3 +83,5 @@ For V1.9, the lesson is that domain-level consistency is also a curatorial infra
 For V2.0, the lesson is that scale only works when rhythm is preserved. More objects need drawers, pairings, and close-looking paths, not a longer flat page. The key to content expansion is not quantity by itself, but viewing rhythm: overview, entering a gallery, close looking, and tracing sources.
 
 For V2.1, the lesson is that a digital exhibition can deepen without growing larger. The same objects can become new arguments when they are sequenced through a question, a source note, and a cross-gallery path.
+
+For V2.2, the lesson is that shareability is not only a distribution feature. Permanent object pages make each exhibit easier to cite, search, inspect, and discuss without flattening the whole exhibition into a list.

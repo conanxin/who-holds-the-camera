@@ -1,0 +1,48 @@
+---
+import type { ExhibitionObject } from "@data/objects";
+
+interface Props {
+  object: ExhibitionObject;
+}
+
+const { object } = Astro.props;
+---
+
+<section class="object-metadata-panel" aria-labelledby="object-metadata-title">
+  <div class="section-heading section-heading--compact">
+    <p class="section-kicker">Museum Label / 展品标签</p>
+    <h2 id="object-metadata-title">作品信息</h2>
+  </div>
+  <div class="object-metadata-panel__grid">
+    <article>
+      <h3>{object.title}</h3>
+      <p>{object.titleEn}</p>
+    </article>
+    <dl>
+      <div>
+        <dt>Year</dt>
+        <dd>{object.year}</dd>
+      </div>
+      <div>
+        <dt>Creator</dt>
+        <dd>{object.creator}</dd>
+      </div>
+      <div>
+        <dt>Place</dt>
+        <dd>{object.place}</dd>
+      </div>
+      <div>
+        <dt>Medium</dt>
+        <dd>{object.medium}</dd>
+      </div>
+      <div>
+        <dt>Credit</dt>
+        <dd>{object.credit}</dd>
+      </div>
+      <div>
+        <dt>Rights</dt>
+        <dd>{object.rightsNote}</dd>
+      </div>
+    </dl>
+  </div>
+</section>

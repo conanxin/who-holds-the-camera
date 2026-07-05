@@ -1,0 +1,44 @@
+---
+import type { Gallery } from "@data/exhibition";
+import type { ThematicTrail } from "@data/trails";
+
+interface Props {
+  gallery: Gallery;
+  trails: ThematicTrail[];
+}
+
+const { gallery, trails } = Astro.props;
+---
+
+<section class="object-context-links" aria-labelledby="object-context-title">
+  <div class="section-heading section-heading--compact">
+    <p class="section-kicker">Related Context / 相关语境</p>
+    <h2 id="object-context-title">继续追索这件展品</h2>
+  </div>
+  <div class="object-context-links__grid">
+    <a href={`/galleries/${gallery.slug}/`}>
+      <span>Gallery</span>
+      <strong>{gallery.number}</strong>
+      <em>{gallery.title}</em>
+    </a>
+    {
+      trails.map((trail) => (
+        <a href={`/trails/${trail.slug}/`}>
+          <span>Thematic Trail</span>
+          <strong>{trail.titleZh}</strong>
+          <em>{trail.titleEn}</em>
+        </a>
+      ))
+    }
+    <a href="/source-map/">
+      <span>Source Map</span>
+      <strong>来源地图</strong>
+      <em>查看图像如何进入本展</em>
+    </a>
+    <a href="/#archive-table">
+      <span>Archive Table</span>
+      <strong>展品索引</strong>
+      <em>返回 90 件展品表</em>
+    </a>
+  </div>
+</section>

@@ -9,7 +9,9 @@ interface Props {
   ogTitle?: string;
   ogDescription?: string;
   ogType?: string;
+  ogImage?: string;
   includeStructuredData?: boolean;
+  structuredData?: Record<string, unknown>;
 }
 
 const {
@@ -20,15 +22,17 @@ const {
   ogTitle = title,
   ogDescription = description,
   ogType = "website",
-  includeStructuredData = false
+  ogImage,
+  includeStructuredData = false,
+  structuredData
 } = Astro.props;
 
 const siteUrl = "https://camera.conanxin.com";
 const normalizedPath = canonicalPath.startsWith("/") ? canonicalPath : `/${canonicalPath}`;
 const resolvedCanonicalUrl = canonicalUrl ?? `${siteUrl}${normalizedPath}`;
-const ogImage = `${siteUrl}/og-image.svg`;
+const resolvedOgImage = ogImage ?? `${siteUrl}/og-image.svg`;
 
-const structuredData = {
+const defaultStructuredData = {
   "@context": "https://schema.org",
   "@type": ["CreativeWork", "WebSite"],
   name: "Who Holds the Camera? 西方镜头中的中国",
@@ -49,7 +53,7 @@ const structuredData = {
   ]
 };
 
-const structuredDataAsString = JSON.stringify(structuredData, null, 2);
+const structuredDataAsString = JSON.stringify(structuredData ?? defaultStructuredData, null, 2);
 ---
 
 <!doctype html>
@@ -63,11 +67,11 @@ const structuredDataAsString = JSON.stringify(structuredData, null, 2);
     <meta property="og:url" content={resolvedCanonicalUrl} />
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={resolvedOgImage} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={resolvedOgImage} />
     {includeStructuredData && <script type="application/ld+json" set:html={structuredDataAsString} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>

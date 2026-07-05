@@ -1,5 +1,15 @@
 # Changelog
 
+## V2.2 — Object Detail Pages + Shareable Exhibit Records
+
+- Added `/objects/[id]/` dynamic static pages.
+- Generated 90 independent object detail pages.
+- Added object detail components for hero media, museum label metadata, source trail, related context, and related objects.
+- Added `查看详情` links to Archive Table rows.
+- Added `打开展品页` links to the Lightbox.
+- Added object-level canonical URLs, Open Graph metadata, and VisualArtwork JSON-LD.
+- Confirmed sitemap output includes `/objects/` paths.
+
 ## V2.1 — Thematic Trails + Curated Essays
 
 - Added `/trails/` as a dedicated thematic trail index.

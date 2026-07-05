@@ -1,0 +1,142 @@
+---
+import Lightbox from "@components/Lightbox.astro";
+import ObjectContextLinks from "@components/ObjectContextLinks.astro";
+import ObjectDetailHero from "@components/ObjectDetailHero.astro";
+import ObjectMetadataPanel from "@components/ObjectMetadataPanel.astro";
+import ObjectSourceTrail from "@components/ObjectSourceTrail.astro";
+import RelatedObjects from "@components/RelatedObjects.astro";
+import { galleries, type Gallery } from "@data/exhibition";
+import { getObjectPrimaryMedia, objects, type ExhibitionObject } from "@data/objects";
+import {
+  getObjectHref,
+  getObjectRecordDescription,
+  statusLabel
+} from "@data/objectPresentation";
+import { trails } from "@data/trails";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return objects.map((object) => ({
+    params: { id: object.id },
+    props: { object }
+  }));
+}
+
+interface Props {
+  object: ExhibitionObject;
+}
+
+const { object } = Astro.props;
+const gallery = galleries.find((item) => item.id === object.galleryId) as Gallery | undefined;
+
+if (!gallery) {
+  throw new Error(`Missing gallery for object ${object.id}`);
+}
+
+const objectTrails = trails.filter((trail) => trail.objectIds.includes(object.id));
+const galleryObjects = objects.filter((item) => item.galleryId === object.galleryId);
+const objectIndex = galleryObjects.findIndex((item) => item.id === object.id);
+const before = galleryObjects.slice(Math.max(0, objectIndex - 2), objectIndex);
+const after = galleryObjects.slice(objectIndex + 1, objectIndex + 3);
+let relatedObjects = [...before, ...after];
+
+if (relatedObjects.length < 4) {
+  relatedObjects = galleryObjects.filter((item) => item.id !== object.id).slice(0, 4);
+}
+
+const primaryMedia = getObjectPrimaryMedia(object);
+const objectHref = getObjectHref(object);
+const canonicalPath = objectHref;
+const pageTitle = `${object.displayNumber}｜${object.title} — Who Holds the Camera?`;
+const pageDescription = getObjectRecordDescription(object, gallery.title);
+const ogDescription = object.captionZh || object.curatorialNote || pageDescription;
+const ogImage = primaryMedia?.src?.startsWith("http") ? primaryMedia.src : undefined;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "VisualArtwork",
+  name: object.title,
+  alternateName: object.titleEn,
+  description: object.curatorialNote || object.captionZh,
+  url: `https://camera.conanxin.com${canonicalPath}`,
+  image: primaryMedia?.src,
+  creator: {
+    "@type": "Person",
+    name: object.creator
+  },
+  dateCreated: object.year,
+  locationCreated: object.place,
+  artMedium: object.medium,
+  creditText: object.credit,
+  inLanguage: "zh-CN",
+  isPartOf: {
+    "@type": "CreativeWork",
+    name: "Who Holds the Camera? 西方镜头中的中国",
+    url: "https://camera.conanxin.com/"
+  },
+  keywords: object.tags,
+  additionalProperty: [
+    {
+      "@type": "PropertyValue",
+      name: "Source status",
+      value: statusLabel[object.status]
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Gallery",
+      value: `${gallery.number} / ${gallery.title}`
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath={canonicalPath}
+  ogTitle={`${object.title} — Who Holds the Camera?`}
+  ogDescription={ogDescription}
+  ogType="article"
+  ogImage={ogImage}
+  includeStructuredData
+  structuredData={structuredData}
+>
+  <main>
+    <ObjectDetailHero object={object} gallery={gallery} trails={objectTrails} />
+    <div class="page-shell page-shell--object-detail">
+      <ObjectMetadataPanel object={object} />
+
+      <section class="object-curatorial-note" aria-labelledby="object-curatorial-title">
+        <div class="section-heading section-heading--compact">
+          <p class="section-kicker">Curatorial Note / 策展说明</p>
+          <h2 id="object-curatorial-title">这张图像记录的不是全部现实，而是一次观看的条件。</h2>
+        </div>
+        <div class="object-curatorial-note__panel">
+          <p>{object.curatorialNote}</p>
+          <p>{object.captionZh}</p>
+        </div>
+      </section>
+
+      <ObjectSourceTrail object={object} />
+      <ObjectContextLinks gallery={gallery} trails={objectTrails} />
+      <RelatedObjects objects={relatedObjects} />
+
+      <nav class="source-map-backlinks" aria-label="Object links">
+        <a href={`/galleries/${gallery.slug}/`}>返回展厅</a>
+        <a href="/">返回首页</a>
+        <a href="/#archive-table">查看所有展品</a>
+        <a href="/source-map/">查看 Source Map</a>
+      </nav>
+
+      <footer class="site-footer" aria-label="Project links">
+        <p>Who Holds the Camera? / V2.2 Object Detail Pages + Shareable Exhibit Records</p>
+        <nav>
+          <a href="/trails/">Thematic Trails</a>
+          <a href="https://camera.conanxin.com/" target="_blank" rel="noreferrer">Live Demo</a>
+          <a href="https://github.com/conanxin/who-holds-the-camera" target="_blank" rel="noreferrer">GitHub Repo</a>
+        </nav>
+      </footer>
+
+      <Lightbox />
+    </div>
+  </main>
+</BaseLayout>

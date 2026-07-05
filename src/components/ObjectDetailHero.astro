@@ -1,0 +1,92 @@
+---
+import type { Gallery } from "@data/exhibition";
+import { getObjectPrimaryMedia, type ExhibitionObject } from "@data/objects";
+import {
+  getArchiveLabel,
+  getObjectHref,
+  getSourceHref,
+  getSourceLabel,
+  getStatusClass,
+  statusLabel
+} from "@data/objectPresentation";
+import type { ThematicTrail } from "@data/trails";
+
+interface Props {
+  object: ExhibitionObject;
+  gallery: Gallery;
+  trails: ThematicTrail[];
+}
+
+const { object, gallery, trails } = Astro.props;
+const primaryMedia = getObjectPrimaryMedia(object);
+const sourceHref = getSourceHref(object);
+const statusClass = getStatusClass(object.status);
+const sourceLabel = getSourceLabel(object);
+const archiveLabel = getArchiveLabel(object);
+const objectHref = getObjectHref(object);
+const isLinkedPreview = primaryMedia?.role === "linkedPreview";
+---
+
+<section class="object-detail-hero" aria-labelledby="object-detail-title">
+  <div class="object-detail-hero__media">
+    {
+      primaryMedia ? (
+        <button
+          class="media-button js-lightbox-trigger"
+          type="button"
+          data-src={primaryMedia.src}
+          data-alt={primaryMedia.alt}
+          data-title={`${object.title} / ${object.titleEn}`}
+          data-caption={primaryMedia.caption || object.captionZh}
+          data-credit={primaryMedia.credit || object.credit}
+          data-source={sourceHref}
+          data-archive={object.originalArchiveUrl}
+          data-source-label={sourceLabel}
+          data-archive-label={archiveLabel}
+          data-gallery={`${gallery.number} / ${gallery.title}`}
+          data-display={object.displayNumber}
+          data-status={statusLabel[object.status]}
+          data-status-class={statusClass}
+          data-rights={object.rightsNote}
+          data-note={object.curatorialNote}
+          data-object-url={objectHref}
+          aria-label={`查看大图：${object.title}`}
+        >
+          <img src={primaryMedia.src} alt={primaryMedia.alt} />
+          {isLinkedPreview && <span class="media-badge">Linked source only</span>}
+        </button>
+      ) : (
+        <a class="object-detail-hero__placeholder" href={sourceHref} target="_blank" rel="noreferrer">
+          <span>Linked source only</span>
+          <strong>{object.credit}</strong>
+        </a>
+      )
+    }
+  </div>
+  <div class="object-detail-hero__copy">
+    <a class="back-link" href={`/galleries/${gallery.slug}/`}>返回展厅</a>
+    <p class="section-kicker">Object Record / 展品记录</p>
+    <div class="object-detail-hero__topline">
+      <span>{object.displayNumber}</span>
+      <span class={`status-badge status-badge--${statusClass}`}>{statusLabel[object.status]}</span>
+    </div>
+    <h1 id="object-detail-title">{object.title}</h1>
+    <p class="object-detail-hero__title-en">{object.titleEn}</p>
+    <div class="object-detail-hero__context">
+      <a href={`/galleries/${gallery.slug}/`}>{gallery.number} / {gallery.title}</a>
+      {
+        trails.length > 0 && (
+          <span>
+            {trails.map((trail, index) => (
+              <>
+                <a href={`/trails/${trail.slug}/`}>{trail.titleZh}</a>
+                {index < trails.length - 1 && " / "}
+              </>
+            ))}
+          </span>
+        )
+      }
+    </div>
+    <p>{object.captionZh}</p>
+  </div>
+</section>

@@ -24,6 +24,7 @@
 - 9 个 Gallery 总览区
 - 9 个 Gallery 单页
 - 90 件展品
+- 90 个独立展品页
 - Gallery 07 上海镜头
 - Gallery 08 宣传画与未来想象
 - Object Label

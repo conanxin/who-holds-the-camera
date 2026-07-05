@@ -1,6 +1,14 @@
 ---
-import { getObjectPrimaryMedia, type ExhibitionObject } from "@data/objects";
 import { galleries } from "@data/exhibition";
+import { getObjectPrimaryMedia, type ExhibitionObject } from "@data/objects";
+import {
+  getArchiveLabel,
+  getObjectHref,
+  getSourceHref,
+  getSourceLabel,
+  getStatusClass,
+  statusLabel
+} from "@data/objectPresentation";
 
 interface Props {
   object: ExhibitionObject;
@@ -9,19 +17,12 @@ interface Props {
 const { object } = Astro.props;
 const gallery = galleries.find((item) => item.id === object.galleryId);
 const primaryMedia = getObjectPrimaryMedia(object);
-const sourceHref = object.originalArchiveUrl || object.sourceUrl;
-const statusClass = object.status.replace(/\s+/g, "-");
+const sourceHref = getSourceHref(object);
+const statusClass = getStatusClass(object.status);
 const isLinkedPreview = primaryMedia?.role === "linkedPreview";
-const statusLabel: Record<ExhibitionObject["status"], string> = {
-  "verified archive source": "Verified archive source",
-  "secondary source only": "Secondary source only",
-  "rights unclear": "Rights unclear",
-  "placeholder pending replacement": "Placeholder pending replacement"
-};
-const sourceLabel = object.sourceId === "blue-lotus" || object.sourceId === "greg-girard" || object.sourceId === "city-darkness" || object.sourceId === "nowicki" || object.sourceId === "fan-ho-estate"
-  ? "查看项目页"
-  : "查看来源";
-const archiveLabel = object.originalArchiveUrl === object.sourceUrl ? "查看原始记录" : "查看馆藏";
+const sourceLabel = getSourceLabel(object);
+const archiveLabel = getArchiveLabel(object);
+const objectHref = getObjectHref(object);
 ---
 
 <article class={`object-card object-card--${object.imagePolicy} ${primaryMedia ? "object-card--has-media" : "object-card--no-media"}`} id={object.id}>
@@ -46,6 +47,7 @@ const archiveLabel = object.originalArchiveUrl === object.sourceUrl ? "查看原
           data-status-class={statusClass}
           data-rights={object.rightsNote}
           data-note={object.curatorialNote}
+          data-object-url={objectHref}
           aria-label={`查看大图：${object.title}`}
         >
           <img src={primaryMedia.src} alt={primaryMedia.alt} loading="lazy" />
@@ -95,5 +97,6 @@ const archiveLabel = object.originalArchiveUrl === object.sourceUrl ? "查看原
         <dd>{object.rightsNote}</dd>
       </div>
     </dl>
+    <p class="object-card__detail"><a href={objectHref}>查看展品页</a></p>
   </div>
 </article>

@@ -1,6 +1,7 @@
 ---
-import type { ExhibitionObject } from "@data/objects";
 import { galleries } from "@data/exhibition";
+import type { ExhibitionObject } from "@data/objects";
+import { getObjectHref, getStatusClass, statusLabel } from "@data/objectPresentation";
 
 interface Props {
   objects: ExhibitionObject[];
@@ -8,16 +9,6 @@ interface Props {
 
 const { objects } = Astro.props;
 const statuses = Array.from(new Set(objects.map((object) => object.status)));
-const statusLabel: Record<ExhibitionObject["status"], string> = {
-  "verified archive source": "Verified archive source",
-  "secondary source only": "Secondary source only",
-  "rights unclear": "Rights unclear",
-  "placeholder pending replacement": "Placeholder pending replacement"
-};
-
-function statusClass(status: ExhibitionObject["status"]) {
-  return status.replace(/\s+/g, "-");
-}
 ---
 
 <section class="archive-table-section" id="archive-table" aria-labelledby="archive-table-title">
@@ -55,6 +46,7 @@ function statusClass(status: ExhibitionObject["status"]) {
           <th>主题</th>
           <th>来源</th>
           <th>版权状态</th>
+          <th>详情</th>
         </tr>
       </thead>
       <tbody id="archive-rows">
@@ -67,9 +59,10 @@ function statusClass(status: ExhibitionObject["status"]) {
               <td>{object.tags.join(", ")}</td>
               <td><a href={object.sourceUrl} target="_blank" rel="noreferrer">{object.credit}</a></td>
               <td>
-                <span class={`status-badge status-badge--${statusClass(object.status)}`}>{statusLabel[object.status]}</span>
+                <span class={`status-badge status-badge--${getStatusClass(object.status)}`}>{statusLabel[object.status]}</span>
                 <small>{object.rightsNote}</small>
               </td>
+              <td><a class="table-detail-link" href={getObjectHref(object)}>查看详情</a></td>
             </tr>
           ))
         }
