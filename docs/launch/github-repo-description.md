@@ -6,7 +6,7 @@ Chinese digital exhibition on photography, power, and source transparency.
 
 ## About
 
-Who Holds the Camera? is an AI-assisted Chinese digital exhibition built with Astro and deployed on Cloudflare Pages. It traces visual materials from secondary leads back toward archives, museums, photographer projects, galleries, university collections, and public-domain repositories.
+Who Holds the Camera? is an AI-assisted Chinese digital exhibition built with Astro and deployed on Cloudflare Pages. It traces 44 visual materials from secondary leads back toward archives, museums, photographer projects, galleries, university collections, and public-domain repositories, using gallery overview sections, dedicated gallery pages, source status badges, and a Lightbox viewing mode.
 
 ## Topics
 

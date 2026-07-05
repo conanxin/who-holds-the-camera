@@ -2,7 +2,7 @@
 
 Live Demo: https://who-holds-the-camera.pages.dev/<br>
 GitHub Repo: https://github.com/conanxin/who-holds-the-camera<br>
-Status: V1.5 Public Launch Kit<br>
+Status: V1.6 Image Backfill + Gallery Deepening<br>
 Tech: Astro / TypeScript / Static Site / Cloudflare Pages
 
 ## Project Overview
@@ -33,9 +33,21 @@ The page asks who holds the camera, who gives the caption, who owns the archive 
 
 ![Gallery object cards](docs/screenshots/gallery-object.png)
 
+### Gallery Preview
+
+![Gallery preview](docs/screenshots/gallery-preview-v16.png)
+
+### Gallery Page
+
+![Gallery page](docs/screenshots/gallery-page-v16.png)
+
+### Lightbox
+
+![Lightbox viewing mode](docs/screenshots/lightbox-v16.png)
+
 ### Source Index
 
-![Source index](docs/screenshots/source-index.png)
+![Source index](docs/screenshots/source-index-v16.png)
 
 ### Mobile
 
@@ -53,14 +65,16 @@ The page asks who holds the camera, who gives the caption, who owns the archive 
 - AI-assisted curation: using AI to structure a research-led exhibition while keeping source judgment explicit.
 - Visual archive research: moving from secondary visual leads toward more stable archival, museum, or photographer-owned records.
 - Source transparency design: showing rights status, source trails, and reliability notes inside the interface.
-- Digital exhibition UI: building an online exhibition with entrance, gallery map, routes, wall text, object labels, archive table, and source index.
+- Digital exhibition UI: building an online exhibition with entrance, gallery map, routes, wall text, object labels, dedicated gallery pages, lightbox viewing, archive table, and source index.
 - Static site deployment: publishing a lightweight Astro site on Cloudflare Pages.
 
 ## Exhibition Structure
 
-- 7 Gallery rooms: from pre-photographic printed images to 1982 travel photography.
+- 7 Gallery overview sections: the home page now works as a guided overview exhibition rather than a full object grid.
+- 7 dedicated Gallery pages: each gallery has a hero work, focus pair, study wall, looking question, and related source trail.
 - 5 Exhibition routes: quick visit, full visit, Hong Kong route, overseas Chinese route, and image technology route.
-- 24 Objects: each with title, year, creator, place, medium, credit, source trail, rights note, captions, tags, and status.
+- 44 Objects: each with title, year, creator, place, medium, credit, source trail, rights note, captions, tags, status, and media preview.
+- Lightbox viewing mode: object images can be opened for closer reading with caption, credit, rights note, source, and curatorial note.
 - Archive Table: a static filterable index of all objects.
 - Source Index: grouped source records with type, use in the exhibition, and reliability notes.
 
@@ -69,7 +83,7 @@ The page asks who holds the camera, who gives the caption, who owns the archive 
 Every object has a source status:
 
 - `verified archive source`: traced to an archive, museum, library, university project, or stable collection/project record.
-- `rights unclear`: a near-source record or photographer/gallery trail exists, but direct reproduction rights are not granted; the exhibition uses external links and source notes instead of copying images.
+- `rights unclear`: a near-source record or photographer/gallery trail exists, but direct reproduction rights are not granted; the exhibition uses external links, linked previews, and source notes instead of treating images as public-domain assets. Current count: 17.
 - `secondary source only`: the object currently relies on a secondary visual trail, and the original mapping still needs more verification.
 - `placeholder pending replacement`: reserved for future objects that need stronger sources before publication.
 
@@ -93,6 +107,6 @@ npm.cmd run preview -- --port 4323
 
 ## Roadmap
 
-- V1.5 public launch kit: channel-specific launch copy, portfolio entry, and GitHub repo materials.
-- V1.6 content expansion: more object-level archive tracing and stronger rights notes.
-- V2 bilingual exhibition labels: complete English labels and wall text.
+- V1.6 completed: image backfill, 44-object expansion, dedicated Gallery pages, and Lightbox viewing mode.
+- V1.6.1 docs sync: public README, case study, launch materials, screenshots, and changelog aligned with the post-expansion exhibition.
+- V1.7 source map / archive graph / bilingual labels: deepen source relationships and expand bilingual interpretive labels.

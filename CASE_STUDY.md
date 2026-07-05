@@ -22,6 +22,8 @@ The project starts from secondary visual leads such as Flashbak, then continues 
 
 The page is designed as an online exhibition instead of a blog or article list. It uses an exhibition entrance, gallery map, curated routes, wall text, object labels, looking questions, an archive table, and a source index. Each object keeps its source trail visible.
 
+After V1.6, the home page no longer lays every object into one long grid. It works as an overview exhibition: each gallery introduces a wall text, a featured work, a short preview set, and an entrance into a dedicated gallery page. The gallery pages then use a hero work, focus pair, study wall, looking question, source trail, and Lightbox viewing mode to create a slower rhythm of looking.
+
 ## 4. Design System
 
 The visual system is restrained and museum-like:
@@ -41,7 +43,7 @@ The design avoids decorative excess so that the main tension stays with the obje
 The project uses a static TypeScript content model:
 
 - `Gallery`: room title, period, wall text, timeline marker, and looking question.
-- `Object`: museum-label metadata, captions, curatorial note, source trail, rights note, tags, and status.
+- `Object`: museum-label metadata, captions, curatorial note, source trail, rights note, tags, status, and media previews.
 - `Source`: source type, description, use in the exhibition, reliability note, and URL.
 - `Route`: visit title, estimated time, description, gallery anchors, and looking question.
 - `Looking Question`: a short prompt that asks the visitor to inspect the conditions of viewing.
@@ -53,11 +55,14 @@ This model keeps curatorial writing, source transparency, and UI display aligned
 The public exhibition includes:
 
 - 7 Gallery rooms
-- 24 Objects
+- 7 dedicated Gallery pages
+- 44 Objects
 - 5 Exhibition routes
-- 17 verified archive source objects
-- 6 rights unclear objects
+- Lightbox close-looking mode
+- 26 verified archive source objects
+- 17 rights unclear objects
 - 1 secondary source only object
+- 0 placeholder pending replacement objects
 - A filterable Archive Table
 - A grouped Source Index with reliability notes
 
@@ -71,3 +76,4 @@ AI can help quickly scaffold a curatorial structure, generate consistent labels,
 
 Uncertainty does not have to be hidden. In this project, uncertain rights and incomplete source trails become part of the interface, helping visitors understand that historical images are not neutral windows. They are records of viewing conditions.
 
+The V1.6 expansion also made one design lesson clearer: an exhibition is not made deeper by piling more images onto the same page. It needs rhythm. Featured works, paired objects, study walls, and close-looking interactions give visitors a way to move between overview and attention.

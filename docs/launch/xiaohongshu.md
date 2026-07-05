@@ -20,9 +20,12 @@
 - 策展人导言
 - 展厅地图
 - 5 条参观路线
-- 7 个 Gallery
-- 24 件展品
+- 7 个 Gallery 总览区
+- 7 个 Gallery 单页
+- 44 件展品
 - Object Label
+- Study Wall
+- Lightbox 近看模式
 - Looking Question
 - Archive Table
 - Source Index
@@ -34,6 +37,8 @@
 - secondary source only
 
 有些图片授权不明确，就只作为外链线索展示，不把它们假装成可以自由使用的素材。
+
+V1.6 后首页不再平铺全部展品，而是作为总览展；每个 Gallery 单页再展开主作品、双联展品、研究墙和近看模式。
 
 这个项目对我来说也是一次 AI 辅助策展实验。AI 可以帮忙搭结构、写初稿、做界面，但“来源从哪里来”“权利是否明确”“不确定性如何显示”，这些判断不能被省略。
 
@@ -51,9 +56,10 @@ https://github.com/conanxin/who-holds-the-camera
 
 1. `docs/screenshots/hero-desktop.png`
 2. `docs/screenshots/routes-desktop.png`
-3. `docs/screenshots/gallery-object.png`
-4. `docs/screenshots/source-index.png`
+3. `docs/screenshots/gallery-preview-v16.png`
+4. `docs/screenshots/gallery-page-v16.png`
 5. `docs/screenshots/mobile-hero.png`
+6. `docs/screenshots/lightbox-v16.png`
 
 ## 标签建议
 

@@ -13,12 +13,14 @@ Secondary visual pages are treated as leads. The project keeps tracing objects b
 3/8
 The site is structured as an online exhibition:
 
-Entrance, curator's statement, gallery map, exhibition routes, 7 galleries, object labels, looking questions, archive table, and source index.
+Entrance, curator's statement, gallery map, exhibition routes, 7 gallery overview sections, 7 dedicated gallery pages, object labels, looking questions, archive table, and source index.
+
+The home page now works as an overview exhibition instead of laying every object into one long grid.
 
 4/8
 Each object includes a source trail:
 
-title, year, creator, place, medium, credit, sourceUrl, originalArchiveUrl, rights note, captions, curatorial note, tags, and source status.
+title, year, creator, place, medium, credit, source links, archive or project links, rights note, captions, curatorial note, tags, and source status.
 
 5/8
 The important design decision was to make uncertainty visible.
@@ -29,10 +31,12 @@ The interface shows verified archive source, rights unclear, secondary source on
 Current scope:
 
 - 7 galleries
-- 24 objects
+- 7 dedicated gallery pages
+- 44 objects
 - 5 exhibition routes
-- 17 verified archive sources
-- 6 rights unclear objects
+- Lightbox viewing mode
+- 26 verified archive source objects
+- 17 rights unclear objects
 - 1 secondary source only object
 
 7/8

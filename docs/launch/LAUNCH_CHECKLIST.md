@@ -9,7 +9,7 @@ GitHub:
 https://github.com/conanxin/who-holds-the-camera
 
 Current release:
-V1.5 Public Launch Kit
+V1.6.1 Post-Expansion Docs Sync
 
 ## 1. GitHub 发布
 
@@ -61,7 +61,8 @@ Suggested screenshots:
 
 - `docs/screenshots/hero-desktop.png`
 - `docs/screenshots/routes-desktop.png`
-- `docs/screenshots/source-index.png`
+- `docs/screenshots/gallery-preview-v16.png`
+- `docs/screenshots/source-index-v16.png`
 
 Before posting:
 
@@ -79,8 +80,9 @@ Use:
 Suggested screenshots:
 
 - `docs/screenshots/mobile-hero.png`
-- `docs/screenshots/gallery-object.png`
-- `docs/screenshots/source-index.png`
+- `docs/screenshots/gallery-page-v16.png`
+- `docs/screenshots/lightbox-v16.png`
+- `docs/screenshots/source-index-v16.png`
 
 Before posting:
 
@@ -98,8 +100,9 @@ Use:
 Suggested screenshots:
 
 - `docs/screenshots/hero-desktop.png`
-- `docs/screenshots/gallery-object.png`
-- `docs/screenshots/source-index.png`
+- `docs/screenshots/gallery-preview-v16.png`
+- `docs/screenshots/gallery-page-v16.png`
+- `docs/screenshots/source-index-v16.png`
 
 Before publishing:
 
@@ -116,5 +119,7 @@ Before publishing:
 - [ ] OG image appears in link previews.
 - [ ] Mobile view opens normally.
 - [ ] Source Index and Archive Table are still visible.
+- [ ] Gallery single pages open normally.
+- [ ] Lightbox opens from an object image.
 - [ ] Rights status badges are still visible.
 - [ ] Screenshot links in README are not broken.
